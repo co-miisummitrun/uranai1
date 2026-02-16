@@ -16,6 +16,8 @@
             --border-glow: rgba(212, 175, 55, 0.3);
             --text-main: #f0ebe1; --text-sub: #b3a8c4;
             --accent-love: #c95b7a; --accent-palm: #20b2aa; --accent-tarot: #9b59b6;
+            --color-x: #000000; --color-ig: #E1306C;
+            --ig-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
         
         body {
@@ -37,13 +39,17 @@
         .page-wrapper.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ====== TOPページ (ホームページ) ====== */
-        .hero-section { text-align: center; padding: 20px 0 40px; }
+        /* ====== TOPページ ====== */
+        .hero-section { text-align: center; padding: 20px 0 30px; }
         .hero-title-en { font-family: 'Cinzel', serif; font-size: 38px; color: var(--gold); letter-spacing: 8px; margin-bottom: 5px; text-shadow: 0 0 20px rgba(212,175,55,0.5); font-weight: 700;}
         .hero-title-ja { font-size: 22px; color: #fff; letter-spacing: 6px; margin-bottom: 20px; font-weight: 700; }
-        .hero-desc { font-size: 14.5px; color: var(--text-sub); max-width: 600px; margin: 0 auto 40px; line-height: 2.2; letter-spacing: 1px; }
+        .hero-desc { font-size: 14.5px; color: var(--text-sub); max-width: 600px; margin: 0 auto 30px; line-height: 2.2; letter-spacing: 1px; }
 
-        /* 所属鑑定士セクション (豪華仕様) */
+        .top-ig-link { display: inline-flex; align-items: center; justify-content: center; gap: 10px; margin-top: 25px; background: var(--ig-grad); color: #fff; text-decoration: none; padding: 14px 35px; border-radius: 30px; font-weight: bold; font-size: 14px; letter-spacing: 2px; box-shadow: 0 8px 20px rgba(220, 39, 67, 0.4); border: 1px solid rgba(255,255,255,0.2); transition: 0.4s; }
+        .top-ig-link:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(220, 39, 67, 0.6); filter: brightness(1.1); }
+        .top-ig-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* 所属鑑定士セクション */
         .top-advisors-section { margin-bottom: 50px; }
         .sect-title { text-align: center; font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); margin-bottom: 30px; letter-spacing: 4px; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 15px; display: inline-block; width: 100%;}
         .sect-title span { font-family: 'Shippori Mincho', serif; font-size: 12px; display: block; margin-top: 5px; color: var(--text-sub); letter-spacing: 2px;}
@@ -56,7 +62,6 @@
         .adv-card:hover { transform: translateY(-5px); background: rgba(20,10,30,0.8); border-color: rgba(212,175,55,0.3); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
         .adv-card:hover::before { opacity: 1; }
         
-        /* 鑑定士別カラー */
         .ac-2::before { background: var(--accent-love); } .ac-2:hover { border-color: rgba(201,91,122,0.3); }
         .ac-3::before { background: var(--accent-palm); } .ac-3:hover { border-color: rgba(32,178,170,0.3); }
         .ac-4::before { background: var(--accent-tarot); } .ac-4:hover { border-color: rgba(155,89,182,0.3); }
@@ -71,7 +76,7 @@
         .ac-2 .adv-card-role { color: var(--accent-love); } .ac-3 .adv-card-role { color: var(--accent-palm); } .ac-4 .adv-card-role { color: var(--accent-tarot); }
         .adv-card-name { font-size: 14px; color: #fff; font-weight: bold; letter-spacing: 1px;}
 
-        .enter-btn-wrap { text-align: center; padding: 10px 0 50px; }
+        .enter-btn-wrap { text-align: center; padding: 10px 0 50px; display: flex; flex-direction: column; align-items: center;}
         .enter-btn { display: inline-block; padding: 22px 60px; font-size: 17px; font-weight: 700; letter-spacing: 4px; color: #000; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); background-size: 200% auto; border: none; border-radius: 50px; cursor: pointer; transition: 0.5s; box-shadow: 0 10px 30px rgba(212,175,55,0.4); text-decoration: none; font-family: inherit; }
         .enter-btn:hover { background-position: right center; transform: scale(1.05); box-shadow: 0 15px 40px rgba(212,175,55,0.6); }
 
@@ -89,7 +94,6 @@
 
         .glass-panel { background: var(--bg-glass); backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.08); border-top: 1px solid var(--border-glow); border-radius: 12px; padding: 35px 25px; width: 100%; margin-bottom: 40px; box-shadow: 0 25px 50px rgba(0,0,0,0.9), inset 0 0 20px rgba(212,175,55,0.05); box-sizing: border-box; }
 
-        /* 鑑定画面・占い師プロフィール */
         .advisor-profile { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 30px; padding-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         .advisor-photo-wrapper { position: relative; width: 110px; height: 110px; margin-bottom: 20px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, var(--gold), #222); box-shadow: 0 0 30px rgba(212,175,55,0.2); transition: 0.5s; flex-shrink: 0;}
         .advisor-photo { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #111; }
@@ -110,7 +114,6 @@
         select { appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23d4af37%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: right 15px center; }
         input:focus, select:focus, textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 15px rgba(212,175,55,0.3); background: rgba(0,0,0,0.7); }
 
-        /* 画像アップロード (手相用) */
         .upload-box { position: relative; border: 2px dashed rgba(32,178,170,0.4); border-radius: 8px; padding: 25px 15px; text-align: center; background: rgba(0,0,0,0.3); transition: 0.3s; cursor: pointer; overflow: hidden; margin-bottom: 10px;}
         .upload-box:hover { border-color: var(--accent-palm); background: rgba(32,178,170,0.05); }
         .upload-box input[type="file"] { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
@@ -166,7 +169,7 @@
         .tarot-highlight { color: #fff; font-weight: 700; background: linear-gradient(transparent 65%, rgba(155,89,182,0.4) 65%); }
         .alert-text { color: #ff8e8e; font-weight: 700; border-bottom: 1px dashed #ff8e8e; }
         
-        /* 🃏 タロット専用（3Dフリップ演出） */
+        /* 🃏 タロット3Dフリップ */
         .tarot-spread { display: flex; gap: 8px; margin-bottom: 30px; justify-content: center; }
         .t-card-wrap { flex: 1; perspective: 1000px; display: flex; flex-direction: column; align-items: center;}
         .t-label { font-size: 11px; color: var(--text-sub); margin-bottom: 8px; letter-spacing: 1px; font-weight: bold;}
@@ -180,6 +183,17 @@
         .t-front-pos { font-size: 10px; padding: 2px 8px; border-radius: 10px; font-weight: bold; letter-spacing: 1px;}
         .t-pos-up { background: rgba(212,175,55,0.2); color: var(--gold-light); border: 1px solid var(--gold); }
         .t-pos-rev { background: rgba(201,91,122,0.2); color: #ffb3c6; border: 1px solid var(--accent-love); box-shadow: 0 0 10px rgba(201,91,122,0.4);}
+
+        /* 📱 SNSシェアセクション */
+        .share-section { margin-top: 40px; padding-top: 30px; border-top: 1px dashed rgba(255,255,255,0.1); text-align: center; }
+        .share-title { font-size: 13px; color: var(--gold-light); margin-bottom: 20px; letter-spacing: 2px; font-weight: bold;}
+        .share-buttons { display: flex; gap: 15px; justify-content: center; margin-bottom: 25px; flex-wrap: wrap;}
+        .sns-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 20px; border-radius: 30px; font-size: 13px; font-weight: bold; letter-spacing: 1px; color: #fff; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; min-width: 170px; font-family: inherit;}
+        .sns-btn svg { width: 16px; height: 16px; fill: currentColor; }
+        .btn-x { background-color: var(--color-x); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 4px 10px rgba(0,0,0,0.5);}
+        .btn-x:hover { background-color: #222; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(255,255,255,0.2); }
+        .btn-ig { background: var(--ig-grad); box-shadow: 0 4px 10px rgba(225, 48, 108, 0.3); border: 1px solid rgba(255,255,255,0.2);}
+        .btn-ig:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(225, 48, 108, 0.5);}
 
         .btn-retry { width: 100%; padding: 18px; background: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.4); color: var(--gold); border-radius: 6px; cursor: pointer; font-size: 14px; transition: 0.4s; margin-top: 10px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; }
         .btn-retry:hover { background: rgba(212,175,55,0.15); color: #fff; box-shadow: 0 0 20px rgba(212,175,55,0.2); }
@@ -235,6 +249,11 @@
 
     <div class="enter-btn-wrap">
         <button class="enter-btn" onclick="enterSanctuary()">占ってみる！</button>
+        <br><br>
+        <a href="https://www.instagram.com/" target="_blank" class="top-ig-link">
+            <svg viewBox="0 0 448 512" width="18" height="18" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+            公式Instagramはこちら
+        </a>
     </div>
 
 </div>
@@ -256,7 +275,7 @@
             </div>
             <div class="advisor-info">
                 <div class="advisor-role" id="advRole">Astrology & Tarot</div>
-                <div class="advisor-name" id="advName">星導 ルミナ (Lumina)</div>
+                <div class="advisor-name" id="advName">星導 ルミナ</div>
                 <div class="advisor-bio" id="advBio">
                     代々続く星読みの家系に生まれ、西洋占星術とタロットを統合。あなたの魂に刻まれた過去・現在・未来の記録を読み解き、運命を好転させる具体的な道標を提示します。
                 </div>
@@ -301,7 +320,7 @@
                     <input type="file" id="palmImage" accept="image/*" capture="environment" onchange="previewPalmImage(event)">
                     <div style="font-size:30px; margin-bottom:5px;">📷</div>
                     <div class="upload-text">タップしてカメラを起動 / 写真を選択</div>
-                    <div style="font-size:11px; color:var(--text-sub);">※システムが画像の「肌色成分」と「シワの深さ」をピクセル単位で解析します。<br>※真っ黒な画像や風景写真などはエラーになります。</div>
+                    <div style="font-size:11px; color:var(--text-sub);">※システムが画像の「肌色成分」と「シワの深さ」をピクセル単位で解析します。<br>※真っ黒な画像や手以外の写真などはエラーになります。</div>
                 </div>
                 <div class="preview-container" id="previewContainer">
                     <img id="palmPreview" class="preview-img" src="" alt="手相プレビュー" crossorigin="anonymous">
@@ -322,7 +341,6 @@
                 <textarea id="worry4" placeholder="例：彼から連絡が来なくて不安。今の仕事を辞めるべきか迷っている。人間関係が辛い..." style="border-color: rgba(155,89,182,0.6);"></textarea>
                 <div style="font-size:11px; color:var(--text-sub); margin-top:5px;">※入力された悩みのキーワードをAIが解析し、引かれたカードと紐付けて、あなただけの個別アドバイスを生成します。</div>
             </div>
-            
             <button class="main-btn tarot-btn" onclick="startTarotOracle()">精神を集中し、カードを展開する</button>
         </div>
 
@@ -337,31 +355,39 @@
         </div>
 
         <div id="res-daily" class="content-area">
-            <div class="result-header">
-                <div class="result-name" id="resName1"></div><div class="result-meta" id="resDate1"></div>
+            <div class="result-header"><div class="result-name" id="resName1"></div><div class="result-meta" id="resDate1"></div></div>
+            <div class="story-card"><img src="https://images.unsplash.com/photo-1633423712532-601e3b6d415e?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Tarot"><div class="story-content"><div class="story-title" id="tarotCardName_daily"></div><div class="story-text" id="msgDailyTotal"></div></div></div>
+            
+            <div class="share-section">
+                <div class="share-title">＼ 鑑定結果をシェアする ／</div>
+                <div class="share-buttons">
+                    <button class="sns-btn btn-x" onclick="shareResult('x', 'daily')"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg> X でシェア</button>
+                    <button class="sns-btn btn-ig" onclick="shareResult('ig', 'daily')"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagramでシェア</button>
+                </div>
             </div>
-            <div class="story-card">
-                <img src="https://images.unsplash.com/photo-1633423712532-601e3b6d415e?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Tarot">
-                <div class="story-content"><div class="story-title" id="tarotCardName_daily"></div><div class="story-text" id="msgDailyTotal"></div></div>
-            </div>
+            
             <button class="btn-retry" onclick="resetApp()">別の占いを試す</button>
         </div>
 
         <div id="res-destiny" class="content-area love-theme">
-            <div class="result-header">
-                <div class="result-name" id="resName2"></div><div class="result-meta">TWIN RAY READING RESULT</div>
-            </div>
+            <div class="result-header"><div class="result-name" id="resName2"></div><div class="result-meta">TWIN RAY READING RESULT</div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1518599904199-0ca897819ddb?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Soul"><div class="story-content"><div class="story-title">第1章：現在の状況と魂の真実</div><div class="story-text" id="resD_status"></div></div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1462206092226-f46025ffe607?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Past Life"><div class="story-content"><div class="story-title">第2章：前世からの因縁</div><div class="story-text" id="resD_past"></div></div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Appearance"><div class="story-content"><div class="story-title">第3章：相手の「容姿」と「裏の顔」</div><div class="story-text" id="resD_char"></div></div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Timing"><div class="story-content"><div class="story-title">第4章：交差する「時期」と前兆</div><div class="story-text" id="resD_timing"></div></div></div>
+            
+            <div class="share-section">
+                <div class="share-title">＼ 鑑定結果をシェアする ／</div>
+                <div class="share-buttons">
+                    <button class="sns-btn btn-x" onclick="shareResult('x', 'destiny')"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg> X でシェア</button>
+                    <button class="sns-btn btn-ig" onclick="shareResult('ig', 'destiny')"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagramでシェア</button>
+                </div>
+            </div>
             <button class="btn-retry" style="border-color:var(--accent-love); color:var(--accent-love);" onclick="resetApp()">CLOSE AKASHIC RECORDS</button>
         </div>
 
         <div id="res-palm" class="content-area palm-theme">
-            <div class="result-header">
-                <div class="result-name" id="resName3"></div><div class="result-meta">AI PALMISTRY ANALYSIS RESULT</div>
-            </div>
+            <div class="result-header"><div class="result-name" id="resName3"></div><div class="result-meta">AI PALMISTRY ANALYSIS RESULT</div></div>
             <div class="story-card" style="text-align:center; padding-top:25px;">
                 <img id="resPalmImg" src="" alt="あなたの手相" style="width:140px; height:140px; object-fit:cover; border-radius:50%; border:3px solid var(--accent-palm); box-shadow:0 0 20px rgba(32,178,170,0.4);">
                 <div style="font-size:12px; color:var(--text-sub); margin-top:12px; letter-spacing: 1px;">画像ピクセル スキャン完了</div>
@@ -370,42 +396,24 @@
             <div class="story-card"><div class="story-content"><div class="story-title">基本４線の分析</div><div class="story-text"><p id="resP_life"></p><p id="resP_head"></p><p id="resP_heart"></p><p id="resP_fate"></p></div></div></div>
             <div class="story-card"><div class="story-content"><div class="story-title">今後の未来（運命の転機と軌跡）</div><div class="story-text" id="resP_future"></div></div></div>
             <div class="story-card"><div class="story-content"><div class="story-title">今後の恋愛・仕事運</div><div class="story-text"><p id="resP_love"></p><p id="resP_work"></p></div></div></div>
+            
+            <div class="share-section">
+                <div class="share-title">＼ 鑑定結果をシェアする ／</div>
+                <div class="share-buttons">
+                    <button class="sns-btn btn-x" onclick="shareResult('x', 'palm')"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg> X でシェア</button>
+                    <button class="sns-btn btn-ig" onclick="shareResult('ig', 'palm')"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagramでシェア</button>
+                </div>
+            </div>
             <button class="btn-retry" style="border-color:var(--accent-palm); color:var(--accent-palm);" onclick="resetApp()">FINISH ANALYSIS</button>
         </div>
 
         <div id="res-tarot" class="content-area tarot-theme">
-            <div class="result-header">
-                <div class="result-name" id="resName4"></div><div class="result-meta">THREE CARD SPREAD RESULT</div>
-            </div>
+            <div class="result-header"><div class="result-name" id="resName4"></div><div class="result-meta">THREE CARD SPREAD RESULT</div></div>
             
             <div class="tarot-spread">
-                <div class="t-card-wrap">
-                    <div class="t-label">PAST (過去)</div>
-                    <div class="t-card-inner" id="tCard1">
-                        <div class="t-face t-back">✦</div>
-                        <div class="t-face t-front">
-                            <div class="t-front-num" id="tcNum1"></div><div class="t-front-name" id="tcName1"></div><div class="t-front-pos" id="tcPos1"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card-wrap">
-                    <div class="t-label">PRESENT (現在)</div>
-                    <div class="t-card-inner" id="tCard2">
-                        <div class="t-face t-back">✦</div>
-                        <div class="t-face t-front">
-                            <div class="t-front-num" id="tcNum2"></div><div class="t-front-name" id="tcName2"></div><div class="t-front-pos" id="tcPos2"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="t-card-wrap">
-                    <div class="t-label">FUTURE (未来)</div>
-                    <div class="t-card-inner" id="tCard3">
-                        <div class="t-face t-back">✦</div>
-                        <div class="t-face t-front">
-                            <div class="t-front-num" id="tcNum3"></div><div class="t-front-name" id="tcName3"></div><div class="t-front-pos" id="tcPos3"></div>
-                        </div>
-                    </div>
-                </div>
+                <div class="t-card-wrap"><div class="t-label">PAST (過去)</div><div class="t-card-inner" id="tCard1"><div class="t-face t-back">✦</div><div class="t-face t-front"><div class="t-front-num" id="tcNum1"></div><div class="t-front-name" id="tcName1"></div><div class="t-front-pos" id="tcPos1"></div></div></div></div>
+                <div class="t-card-wrap"><div class="t-label">PRESENT (現在)</div><div class="t-card-inner" id="tCard2"><div class="t-face t-back">✦</div><div class="t-face t-front"><div class="t-front-num" id="tcNum2"></div><div class="t-front-name" id="tcName2"></div><div class="t-front-pos" id="tcPos2"></div></div></div></div>
+                <div class="t-card-wrap"><div class="t-label">FUTURE (未来)</div><div class="t-card-inner" id="tCard3"><div class="t-face t-back">✦</div><div class="t-face t-front"><div class="t-front-num" id="tcNum3"></div><div class="t-front-name" id="tcName3"></div><div class="t-front-pos" id="tcPos3"></div></div></div></div>
             </div>
 
             <div class="story-card"><div class="story-content"><div class="story-title">第1の啓示：悩みの「根本原因（過去）」</div><div class="story-text" id="resT_past"></div></div></div>
@@ -419,6 +427,14 @@
                 </div>
             </div>
 
+            <div class="share-section">
+                <div class="share-title">＼ 鑑定結果をシェアする ／</div>
+                <div class="share-buttons">
+                    <button class="sns-btn btn-x" onclick="shareResult('x', 'tarot')"><svg viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg> X でシェア</button>
+                    <button class="sns-btn btn-ig" onclick="shareResult('ig', 'tarot')"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagramでシェア</button>
+                </div>
+            </div>
+
             <button class="btn-retry" style="border-color:var(--accent-tarot); color:var(--accent-tarot);" onclick="resetApp()">CLOSE TAROT SPREAD</button>
         </div>
 
@@ -428,19 +444,53 @@
 </div>
 
 <script>
+    // --- 🔮 SNSシェア機能 (ご指定のサイトURLに固定) ---
+    const SITE_URL = "https://hoshiiuranai.com/"; 
+    const shareTextCache = {};
+    
+    function shareResult(platform, type) {
+        let text = shareTextCache[type] || "総合占いサロン『星屑の神託』で本格鑑定を体験しました🔮";
+        const hash = "\n#星屑の神託 #占い #スピリチュアル";
+        const fullText = text + hash;
+
+        if (platform === 'x') {
+            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(fullText)}&url=${encodeURIComponent(SITE_URL)}`;
+            window.open(shareUrl, '_blank');
+        } else if (platform === 'ig') {
+            const igText = fullText + "\n\n▼無料鑑定はこちらから！\n" + SITE_URL;
+            
+            // コピー処理 (フォールバック付き)
+            const copyToClipboard = () => {
+                if (navigator.clipboard && window.isSecureContext) {
+                    return navigator.clipboard.writeText(igText);
+                } else {
+                    let textArea = document.createElement("textarea");
+                    textArea.value = igText;
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-999999px";
+                    textArea.style.top = "-999999px";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    return new Promise((res, rej) => {
+                        document.execCommand('copy') ? res() : rej();
+                        textArea.remove();
+                    });
+                }
+            };
+            
+            copyToClipboard().then(() => {
+                alert("✨鑑定結果のテキストをコピーしました！✨\n\n「OK」を押すとInstagramが開きます。\nストーリーズや投稿画面で『ペースト（貼り付け）』してシェアしてください📸");
+                window.open('https://www.instagram.com/', '_blank');
+            }).catch(() => {
+                alert("コピーに失敗しました。お手数ですが画面をスクリーンショットしてシェアしてください！");
+            });
+        }
+    }
+
     // --- 🔮 ページ切り替え制御 ---
-    function enterSanctuary() {
-        document.getElementById('page-home').classList.remove('active');
-        document.getElementById('page-app').classList.add('active');
-        switchTab('daily');
-        window.scrollTo(0, 0);
-    }
-    function backToHome() {
-        resetApp(); 
-        document.getElementById('page-app').classList.remove('active');
-        document.getElementById('page-home').classList.add('active');
-        window.scrollTo(0, 0);
-    }
+    function enterSanctuary() { document.getElementById('page-home').classList.remove('active'); document.getElementById('page-app').classList.add('active'); switchTab('daily'); window.scrollTo(0, 0); }
+    function backToHome() { resetApp(); document.getElementById('page-app').classList.remove('active'); document.getElementById('page-home').classList.add('active'); window.scrollTo(0, 0); }
 
     // --- 🔮 占い師データ ---
     const advisors = {
@@ -451,56 +501,33 @@
     };
 
     function switchTab(type) {
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelectorAll('.content-area').forEach(div => div.classList.remove('active'));
-        document.querySelector(`.tab-btn.t-${type}`).classList.add('active');
-        document.getElementById('form-' + type).classList.add('active');
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active')); document.querySelectorAll('.content-area').forEach(div => div.classList.remove('active'));
+        document.querySelector(`.tab-btn.t-${type}`).classList.add('active'); document.getElementById('form-' + type).classList.add('active');
 
-        const photoEl = document.getElementById('advPhoto');
-        photoEl.style.opacity = 0;
+        const photoEl = document.getElementById('advPhoto'); photoEl.style.opacity = 0;
         setTimeout(() => {
             photoEl.onerror = () => { photoEl.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&fit=crop'; };
-            photoEl.src = advisors[type].photo;
-            document.getElementById('advRole').innerText = advisors[type].role;
-            document.getElementById('advName').innerText = advisors[type].name;
-            document.getElementById('advBio').innerText = advisors[type].bio;
-            
-            const pWrap = document.getElementById('advPhotoWrap');
-            let color = 'var(--gold)'; let shadow = 'rgba(212,175,55,0.3)';
-            if(type === 'destiny') { color = 'var(--accent-love)'; shadow = 'rgba(201,91,122,0.3)'; }
-            else if(type === 'palm') { color = 'var(--accent-palm)'; shadow = 'rgba(32,178,170,0.3)'; }
-            else if(type === 'tarot') { color = 'var(--accent-tarot)'; shadow = 'rgba(155,89,182,0.3)'; }
-            
-            document.getElementById('advRole').style.color = color;
-            pWrap.style.background = `linear-gradient(135deg, ${color}, #222)`;
-            pWrap.style.boxShadow = `0 0 30px ${shadow}`;
-            photoEl.style.opacity = 1;
+            photoEl.src = advisors[type].photo; document.getElementById('advRole').innerText = advisors[type].role; document.getElementById('advName').innerText = advisors[type].name; document.getElementById('advBio').innerText = advisors[type].bio;
+            const pWrap = document.getElementById('advPhotoWrap'); let color = 'var(--gold)'; let shadow = 'rgba(212,175,55,0.3)';
+            if(type === 'destiny') { color = 'var(--accent-love)'; shadow = 'rgba(201,91,122,0.3)'; } else if(type === 'palm') { color = 'var(--accent-palm)'; shadow = 'rgba(32,178,170,0.3)'; } else if(type === 'tarot') { color = 'var(--accent-tarot)'; shadow = 'rgba(155,89,182,0.3)'; }
+            document.getElementById('advRole').style.color = color; pWrap.style.background = `linear-gradient(135deg, ${color}, #222)`; pWrap.style.boxShadow = `0 0 30px ${shadow}`; photoEl.style.opacity = 1;
         }, 300);
     }
 
-    function getSeededRandom(seedStr) {
-        let seed = 0; for (let i = 0; i < seedStr.length; i++) seed = seedStr.charCodeAt(i) + ((seed << 5) - seed);
-        seed = Math.abs(seed); return function() { let x = Math.sin(seed++) * 10000; return x - Math.floor(x); }
-    }
+    function getSeededRandom(seedStr) { let seed = 0; for (let i = 0; i < seedStr.length; i++) seed = seedStr.charCodeAt(i) + ((seed << 5) - seed); seed = Math.abs(seed); return function() { let x = Math.sin(seed++) * 10000; return x - Math.floor(x); } }
 
     function showLoading(text, color, isPalm, callback) {
         document.getElementById("tab-menu").style.display = "none"; document.getElementById("profile-area").style.display = "none"; document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active"));
         document.getElementById("loadingText").innerText = text; document.getElementById("loadingText").style.color = color;
-        
-        if (isPalm) { document.getElementById("mWheel").style.display = "none"; document.getElementById("scanBox").style.display = "block"; document.getElementById("scannerLine").style.display = "block"; } 
-        else { document.getElementById("scanBox").style.display = "none"; const mWheel = document.getElementById("mWheel"); mWheel.style.display = "block"; mWheel.style.borderColor = `rgba(255,255,255,0.2)`; mWheel.style.borderTopColor = color; mWheel.style.borderBottomColor = color; }
-        
+        if (isPalm) { document.getElementById("mWheel").style.display = "none"; document.getElementById("scanBox").style.display = "block"; document.getElementById("scannerLine").style.display = "block"; } else { document.getElementById("scanBox").style.display = "none"; const mWheel = document.getElementById("mWheel"); mWheel.style.display = "block"; mWheel.style.borderColor = `rgba(255,255,255,0.2)`; mWheel.style.borderTopColor = color; mWheel.style.borderBottomColor = color; }
         document.getElementById("loading").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" });
         setTimeout(() => { document.getElementById("loading").style.display = "none"; if(isPalm) document.getElementById("scannerLine").style.display = "none"; callback(); }, isPalm ? 4000 : 3000); 
     }
 
     function resetApp() {
-        document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active"));
-        document.getElementById("tab-menu").style.display = "flex"; document.getElementById("profile-area").style.display = "flex";
+        document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active")); document.getElementById("tab-menu").style.display = "flex"; document.getElementById("profile-area").style.display = "flex";
         const activeTab = document.querySelector('.tab-btn.active').classList.contains('t-daily') ? 'form-daily' : document.querySelector('.tab-btn.active').classList.contains('t-destiny') ? 'form-destiny' : document.querySelector('.tab-btn.active').classList.contains('t-palm') ? 'form-palm' : 'form-tarot';
-        document.getElementById(activeTab).classList.add("active");
-        document.querySelectorAll('.t-card-inner').forEach(card => card.classList.remove('flipped'));
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        document.getElementById(activeTab).classList.add("active"); document.querySelectorAll('.t-card-inner').forEach(card => card.classList.remove('flipped')); window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     // ==========================================
@@ -516,6 +543,8 @@
             document.getElementById("resName1").innerText = name + " 様"; document.getElementById("resDate1").innerText = `TODAY'S ORACLE`;
             document.getElementById("tarotCardName_daily").innerText = "導きのカード： " + tarot.name + " " + position;
             document.getElementById("msgDailyTotal").innerHTML = `<p>本日の天空図を読み解くと、月が幸運の星と重なり強力なエネルギーを放っています。</p><p>引かれたカードは『${tarot.name}』${position}。${tarot.m} 今日は直感の赴くままに行動し、宇宙からのサインを受け取ってください。</p>`;
+            
+            shareTextCache['daily'] = `🌟【星屑の神託】${name}様の今日の運勢を占いました！\n導きのカード:『${tarot.name}』${position}✨\n`;
             document.getElementById("res-daily").classList.add("active");
         });
     }
@@ -530,23 +559,21 @@
             const random = getSeededRandom(name + dob + status + "v_premium_final"); 
             document.getElementById("resName2").innerText = name + " 様";
             let msgStatus = "";
-            if (status === "single") {
-                msgStatus = `<p>現在フリーのあなた。無意識に心の壁を作っている波動が視えます。しかし、あなたの<span class='love-highlight'>魂の半身（ツインレイ）</span>は、すでにあなたのすぐ近くまで接近してきています。</p>`;
-            } else if (status === "partner") {
-                // パートナーがいる場合の3パターン分岐（必ず運命の相手は別にいると言う）
+            if (status === "single") { msgStatus = `<p>現在フリーのあなた。無意識に心の壁を作っている波動が視えます。しかし、あなたの<span class='love-highlight'>魂の半身（ツインレイ）</span>は、すでにあなたのすぐ近くまで接近してきています。</p>`; } 
+            else if (status === "partner") {
                 const partnerVariations = [
                     `<p>霊視の波長を今のパートナーに合わせてみました。現世において大切な「学び」を与え合う重要なソウルメイトです。</p><p>しかし、魂の最深部まで深く潜ってみると、<span class='love-highlight'>あなたの『本当の運命の相手』は、別にもう一人存在している</span>という強烈な波動を感じます。今の関係に孤独を感じているなら、それは魂が本来の半身を求めているサインです。</p>`,
                     `<p>現在のお相手とは、前世から持ち越した『深いカルマ』の解消のために結ばれています。愛と執着が入り交じる関係になりやすい時期です。</p><p>このカルマの清算が進むにつれ、ある真実が浮き彫りになります。それは、<span class='love-highlight'>あなたの『本当の運命の相手』は、別にもう一人存在している</span>という事実です。今の関係は、その究極の相手と結ばれるための魂の準備期間に他なりません。</p>`,
                     `<p>現在の関係性において、あなたの魂は今、非常に大きな転換期を迎えています。今のお相手に感謝の念を抱きつつも、どこか「自分が本当に還るべき場所」を探しているのではないでしょうか。</p><p>アカシックレコードの記述は残酷なまでに明確です。<span class='love-highlight'>あなたの『本当の運命の相手』は、別にもう一人存在している</span>のです。遠からず訪れるその出逢いが、あなたの人生を完全に完成させるでしょう。</p>`
                 ];
                 msgStatus = partnerVariations[Math.floor(random() * partnerVariations.length)];
-            } else { 
-                msgStatus = `<p>現在、複雑な関係性の中で魂がすり減っています。<span class='alert-text'>あなたが今執着しているその方は、本当の運命の相手ではありません。</span>執着を手放した瞬間に本物の愛が入り込むスペースが生まれます。</p>`;
-            }
+            } else { msgStatus = `<p>現在、複雑な関係性の中で魂がすり減っています。<span class='alert-text'>あなたが今執着しているその方は、本当の運命の相手ではありません。</span>執着を手放した瞬間に本物の愛が入り込むスペースが生まれます。</p>`; }
             document.getElementById("resD_status").innerHTML = msgStatus;
             document.getElementById("resD_past").innerHTML = `<p>二人は過去世で深く愛し合いながらも引き裂かれた因縁があります。その強烈な念が磁石となり、現代で再び引き合っています。</p>`;
             document.getElementById("resD_char").innerHTML = `<p>表向きは真面目でクールですが、深い仲になると豹変します。<span class='love-highlight'>あなたに対してだけは「甘えん坊」な一面を見せるでしょう。</span></p>`;
             document.getElementById("resD_timing").innerHTML = `<p>二人の魂の軌道が交差する時期は、あなたが『今の執着を手放した直後』です。数字のゾロ目をよく見るようになったら合図です。</p>`;
+            
+            shareTextCache['destiny'] = `💕【星屑の神託】${name}様の『本当の運命の相手(ツインレイ)』を深層霊視で特定しました！\n魂が交差する時期が近づいています…！\n`;
             document.getElementById("res-destiny").classList.add("active");
         });
     }
@@ -555,181 +582,89 @@
     // ✋ 3. AI手相鑑定 (本物のピクセル画像解析)
     // ==========================================
     let currentImageElement = null; 
-
     function previewPalmImage(event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                const src = e.target.result; 
-                document.getElementById("palmPreview").src = src; 
-                document.getElementById("scanTargetImg").src = src; 
-                document.getElementById("resPalmImg").src = src; 
-                
-                // 解析用のImageオブジェクト生成
-                currentImageElement = new Image();
-                currentImageElement.src = src;
-                
-                document.getElementById("uploadBox").style.display = "none"; 
-                document.getElementById("previewContainer").style.display = "block";
+                const src = e.target.result; document.getElementById("palmPreview").src = src; document.getElementById("scanTargetImg").src = src; document.getElementById("resPalmImg").src = src; 
+                currentImageElement = new Image(); currentImageElement.src = src;
+                document.getElementById("uploadBox").style.display = "none"; document.getElementById("previewContainer").style.display = "block";
             }
             reader.readAsDataURL(file);
         }
     }
-    
-    function resetPalmImage() { 
-        document.getElementById("palmImage").value = ""; 
-        currentImageElement = null; 
-        document.getElementById("previewContainer").style.display = "none"; 
-        document.getElementById("uploadBox").style.display = "block"; 
-    }
+    function resetPalmImage() { document.getElementById("palmImage").value = ""; currentImageElement = null; document.getElementById("previewContainer").style.display = "none"; document.getElementById("uploadBox").style.display = "block"; }
 
-    // Canvas APIによる画像解析（手かどうかの判定＋画像ごとのシード生成）
     function analyzePalmImage(img) {
         return new Promise((resolve) => {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            canvas.width = 100; canvas.height = 100; // 軽量化のため100x100でスキャン
-            ctx.drawImage(img, 0, 0, 100, 100);
-            
-            let imgData;
-            try {
-                imgData = ctx.getImageData(0, 0, 100, 100);
-            } catch(e) {
-                // CORS等で読み取れない場合のフェイルセーフ
-                resolve({ isHand: true, hash: 9999, edgeRatio: 0.1 });
-                return;
-            }
-            
-            const data = imgData.data;
-            let skinToneCount = 0;
-            let edgeCount = 0;
-            let hash = 0;
-
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 100; canvas.height = 100; ctx.drawImage(img, 0, 0, 100, 100);
+            let imgData; try { imgData = ctx.getImageData(0, 0, 100, 100); } catch(e) { resolve({ isHand: true, hash: 9999, edgeRatio: 0.1 }); return; }
+            const data = imgData.data; let skinToneCount = 0; let edgeCount = 0; let hash = 0;
             for (let i = 0; i < data.length; i += 4) {
-                let r = data[i], g = data[i+1], b = data[i+2];
-                // RGB値を足し合わせて画像特有のハッシュを作成（画像が1pxでも違えば値が変わる）
-                hash = (hash * 31 + r + g + b) | 0; 
-                
-                // 簡易的な肌色判定（赤みが一番強く、極端な白黒ではない）
-                if (r > 60 && r > b && r > g - 20 && (Math.max(r,g,b) - Math.min(r,g,b) > 10)) {
-                    skinToneCount++;
-                }
-                
-                // 簡易エッジ判定（シワの複雑さ）
-                if (i > 4) {
-                    let prevR = data[i-4], prevG = data[i-3], prevB = data[i-2];
-                    let diff = Math.abs(r - prevR) + Math.abs(g - prevG) + Math.abs(b - prevB);
-                    if (diff > 40) edgeCount++;
-                }
+                let r = data[i], g = data[i+1], b = data[i+2]; hash = (hash * 31 + r + g + b) | 0; 
+                if (r > 60 && r > b && r > g - 20 && (Math.max(r,g,b) - Math.min(r,g,b) > 10)) skinToneCount++;
+                if (i > 4) { let prevR = data[i-4], prevG = data[i-3], prevB = data[i-2]; let diff = Math.abs(r - prevR) + Math.abs(g - prevG) + Math.abs(b - prevB); if (diff > 40) edgeCount++; }
             }
-            
-            const skinRatio = skinToneCount / (data.length / 4);
-            const edgeRatio = edgeCount / (data.length / 4);
-            
-            resolve({
-                isHand: skinRatio > 0.05, // 肌色っぽいピクセルが5%以上あれば「手」として許可
-                hash: hash,
-                edgeRatio: edgeRatio
-            });
+            resolve({ isHand: (skinToneCount / (data.length / 4)) > 0.05, hash: hash, edgeRatio: (edgeCount / (data.length / 4)) });
         });
     }
 
     async function startPalmOracle() {
         const name = document.getElementById("name3").value.trim();
         if (!name || !currentImageElement) return alert("お名前と、手のひらの写真アップロードが必要です。");
-
-        // ピクセル解析の実行
         const analysis = await analyzePalmImage(currentImageElement);
-        
-        // 【重要】手以外の画像（風景や真っ黒な画像など）を弾く
-        if (!analysis.isHand) {
-            alert("【AIスキャンエラー】\n手のひらが正しく検出できませんでした（肌色成分が不足しています）。\n手以外の写真か、暗すぎる写真の可能性があります。別の明るい写真でお試しください。");
-            return;
-        }
+        if (!analysis.isHand) { alert("【AIスキャンエラー】\n手のひらが正しく検出できませんでした（肌色成分が不足しています）。\n手以外の写真か、暗すぎる写真の可能性があります。別の明るい写真でお試しください。"); return; }
 
         showLoading("DEEP SCANNING PIXEL DATA...", "var(--accent-palm)", true, () => {
-            // 画像のピクセルデータから作ったハッシュをシード値の元にする！
             const random = getSeededRandom(name + analysis.hash.toString() + "ai_palm_pixel_v2"); 
             document.getElementById("resName3").innerText = name + " 様";
             
-            // エッジ（シワ）の多さでテキストを出し分ける
-            let overallText = "";
-            if (analysis.edgeRatio > 0.12) {
-                overallText = "AIの画像解析により、あなたの手相は<span class='palm-highlight'>非常に複雑な線が無数に刻まれた「水・風の要素」</span>を強く帯びていることが判明しました。非常に感受性が高く、他人の痛みがわかる優しい性格です。";
-            } else {
-                overallText = "AIの画像解析により、あなたの手相は<span class='palm-highlight'>主要な線が太く力強く刻まれた「火・地の要素」</span>を強く帯びていることが判明しました。迷いが少なく、決断力と行動力に優れた強靭なメンタルの持ち主です。";
-            }
+            let typeName = analysis.edgeRatio > 0.12 ? "水・風の要素" : "火・地の要素";
+            let overallText = analysis.edgeRatio > 0.12 ? `AIの画像解析により、あなたの手相は<span class='palm-highlight'>非常に複雑な線が無数に刻まれた「${typeName}」</span>を強く帯びていることが判明しました。非常に感受性が高く、他人の痛みがわかる優しい性格です。` : `AIの画像解析により、あなたの手相は<span class='palm-highlight'>主要な線が太く力強く刻まれた「${typeName}」</span>を強く帯びていることが判明しました。迷いが少なく、決断力と行動力に優れたメンタルの持ち主です。`;
             document.getElementById("resP_overall").innerHTML = `<p>${overallText}</p>`;
             
-            const p_lifes = ["手首の方まで深く刻まれており、恐ろしいほどの生命力とバイタリティを秘めています。", "金星丘を広く囲むように伸びています。非常に愛情深く、人を引き付ける強い魅力（カリスマ性）を放っています。"];
+            const p_lifes = ["手首の方まで深く刻まれており、恐ろしいほどの生命力とバイタリティを秘めています。", "金星丘を広く囲むように伸びています。非常に愛情深く、人を引き付ける強いカリスマ性を放っています。"];
             const p_heads = ["真横に一直線に伸びています。非常に論理的で感情に流されず確実な成果を出す思考回路です。", "手首の下方に向かって美しいカーブを描いています。極めて高い想像力とクリエイティブな才能の持ち主です。"];
-            
             document.getElementById("resP_life").innerHTML = "<strong style='color:var(--gold-light);'>【生命線】</strong> " + p_lifes[Math.floor(random() * p_lifes.length)];
             document.getElementById("resP_head").innerHTML = "<strong style='color:var(--gold-light);'>【知能線】</strong> " + p_heads[Math.floor(random() * p_heads.length)];
             document.getElementById("resP_heart").innerHTML = "<strong style='color:var(--gold-light);'>【感情線】</strong> 人差し指と中指の間に向かって急カーブを描いています。情熱的で愛情表現が豊かです。";
             document.getElementById("resP_fate").innerHTML = "<strong style='color:var(--gold-light);'>【運命線】</strong> 手首の中央から中指に向かって突き抜けています。自分の実力だけで成功を築き上げる自己実現力を持っています。";
-            
             document.getElementById("resP_future").innerHTML = `<p>抽出された波形から予測すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れます。</p>`;
             document.getElementById("resP_love").innerHTML = "今後の恋愛運は穏やかな愛情に満ちた時期に入ります。無理をせず素の自分を出せる相手との関係が深まります。";
             document.getElementById("resP_work").innerHTML = "仕事運は独自の才能やアイデアが爆発的に評価されるデータが出ています。直感に従うことで金運も跳ね上がります。";
             
+            shareTextCache['palm'] = `✋【星屑の神託】AI画像手相解析を実行しました！\n${name}様の手相は「${typeName}」タイプ。\n数年以内に劇的な飛躍の時期が訪れるサインが出ています！✨\n`;
             document.getElementById("res-palm").classList.add("active");
         });
     }
 
     // ==========================================
-    // 🔮 4. 本格タロット占い (悩み完全対応AIロジック)
+    // 🔮 4. 本格タロット占い
     // ==========================================
     const majorArcana = [
-        { ja: "愚者", en: "The Fool", num: "0", p: "無限の可能性、自由、直感的な行動、新しい始まり", r: "無計画、現実逃避、無責任な行動、準備不足" },
-        { ja: "魔術師", en: "The Magician", num: "I", p: "創造力、新たな始まり、自信、才能の開花", r: "優柔不断、スランプ、才能の無駄遣い、消極的" },
-        { ja: "女教皇", en: "The High Priestess", num: "II", p: "直感、精神性、静かな観察、深い理解力", r: "批判的、秘密の暴露、冷酷さ、感情の抑圧" },
-        { ja: "女帝", en: "The Empress", num: "III", p: "豊かさ、愛情の成就、包容力、大いなる実り", r: "嫉妬、過保護、怠惰な生活、相手への依存" },
-        { ja: "皇帝", en: "The Emperor", num: "IV", p: "リーダーシップ、安定、責任感、確固たる基盤", r: "支配欲、頑固、独裁的、プレッシャー" },
-        { ja: "教皇", en: "The Hierophant", num: "V", p: "伝統、信頼、精神的な導き、ルールへの従順", r: "束縛、視野の狭さ、孤立、古い価値観への固執" },
-        { ja: "恋人", en: "The Lovers", num: "VI", p: "情熱的な愛、正しい選択、心からの共鳴", r: "誘惑、関係の崩壊、誤った選択、優柔不断" },
-        { ja: "戦車", en: "The Chariot", num: "VII", p: "前進、勝利、困難の克服、強い意志力", r: "暴走、挫折、コントロール喪失、焦燥感" },
-        { ja: "力", en: "Strength", num: "VIII", p: "忍耐、精神的な強さ、和解、無償の愛", r: "無気力、自信喪失、感情の爆発、欲望への敗北" },
-        { ja: "隠者", en: "The Hermit", num: "IX", p: "内省、真理の探求、一人の時間での悟り", r: "孤独、引きこもり、現実逃避、閉鎖的" },
-        { ja: "運命の輪", en: "Wheel of Fortune", num: "X", p: "好転、チャンス到来、運命的な素晴らしい出来事", r: "悪化、すれ違い、タイミングを逃す、不運の連鎖" },
-        { ja: "正義", en: "Justice", num: "XI", p: "公平、決断、バランスの取れた関係、誠実さ", r: "不公平、偏見、感情的な対立、モラルの欠如" },
-        { ja: "吊るされた男", en: "The Hanged Man", num: "XII", p: "視点の変化、自己犠牲、修行を通しての悟り", r: "徒労、我慢の限界、身動きが取れない苦悩" },
-        { ja: "死神", en: "Death", num: "XIII", p: "強制的な終了、再生、新しいステージへの移行", r: "執着、停滞、終わらせられない苦しみ、変化への恐れ" },
-        { ja: "節制", en: "Temperance", num: "XIV", p: "調和、バランス、自然体での成功、見事な融合", r: "不摂生、感情の乱れ、コントロール不足、浪費" },
-        { ja: "悪魔", en: "The Devil", num: "XV", p: "甘い誘惑、執着、断ち切れない関係、物質的欲望", r: "束縛からの解放、悪縁を切る、執着の終わり" },
-        { ja: "塔", en: "The Tower", num: "XVI", p: "予期せぬトラブル、価値観の崩壊、衝撃的なリセット", r: "崩壊の回避、長引く問題、恐れからの逃避" },
-        { ja: "星", en: "The Star", num: "XVII", p: "希望、インスピレーション、理想の実現、深い癒やし", r: "絶望、高すぎる理想、見込み違い、インスピレーションの枯渇" },
-        { ja: "月", en: "The Moon", num: "XVIII", p: "不安、迷い、隠された真実、潜在意識の恐怖", r: "霧が晴れる、直感の冴え、不安からの解放" },
-        { ja: "太陽", en: "The Sun", num: "XIX", p: "大成功、喜び、祝福、エネルギーの圧倒的な爆発", r: "計画の遅れ、一時的なエネルギー不足、自己中心的な態度" },
-        { ja: "審判", en: "Judgement", num: "XX", p: "復活、奇跡的な再チャレンジ、最終的な決断と救済", r: "過去への後悔、チャンスを見逃す、許されない思い" },
-        { ja: "世界", en: "The World", num: "XXI", p: "完全なる成就、ハッピーエンド、目的の完璧な達成", r: "未完成、中途半端、スランプ、不完全燃焼な結末" }
+        { ja: "愚者", en: "The Fool", num: "0", p: "無限の可能性、自由、直感的な行動", r: "無計画、現実逃避、無責任な行動" }, { ja: "魔術師", en: "The Magician", num: "I", p: "創造力、新たな始まり、才能の開花", r: "優柔不断、スランプ、才能の無駄遣" }, { ja: "女教皇", en: "The High Priestess", num: "II", p: "直感、精神性、静かな観察", r: "批判的、秘密の暴露、冷酷さ" }, { ja: "女帝", en: "The Empress", num: "III", p: "豊かさ、愛情の成就、大いなる実り", r: "嫉妬、過保護、相手への依存" }, { ja: "皇帝", en: "The Emperor", num: "IV", p: "リーダーシップ、安定、責任感", r: "支配欲、頑固、プレッシャー" }, { ja: "教皇", en: "The Hierophant", num: "V", p: "伝統、信頼、精神的な導き", r: "束縛、孤立、古い価値観への固執" }, { ja: "恋人", en: "The Lovers", num: "VI", p: "情熱的な愛、正しい選択、共鳴", r: "誘惑、関係の崩壊、誤った選択" }, { ja: "戦車", en: "The Chariot", num: "VII", p: "前進、勝利、困難の克服", r: "暴走、挫折、焦燥感" }, { ja: "力", en: "Strength", num: "VIII", p: "忍耐、精神的な強さ、無償の愛", r: "無気力、自信喪失、欲望への敗北" }, { ja: "隠者", en: "The Hermit", num: "IX", p: "内省、真理の探求、一人の時間", r: "孤独、現実逃避、閉鎖的" }, { ja: "運命の輪", en: "Wheel of Fortune", num: "X", p: "好転、チャンス到来、素晴らしい出来事", r: "悪化、すれ違い、不運の連鎖" }, { ja: "正義", en: "Justice", num: "XI", p: "公平、決断、バランスの取れた関係", r: "不公平、偏見、モラルの欠如" }, { ja: "吊るされた男", en: "The Hanged Man", num: "XII", p: "視点の変化、自己犠牲、悟り", r: "徒労、我慢の限界、身動きが取れない" }, { ja: "死神", en: "Death", num: "XIII", p: "強制的な終了、再生、新しいステージ", r: "執着、停滞、変化への恐れ" }, { ja: "節制", en: "Temperance", num: "XIV", p: "調和、バランス、見事な融合", r: "不摂生、感情の乱れ、浪費" }, { ja: "悪魔", en: "The Devil", num: "XV", p: "甘い誘惑、執着、物質的欲望", r: "束縛からの解放、悪縁を切る" }, { ja: "塔", en: "The Tower", num: "XVI", p: "予期せぬトラブル、衝撃的なリセット", r: "崩壊の回避、長引く問題" }, { ja: "星", en: "The Star", num: "XVII", p: "希望、理想の実現、深い癒やし", r: "絶望、見込み違い、インスピレーションの枯渇" }, { ja: "月", en: "The Moon", num: "XVIII", p: "不安、隠された真実、潜在意識の恐怖", r: "霧が晴れる、直感の冴え、不安からの解放" }, { ja: "太陽", en: "The Sun", num: "XIX", p: "大成功、喜び、エネルギーの爆発", r: "計画の遅れ、一時的なエネルギー不足" }, { ja: "審判", en: "Judgement", num: "XX", p: "復活、奇跡的な再チャレンジ、決断", r: "過去への後悔、チャンスを見逃す" }, { ja: "世界", en: "The World", num: "XXI", p: "完全なる成就、ハッピーエンド", r: "未完成、中途半端、スランプ" }
     ];
 
     function generateWorryAnswer(worry, futureCard, isFutureReversed) {
-        const w = worry.trim();
-        let category = "general";
+        const w = worry.trim(); let category = "general";
         if (/彼|彼女|連絡|復縁|好き|愛|結婚|夫|妻|恋|出会い|別れ|不倫/.test(w)) category = "love";
         else if (/仕事|辞め|転職|上司|会社|人間関係|就職|キャリア|同僚|パワハラ/.test(w)) category = "work";
         else if (/金|借金|収入|貯金|宝くじ|生活/.test(w)) category = "money";
-
-        const worrySnippet = w.length > 20 ? w.substring(0, 20) + "..." : w;
-        const meaning = isFutureReversed ? futureCard.r : futureCard.p;
-        const posStr = isFutureReversed ? "逆位置" : "正位置";
+        const worrySnippet = w.length > 20 ? w.substring(0, 20) + "..." : w; const meaning = isFutureReversed ? futureCard.r : futureCard.p; const posStr = isFutureReversed ? "逆位置" : "正位置";
         
         let ans = `<p><span style="color:var(--text-sub); font-size:12px; border-bottom:1px dashed rgba(255,255,255,0.2); padding-bottom:5px; margin-bottom:10px; display:inline-block;">【あなたの悩み：「${worrySnippet}」への回答】</span></p>`;
-        
-        ans += `<p>あなたが書き込んでくれたその切実な悩み、しっかりと大アルカナの波動に届いています。未来の位置に出た『${futureCard.ja}』の${posStr}は、まさにこの悩みに対する最終回答として<span class="tarot-highlight">【${meaning}】</span>というメッセージを送ってきました。</p>`;
+        ans += `<p>あなたが書き込んでくれた悩み、しっかりと大アルカナの波動に届いています。未来に出た『${futureCard.ja}』の${posStr}は、この悩みに対する最終回答として<span class="tarot-highlight">【${meaning}】</span>というメッセージを送ってきました。</p>`;
 
         if (category === "love") {
-            if (!isFutureReversed) ans += `<p>今あなたが抱えている恋愛への不安は、遠からず愛と調和の方向へ動き出します。相手の気持ちを無理に探ったり、焦って白黒つけようとする必要はありません。あなたが自信を持ち、執着を手放した時、相手から自然と引き寄せられてくるでしょう。</p>`;
-            else ans += `<p>今は少し相手とのエネルギーがすれ違いやすい「試練の時期」のようです。感情に任せて行動を起こすと逆効果になる暗示があります。まずは一度立ち止まり、相手へのコントロールを手放して、自分の心を癒やすことに専念してください。</p>`;
+            if (!isFutureReversed) ans += `<p>今あなたが抱えている恋愛への不安は、遠からず愛と調和の方向へ動き出します。相手の気持ちを無理に探ったりせず、あなたが自信を持ち執着を手放した時、相手から自然と引き寄せられてくるでしょう。</p>`;
+            else ans += `<p>今は少し相手とのエネルギーがすれ違いやすい「試練の時期」のようです。感情に任せて行動を起こすと逆効果になる暗示があります。まずは一度立ち止まり、自分の心を癒やすことに専念してください。</p>`;
         } else if (category === "work") {
-            if (!isFutureReversed) ans += `<p>仕事やキャリアで積み重ねてきた我慢は決して無駄ではありません。まもなく視界がクリアになり、あなたを正当に評価してくれる環境が整います。直感に従って踏み出すべきタイミングが来ています。</p>`;
-            else ans += `<p>焦りから突発的な決断（急な退職など）を下すのは少し待った方が良さそうです。今は水面下でスキルアップや情報収集を進めるべき時期です。時期が来れば、驚くほどスムーズに次の扉が開きます。</p>`;
+            if (!isFutureReversed) ans += `<p>仕事やキャリアで積み重ねてきた我慢は決して無駄ではありません。まもなく視界がクリアになり、正当に評価してくれる環境が整います。直感に従って踏み出すべきタイミングです。</p>`;
+            else ans += `<p>焦りから突発的な決断を下すのは少し待った方が良さそうです。今は水面下でスキルアップや情報収集を進めるべき時期です。時期が来れば驚くほどスムーズに次の扉が開きます。</p>`;
         } else {
-            if (!isFutureReversed) ans += `<p>暗いトンネルの出口はもうすぐそこです。あなたが今感じている苦しみは、次の大きなステージへ進むための「成長痛」に過ぎません。恐れを手放し、自分の直感を信じて進んでください。</p>`;
-            else ans += `<p>あなたは今、一人で全てを抱え込もうとしすぎているようです。状況を無理にコントロールしようとするのをやめ、一度流れに身を任せてみてください。不要な縁は自然と離れ、本当に必要なものだけが残ります。</p>`;
+            if (!isFutureReversed) ans += `<p>暗いトンネルの出口はもうすぐそこです。あなたが今感じている苦しみは、次の大きなステージへ進むための「成長痛」に過ぎません。自分の直感を信じて進んでください。</p>`;
+            else ans += `<p>あなたは今、一人で全てを抱え込もうとしすぎているようです。状況を無理にコントロールしようとするのをやめ、一度流れに身を任せてみてください。不要な縁は自然と離れていきます。</p>`;
         }
         return ans;
     }
@@ -739,45 +674,34 @@
         if (!name || !dob || !worry) return alert("魂の波長を合わせるため、お名前・生年月日・具体的な悩みはすべて必須です。");
 
         showLoading("SHUFFLING TAROT DECK...", "var(--accent-tarot)", false, () => {
-            const seedStr = name + dob + worry + "tarot_ultimate_final_v5"; const random = getSeededRandom(seedStr); 
-            
+            const seedStr = name + dob + worry + "tarot_ultimate_final_v6"; const random = getSeededRandom(seedStr); 
             let deck = [...majorArcana]; let drawnCards = [];
-            for(let i=0; i<3; i++) {
-                let idx = Math.floor(random() * deck.length);
-                let card = deck.splice(idx, 1)[0];
-                let isReversed = random() > 0.6; 
-                drawnCards.push({ card: card, isReversed: isReversed });
-            }
+            for(let i=0; i<3; i++) { let idx = Math.floor(random() * deck.length); let card = deck.splice(idx, 1)[0]; drawnCards.push({ card: card, isReversed: random() > 0.6 }); }
 
             document.getElementById("resName4").innerText = name + " 様";
 
             for(let i=0; i<3; i++) {
                 const c = drawnCards[i]; const pos = c.isReversed ? '逆位置' : '正位置'; const meaning = c.isReversed ? c.card.r : c.card.p;
-                
-                document.getElementById(`tcNum${i+1}`).innerText = c.card.num;
-                document.getElementById(`tcName${i+1}`).innerHTML = `${c.card.ja}<br><span style="font-size:9px; opacity:0.7;">${c.card.en}</span>`;
-                const posEl = document.getElementById(`tcPos${i+1}`);
-                posEl.className = `t-front-pos ${c.isReversed ? 't-pos-rev' : 't-pos-up'}`; posEl.innerText = pos;
+                document.getElementById(`tcNum${i+1}`).innerText = c.card.num; document.getElementById(`tcName${i+1}`).innerHTML = `${c.card.ja}<br><span style="font-size:9px; opacity:0.7;">${c.card.en}</span>`;
+                const posEl = document.getElementById(`tcPos${i+1}`); posEl.className = `t-front-pos ${c.isReversed ? 't-pos-rev' : 't-pos-up'}`; posEl.innerText = pos;
 
                 let text = "";
                 if (i === 0) text = `<p>【過去・根本原因】の領域に展開されたのは『${c.card.ja}』の${pos}です。</p><p>このカードは<span class='tarot-highlight'>【${meaning}】</span>という強烈な波動を放っています。これまであなたが無意識のうちに抱えてきた感情や、人知れず背負ってきた重荷が、今の悩みのベースラインを作っています。</p>`;
                 else if (i === 1) text = `<p>【現在の状況と深層心理】を映し出す位置に『${c.card.ja}』の${pos}が現れました。</p><p>まさに今、あなたは<span class='tarot-highlight'>【${meaning}】</span>という宇宙の引力に包まれています。表面的にはどう取り繕っていても、あなたの魂は今このエネルギー状態の只中にあります。</p>`;
-                else text = `<p>あなたが取るべき行動の【最終結果・未来】を示す位置に導かれたのは『${c.card.ja}』の${pos}です。</p><p>このカードが指し示す<span class='tarot-highlight'>【${meaning}】</span>という暗示は、今後のあなたに訪れる決定的な出来事を予告しています。この啓示を警告として受け取るか、祝福として受け取るかで運命の軌道が分岐します。</p>`;
-                
+                else text = `<p>あなたが取るべき行動の【最終結果・未来】を示す位置に導かれたのは『${c.card.ja}』の${pos}です。</p><p>このカードが指し示す<span class='tarot-highlight'>【${meaning}】</span>という暗示は、今後のあなたに訪れる決定的な出来事を予告しています。</p>`;
                 document.getElementById(i===0 ? "resT_past" : i===1 ? "resT_present" : "resT_future").innerHTML = text;
             }
 
-            // 個別アドバイスの生成
             let adviceMsg = generateWorryAnswer(worry, drawnCards[2].card, drawnCards[2].isReversed);
             document.getElementById("tarotFinalMsg").innerHTML = adviceMsg;
+            
+            shareTextCache['tarot'] = `🃏【星屑の神託】深層タロットスプレッドで占いました。\n未来への啓示として引かれたカードは『${drawnCards[2].card.ja} (${drawnCards[2].isReversed ? '逆位置' : '正位置'})』！\n`;
 
             document.getElementById("res-tarot").classList.add("active");
-
-            setTimeout(() => document.getElementById("tCard1").classList.add("flipped"), 600);
-            setTimeout(() => document.getElementById("tCard2").classList.add("flipped"), 1400);
-            setTimeout(() => document.getElementById("tCard3").classList.add("flipped"), 2200);
+            setTimeout(() => document.getElementById("tCard1").classList.add("flipped"), 600); setTimeout(() => document.getElementById("tCard2").classList.add("flipped"), 1400); setTimeout(() => document.getElementById("tCard3").classList.add("flipped"), 2200);
         });
     }
+
 </script>
 </body>
 </html>
