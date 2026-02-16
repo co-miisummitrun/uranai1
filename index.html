@@ -20,15 +20,7 @@
             --ig-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
         
-        body {
-            margin: 0; padding: 0; min-height: 100vh;
-            display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-            background-color: var(--bg-dark);
-            background-image: radial-gradient(circle at 20% 30%, rgba(45, 25, 75, 0.5), transparent 50%), radial-gradient(circle at 80% 70%, rgba(20, 30, 60, 0.4), transparent 50%);
-            font-family: 'Shippori Mincho', serif; color: var(--text-main);
-            box-sizing: border-box; overflow-x: hidden; line-height: 1.8; background-attachment: fixed;
-        }
-
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; background-color: var(--bg-dark); background-image: radial-gradient(circle at 20% 30%, rgba(45, 25, 75, 0.5), transparent 50%), radial-gradient(circle at 80% 70%, rgba(20, 30, 60, 0.4), transparent 50%); font-family: 'Shippori Mincho', serif; color: var(--text-main); box-sizing: border-box; overflow-x: hidden; line-height: 1.8; background-attachment: fixed; }
         ::-webkit-scrollbar { width: 5px; } ::-webkit-scrollbar-track { background: var(--bg-dark); } ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 3px; }
 
         .stars-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(1px 1px at 15% 25%, #fff, transparent), radial-gradient(1.5px 1.5px at 40% 65%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 75% 35%, #fff, transparent), radial-gradient(2px 2px at 85% 85%, rgba(212,175,55,0.6), transparent); background-size: 250px 250px; animation: drift 80s linear infinite; opacity: 0.5; }
@@ -49,7 +41,6 @@
         .top-ig-link:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(220, 39, 67, 0.6); filter: brightness(1.1); }
         .top-ig-link svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* 所属鑑定士セクション */
         .top-advisors-section { margin-bottom: 50px; }
         .sect-title { text-align: center; font-family: 'Cinzel', serif; font-size: 20px; color: var(--gold); margin-bottom: 30px; letter-spacing: 4px; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 15px; display: inline-block; width: 100%;}
         .sect-title span { font-family: 'Shippori Mincho', serif; font-size: 12px; display: block; margin-top: 5px; color: var(--text-sub); letter-spacing: 2px;}
@@ -169,6 +160,22 @@
         .tarot-highlight { color: #fff; font-weight: 700; background: linear-gradient(transparent 65%, rgba(155,89,182,0.4) 65%); }
         .alert-text { color: #ff8e8e; font-weight: 700; border-bottom: 1px dashed #ff8e8e; }
         
+        /* 💰 課金ペイウォール専用スタイル */
+        .premium-wrapper { position: relative; border-radius: 8px; margin-bottom: 30px; border: 1px solid var(--gold); background: rgba(5,3,10,0.6); box-shadow: 0 10px 30px rgba(0,0,0,0.6); overflow: hidden;}
+        .premium-wrapper.locked .premium-blur-target { filter: blur(5px); opacity: 0.4; user-select: none; pointer-events: none; }
+        .paywall-overlay { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(5,3,10,0) 0%, rgba(5,3,10,0.95) 40%, rgba(5,3,10,1) 100%); flex-direction: column; align-items: center; justify-content: flex-end; padding: 30px 20px; z-index: 5; text-align: center; box-sizing: border-box;}
+        .premium-wrapper.locked .paywall-overlay { display: flex; }
+        .premium-wrapper.unlocked .paywall-overlay { display: none; }
+        .premium-wrapper.unlocked .premium-blur-target { filter: none; opacity: 1; pointer-events: auto; user-select: auto; }
+        .paywall-btn { background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); color: #000; border: none; padding: 16px 35px; border-radius: 30px; font-weight: bold; cursor: pointer; transition: 0.3s; letter-spacing: 1px; font-size: 14px; box-shadow: 0 5px 15px rgba(212,175,55,0.4); text-decoration: none; font-family: inherit;}
+        .paywall-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.6); }
+        .love-theme .premium-wrapper { border-color: var(--accent-love); }
+        .love-theme .paywall-btn { background: linear-gradient(135deg, #8a2846, #c95b7a, #8a2846); color: #fff; box-shadow: 0 5px 15px rgba(201,91,122,0.4);}
+        .palm-theme .premium-wrapper { border-color: var(--accent-palm); }
+        .palm-theme .paywall-btn { background: linear-gradient(135deg, #0f524e, #20b2aa, #0f524e); color: #fff; box-shadow: 0 5px 15px rgba(32,178,170,0.4);}
+        .tarot-theme .premium-wrapper { border-color: var(--accent-tarot); }
+        .tarot-theme .paywall-btn { background: linear-gradient(135deg, #4b0082, #9b59b6, #4b0082); color: #fff; box-shadow: 0 5px 15px rgba(155,89,182,0.4);}
+
         /* 🃏 タロット3Dフリップ */
         .tarot-spread { display: flex; gap: 8px; margin-bottom: 30px; justify-content: center; }
         .t-card-wrap { flex: 1; perspective: 1000px; display: flex; flex-direction: column; align-items: center;}
@@ -358,6 +365,24 @@
             <div class="result-header"><div class="result-name" id="resName1"></div><div class="result-meta" id="resDate1"></div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1633423712532-601e3b6d415e?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Tarot"><div class="story-content"><div class="story-title" id="tarotCardName_daily"></div><div class="story-text" id="msgDailyTotal"></div></div></div>
             
+            <div class="premium-wrapper locked" id="premium-daily">
+                <div class="premium-blur-target">
+                    <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;">
+                        <div class="story-content">
+                            <div class="story-title" style="color:var(--gold); border-left: 3px solid var(--gold); padding-left: 12px; margin-bottom: 15px; font-weight: 700;">【プレミアム】運命を好転させる具体策</div>
+                            <div class="story-text" id="msgDailyPremium"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paywall-overlay">
+                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
+                    <div style="color:var(--gold); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム鑑定</div>
+                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">明日を劇的に好転させる「具体的なアクション」と<br>「ラッキーカラー」を特別にお伝えします。</div>
+                    <a href="https://buy.stripe.com/test_6oU5kC86TgYJ4Ly1tUgjC00">500円で続きを読む</a>
+                    <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
+                </div>
+            </div>
+
             <div class="share-section">
                 <div class="share-title">＼ 鑑定結果をシェアする ／</div>
                 <div class="share-buttons">
@@ -365,7 +390,6 @@
                     <button class="sns-btn btn-ig" onclick="shareResult('ig', 'daily')"><svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> Instagramでシェア</button>
                 </div>
             </div>
-            
             <button class="btn-retry" onclick="resetApp()">別の占いを試す</button>
         </div>
 
@@ -373,9 +397,22 @@
             <div class="result-header"><div class="result-name" id="resName2"></div><div class="result-meta">TWIN RAY READING RESULT</div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1518599904199-0ca897819ddb?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Soul"><div class="story-content"><div class="story-title">第1章：現在の状況と魂の真実</div><div class="story-text" id="resD_status"></div></div></div>
             <div class="story-card"><img src="https://images.unsplash.com/photo-1462206092226-f46025ffe607?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Past Life"><div class="story-content"><div class="story-title">第2章：前世からの因縁</div><div class="story-text" id="resD_past"></div></div></div>
-            <div class="story-card"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Appearance"><div class="story-content"><div class="story-title">第3章：相手の「容姿」と「裏の顔」</div><div class="story-text" id="resD_char"></div></div></div>
-            <div class="story-card"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Timing"><div class="story-content"><div class="story-title">第4章：交差する「時期」と前兆</div><div class="story-text" id="resD_timing"></div></div></div>
             
+            <div class="premium-wrapper locked" id="premium-destiny">
+                <div class="premium-blur-target">
+                    <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Appearance"><div class="story-content"><div class="story-title">第3章：相手の「容姿」と「裏の顔」</div><div class="story-text" id="resD_char"></div></div></div>
+                    <div class="story-card" style="margin-bottom:0; border:none; border-top:1px solid rgba(255,255,255,0.05); box-shadow:none;"><img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Timing"><div class="story-content"><div class="story-title">第4章：交差する「時期」と前兆</div><div class="story-text" id="resD_timing"></div></div></div>
+                    <div class="story-card" style="margin-bottom:0; border:none; border-top:1px solid rgba(255,255,255,0.05); box-shadow:none;"><div class="story-content"><div class="story-title">第5章：結ばれるための最終試練</div><div class="story-text" id="resD_premium"></div></div></div>
+                </div>
+                <div class="paywall-overlay">
+                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
+                    <div style="color:var(--accent-love); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム鑑定</div>
+                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">運命の相手の「容姿」や「裏の顔」、二人が交差する「具体的な時期と前兆」の完全な啓示を解放します。</div>
+                    <a href="javascript:void(0);" onclick="unlockPremium('destiny')" class="paywall-btn">1,500円で完全版を視る</a>
+                    <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
+                </div>
+            </div>
+
             <div class="share-section">
                 <div class="share-title">＼ 鑑定結果をシェアする ／</div>
                 <div class="share-buttons">
@@ -394,9 +431,21 @@
             </div>
             <div class="story-card"><div class="story-content"><div class="story-title">【画像解析】手相の全体像</div><div class="story-text" id="resP_overall"></div></div></div>
             <div class="story-card"><div class="story-content"><div class="story-title">基本４線の分析</div><div class="story-text"><p id="resP_life"></p><p id="resP_head"></p><p id="resP_heart"></p><p id="resP_fate"></p></div></div></div>
-            <div class="story-card"><div class="story-content"><div class="story-title">今後の未来（運命の転機と軌跡）</div><div class="story-text" id="resP_future"></div></div></div>
-            <div class="story-card"><div class="story-content"><div class="story-title">今後の恋愛・仕事運</div><div class="story-text"><p id="resP_love"></p><p id="resP_work"></p></div></div></div>
             
+            <div class="premium-wrapper locked" id="premium-palm">
+                <div class="premium-blur-target">
+                    <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;"><div class="story-content"><div class="story-title">今後の未来（運命の転機と軌跡）</div><div class="story-text" id="resP_future"></div></div></div>
+                    <div class="story-card" style="margin-bottom:0; border:none; border-top:1px solid rgba(255,255,255,0.05); box-shadow:none;"><div class="story-content"><div class="story-title">今後の恋愛・仕事運</div><div class="story-text"><p id="resP_love"></p><p id="resP_work"></p></div></div></div>
+                </div>
+                <div class="paywall-overlay">
+                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
+                    <div style="color:var(--accent-palm); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム解析</div>
+                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">あなたの人生が激変する「今後の未来」と<br>「恋愛運・仕事運」の詳細データを完全公開します。</div>
+                    <a href="javascript:void(0);" onclick="unlockPremium('palm')" class="paywall-btn">800円で未来をアンロック</a>
+                    <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
+                </div>
+            </div>
+
             <div class="share-section">
                 <div class="share-title">＼ 鑑定結果をシェアする ／</div>
                 <div class="share-buttons">
@@ -418,12 +467,23 @@
 
             <div class="story-card"><div class="story-content"><div class="story-title">第1の啓示：悩みの「根本原因（過去）」</div><div class="story-text" id="resT_past"></div></div></div>
             <div class="story-card"><div class="story-content"><div class="story-title">第2の啓示：取り巻く「現状（現在）」</div><div class="story-text" id="resT_present"></div></div></div>
-            <div class="story-card"><div class="story-content"><div class="story-title">第3の啓示：やがて訪れる「結末（未来）」</div><div class="story-text" id="resT_future"></div></div></div>
             
-            <div class="story-card" style="border-color:var(--gold);">
-                <div class="story-content">
-                    <div class="story-title" style="color:var(--gold); border-color:var(--gold);">神代アリスからの個別鑑定アンサー</div>
-                    <div class="story-text" id="tarotFinalMsg" style="color:var(--gold-light);"></div>
+            <div class="premium-wrapper locked" id="premium-tarot">
+                <div class="premium-blur-target">
+                    <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;"><div class="story-content"><div class="story-title">第3の啓示：やがて訪れる「結末（未来）」</div><div class="story-text" id="resT_future"></div></div></div>
+                    <div class="story-card" style="margin-bottom:0; border:none; border-top:1px solid rgba(255,255,255,0.05); box-shadow:none;">
+                        <div class="story-content">
+                            <div class="story-title" style="color:var(--gold); border-color:var(--gold);">神代アリスからの個別鑑定アンサー</div>
+                            <div class="story-text" id="tarotFinalMsg" style="color:var(--gold-light);"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="paywall-overlay">
+                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
+                    <div style="color:var(--accent-tarot); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先は特別個別鑑定</div>
+                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">引かれたカードから導かれる「最終的な未来」、そしてあなたの悩みに対する「完全なる個別アンサー」を解放します。</div>
+                    <a href="javascript:void(0);" onclick="unlockPremium('tarot')" class="paywall-btn">1,000円で神託を受け取る</a>
+                    <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
                 </div>
             </div>
 
@@ -444,6 +504,22 @@
 </div>
 
 <script>
+    // --- 💰 課金（ペイウォール）解除デモ ---
+    function unlockPremium(type) {
+        // ※ 実際の運用では、ボタンのリンク先（href）をStripe Payment LinksなどのURLにし、
+        // 別の「決済完了ページ」や「有料note」へ遷移させるのが最も安全です。
+        
+        // 今回はサイト内で完結するデモとして、OKを押すとロックが解除されるようにしています。
+        const msg = "※これは課金システムの動作デモです。\n\n実際にはこのボタンを押すと、クレジットカードの決済画面（Stripeなど）へ飛びます。\n\n「OK」を押すと決済が完了したと仮定して、隠された鑑定結果を表示します。";
+        if (confirm(msg)) {
+            const el = document.getElementById('premium-' + type);
+            if (el) {
+                el.classList.remove('locked');
+                el.classList.add('unlocked');
+            }
+        }
+    }
+
     // --- 🔮 SNSシェア機能 (ご指定のサイトURLに固定) ---
     const SITE_URL = "https://hoshiiuranai.com/"; 
     const shareTextCache = {};
@@ -459,7 +535,6 @@
         } else if (platform === 'ig') {
             const igText = fullText + "\n\n▼無料鑑定はこちらから！\n" + SITE_URL;
             
-            // コピー処理 (フォールバック付き)
             const copyToClipboard = () => {
                 if (navigator.clipboard && window.isSecureContext) {
                     return navigator.clipboard.writeText(igText);
@@ -492,7 +567,6 @@
     function enterSanctuary() { document.getElementById('page-home').classList.remove('active'); document.getElementById('page-app').classList.add('active'); switchTab('daily'); window.scrollTo(0, 0); }
     function backToHome() { resetApp(); document.getElementById('page-app').classList.remove('active'); document.getElementById('page-home').classList.add('active'); window.scrollTo(0, 0); }
 
-    // --- 🔮 占い師データ ---
     const advisors = {
         daily: { photo: "image.png", role: "Astrology & Tarot", name: "星導 ルミナ", bio: "代々続く星読みの家系に生まれ、西洋占星術とタロットを統合。あなたの魂に刻まれた過去・現在・未来の記録を読み解き、運命を好転させる具体的な道標を提示します。" },
         destiny: { photo: "image2.png", role: "Twin Ray Reader", name: "天霧 結祈", bio: "幼少期より他者の「ご縁の糸」が視える特異体質を持つ。現在パートナーがいる方でも、魂レベルでの『本当の運命の相手（ツインレイ）』を正確に特定し、偽りのない真実をお伝えします。" },
@@ -526,6 +600,13 @@
 
     function resetApp() {
         document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active")); document.getElementById("tab-menu").style.display = "flex"; document.getElementById("profile-area").style.display = "flex";
+        
+        // 🔒 課金ロックの初期化（再度隠す）
+        document.querySelectorAll('.premium-wrapper').forEach(el => {
+            el.classList.add('locked');
+            el.classList.remove('unlocked');
+        });
+
         const activeTab = document.querySelector('.tab-btn.active').classList.contains('t-daily') ? 'form-daily' : document.querySelector('.tab-btn.active').classList.contains('t-destiny') ? 'form-destiny' : document.querySelector('.tab-btn.active').classList.contains('t-palm') ? 'form-palm' : 'form-tarot';
         document.getElementById(activeTab).classList.add("active"); document.querySelectorAll('.t-card-inner').forEach(card => card.classList.remove('flipped')); window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -542,8 +623,13 @@
             const tarot = dailyTarots[Math.floor(random() * dailyTarots.length)]; const position = random() > 0.7 ? "（逆位置）" : "（正位置）";
             document.getElementById("resName1").innerText = name + " 様"; document.getElementById("resDate1").innerText = `TODAY'S ORACLE`;
             document.getElementById("tarotCardName_daily").innerText = "導きのカード： " + tarot.name + " " + position;
-            document.getElementById("msgDailyTotal").innerHTML = `<p>本日の天空図を読み解くと、月が幸運の星と重なり強力なエネルギーを放っています。</p><p>引かれたカードは『${tarot.name}』${position}。${tarot.m} 今日は直感の赴くままに行動し、宇宙からのサインを受け取ってください。</p>`;
             
+            document.getElementById("msgDailyTotal").innerHTML = `<p>本日の天空図を読み解くと、月が幸運の星と重なり強力なエネルギーを放っています。</p><p>引かれたカードは『${tarot.name}』${position}。</p>`;
+            
+            // 💎 プレミアムテキストの生成
+            const colors = ["ルビーレッド", "サファイアブルー", "エメラルドグリーン", "パールホワイト", "アメジストパープル"];
+            document.getElementById("msgDailyPremium").innerHTML = `<p>${tarot.m} 今日は直感の赴くままに行動し、宇宙からのサインを受け取ってください。無理に逆らわず、自然の流れに身を任せることで、夜には大きな充実感を得られるでしょう。</p><p>さらに、身につけると良いラッキーカラーは「<span class='highlight'>${colors[Math.floor(random()*colors.length)]}</span>」。重要な決断は午後3時以降に行うとスムーズに進みます。</p>`;
+
             shareTextCache['daily'] = `🌟【星屑の神託】${name}様の今日の運勢を占いました！\n導きのカード:『${tarot.name}』${position}✨\n`;
             document.getElementById("res-daily").classList.add("active");
         });
@@ -573,6 +659,9 @@
             document.getElementById("resD_char").innerHTML = `<p>表向きは真面目でクールですが、深い仲になると豹変します。<span class='love-highlight'>あなたに対してだけは「甘えん坊」な一面を見せるでしょう。</span></p>`;
             document.getElementById("resD_timing").innerHTML = `<p>二人の魂の軌道が交差する時期は、あなたが『今の執着を手放した直後』です。数字のゾロ目をよく見るようになったら合図です。</p>`;
             
+            // 💎 プレミアムテキスト生成
+            document.getElementById("resD_premium").innerHTML = `<p>二人が完全に結ばれるために必要な「絶対条件」は、あなたが今無意識に抱えている「過去の人間関係への執着」を手放すことです。それを乗り越えた時、相手の魂はあなたの元へ強烈に引き寄せられます。</p><p>魂の統合が起こる運命の日は、あなたが心からリラックスして過ごしている休日の午後に突然訪れます。その時を信じて、今は自分磨きに専念してください。</p>`;
+
             shareTextCache['destiny'] = `💕【星屑の神託】${name}様の『本当の運命の相手(ツインレイ)』を深層霊視で特定しました！\n魂が交差する時期が近づいています…！\n`;
             document.getElementById("res-destiny").classList.add("active");
         });
@@ -630,9 +719,11 @@
             document.getElementById("resP_head").innerHTML = "<strong style='color:var(--gold-light);'>【知能線】</strong> " + p_heads[Math.floor(random() * p_heads.length)];
             document.getElementById("resP_heart").innerHTML = "<strong style='color:var(--gold-light);'>【感情線】</strong> 人差し指と中指の間に向かって急カーブを描いています。情熱的で愛情表現が豊かです。";
             document.getElementById("resP_fate").innerHTML = "<strong style='color:var(--gold-light);'>【運命線】</strong> 手首の中央から中指に向かって突き抜けています。自分の実力だけで成功を築き上げる自己実現力を持っています。";
-            document.getElementById("resP_future").innerHTML = `<p>抽出された波形から予測すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れます。</p>`;
-            document.getElementById("resP_love").innerHTML = "今後の恋愛運は穏やかな愛情に満ちた時期に入ります。無理をせず素の自分を出せる相手との関係が深まります。";
-            document.getElementById("resP_work").innerHTML = "仕事運は独自の才能やアイデアが爆発的に評価されるデータが出ています。直感に従うことで金運も跳ね上がります。";
+            
+            // 💎 プレミアムテキスト生成
+            document.getElementById("resP_future").innerHTML = `<p>抽出された波形から予測すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れます。</p><p>これまであなたが水面下で積み重ねてきた努力や我慢が、一気に報われるタイミングが近づいています。全く新しい環境や未知の役割に飛び込むことで、想像以上のスケールで物事が展開し、人生の黄金期を迎えるでしょう。</p>`;
+            document.getElementById("resP_love").innerHTML = `<p>今後の恋愛運は穏やかな愛情に満ちた時期に入ります。無理をせず素の自分を出せる相手との関係が深まります。ありのままのあなたの弱さすらも愛してくれる、海のように器の大きな愛に包まれる未来が視えています。</p>`;
+            document.getElementById("resP_work").innerHTML = `<p>仕事運は独自の才能やアイデアが爆発的に評価されるデータが出ています。直感に従うことで金運も跳ね上がります。組織の中で言われたことをこなすよりも、自分の裁量で動ける環境で大成功を収めるポテンシャルを秘めています。</p>`;
             
             shareTextCache['palm'] = `✋【星屑の神託】AI画像手相解析を実行しました！\n${name}様の手相は「${typeName}」タイプ。\n数年以内に劇的な飛躍の時期が訪れるサインが出ています！✨\n`;
             document.getElementById("res-palm").classList.add("active");
@@ -657,14 +748,14 @@
         ans += `<p>あなたが書き込んでくれた悩み、しっかりと大アルカナの波動に届いています。未来に出た『${futureCard.ja}』の${posStr}は、この悩みに対する最終回答として<span class="tarot-highlight">【${meaning}】</span>というメッセージを送ってきました。</p>`;
 
         if (category === "love") {
-            if (!isFutureReversed) ans += `<p>今あなたが抱えている恋愛への不安は、遠からず愛と調和の方向へ動き出します。相手の気持ちを無理に探ったりせず、あなたが自信を持ち執着を手放した時、相手から自然と引き寄せられてくるでしょう。</p>`;
-            else ans += `<p>今は少し相手とのエネルギーがすれ違いやすい「試練の時期」のようです。感情に任せて行動を起こすと逆効果になる暗示があります。まずは一度立ち止まり、自分の心を癒やすことに専念してください。</p>`;
+            if (!isFutureReversed) ans += `<p>今あなたが抱えている恋愛への不安は、遠からず愛と調和の方向へ動き出します。相手の気持ちを無理に探ったりせず、あなたが自信を持ち執着を手放した時、相手から自然と引き寄せられてくるでしょう。宇宙に『自分がどう扱われたいか』を堂々と宣言した時、この関係性は全く新しい形へと再構築されます。</p>`;
+            else ans += `<p>今は少し相手とのエネルギーがすれ違いやすい「試練の時期」のようです。感情に任せて行動を起こすと逆効果になる暗示があります。まずは一度立ち止まり、自分の心を癒やすことに専念してください。カードは『執着を手放した時にこそ、真の愛が引き寄せられる』と告げています。</p>`;
         } else if (category === "work") {
-            if (!isFutureReversed) ans += `<p>仕事やキャリアで積み重ねてきた我慢は決して無駄ではありません。まもなく視界がクリアになり、正当に評価してくれる環境が整います。直感に従って踏み出すべきタイミングです。</p>`;
-            else ans += `<p>焦りから突発的な決断を下すのは少し待った方が良さそうです。今は水面下でスキルアップや情報収集を進めるべき時期です。時期が来れば驚くほどスムーズに次の扉が開きます。</p>`;
+            if (!isFutureReversed) ans += `<p>仕事やキャリアで積み重ねてきた我慢は決して無駄ではありません。まもなく視界がクリアになり、正当に評価してくれる環境が整います。もし新しい道（転職や独立など）を迷っているなら、直感に従って踏み出すべきタイミングです。周囲の評価に縛られず、あなたが本当にワクワクする方向に舵を切ってください。</p>`;
+            else ans += `<p>焦りから突発的な決断を下すのは少し待った方が良さそうです。今は水面下でスキルアップや情報収集を進めるべき時期です。時期が来れば驚くほどスムーズに次の扉が開きます。タロットは『あなたはすでに必要なものをすべて持っている』と背中を押しています。</p>`;
         } else {
-            if (!isFutureReversed) ans += `<p>暗いトンネルの出口はもうすぐそこです。あなたが今感じている苦しみは、次の大きなステージへ進むための「成長痛」に過ぎません。自分の直感を信じて進んでください。</p>`;
-            else ans += `<p>あなたは今、一人で全てを抱え込もうとしすぎているようです。状況を無理にコントロールしようとするのをやめ、一度流れに身を任せてみてください。不要な縁は自然と離れていきます。</p>`;
+            if (!isFutureReversed) ans += `<p>暗いトンネルの出口はもうすぐそこです。あなたが今感じている苦しみは、次の大きなステージへ進むための「成長痛」に過ぎません。自分の直感を信じて進んでください。ありのままのあなたでいることが、最高の調和を生み出します。</p>`;
+            else ans += `<p>あなたは今、一人で全てを抱え込もうとしすぎているようです。状況を無理にコントロールしようとするのをやめ、一度流れに身を任せてみてください。不要な縁は自然と離れていき、本当に必要なものだけがあなたの手の中に残ります。</p>`;
         }
         return ans;
     }
@@ -692,6 +783,7 @@
                 document.getElementById(i===0 ? "resT_past" : i===1 ? "resT_present" : "resT_future").innerHTML = text;
             }
 
+            // 💎 プレミアムテキスト生成
             let adviceMsg = generateWorryAnswer(worry, drawnCards[2].card, drawnCards[2].isReversed);
             document.getElementById("tarotFinalMsg").innerHTML = adviceMsg;
             
