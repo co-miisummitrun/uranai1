@@ -15,7 +15,7 @@
             --bg-dark: #07040a; --bg-glass: rgba(15, 10, 22, 0.85);
             --border-glow: rgba(212, 175, 55, 0.3);
             --text-main: #f0ebe1; --text-sub: #b3a8c4;
-            --accent-love: #c95b7a; --accent-palm: #20b2aa; /* 手相用のサイバーグリーン */
+            --accent-love: #c95b7a; --accent-palm: #20b2aa; 
         }
         
         body {
@@ -34,7 +34,6 @@
         .stars-bg { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none; background-image: radial-gradient(1px 1px at 15% 25%, #fff, transparent), radial-gradient(1.5px 1.5px at 40% 65%, rgba(255,255,255,0.8), transparent), radial-gradient(1px 1px at 75% 35%, #fff, transparent), radial-gradient(2px 2px at 85% 85%, rgba(212,175,55,0.6), transparent); background-size: 250px 250px; animation: drift 80s linear infinite; opacity: 0.5; }
         @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-250px); } }
 
-        /* 3つのタブメニュー */
         .tab-container {
             display: flex; width: 100%; max-width: 700px; margin-bottom: 25px;
             background: rgba(0,0,0,0.6); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05);
@@ -81,8 +80,11 @@
         .upload-text { color: #fff; font-size: 14px; margin-bottom: 5px; font-weight: bold; letter-spacing: 1px;}
         .upload-sub { color: var(--text-sub); font-size: 11px; }
         
-        .preview-container { display: none; margin-top: 15px; position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; border-radius: 8px; overflow: hidden; border: 1px solid var(--accent-palm); box-shadow: 0 0 20px rgba(32,178,170,0.3);}
-        .preview-img { width: 100%; display: block; filter: contrast(1.1) grayscale(0.2); }
+        .preview-container { display: none; margin-top: 15px; position: relative; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; border-radius: 8px; overflow: hidden; border: 1px solid var(--accent-palm); box-shadow: 0 0 20px rgba(32,178,170,0.3); background: #000;}
+        .preview-img { width: 100%; display: block; filter: contrast(1.1); }
+        .preview-actions { text-align: center; padding: 10px; background: rgba(0,0,0,0.5); }
+        .btn-change-img { background: transparent; border: 1px solid var(--accent-palm); color: var(--accent-palm); padding: 6px 15px; border-radius: 4px; cursor: pointer; font-size: 12px; letter-spacing: 1px; transition: 0.3s;}
+        .btn-change-img:hover { background: rgba(32,178,170,0.2); color: #fff; }
 
         button.main-btn { width: 100%; padding: 18px; margin-top: 15px; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); background-size: 200% auto; color: #000; font-family: inherit; font-size: 15px; font-weight: 700; border: none; border-radius: 6px; cursor: pointer; letter-spacing: 3px; transition: 0.5s; box-shadow: 0 5px 20px rgba(0,0,0,0.6); text-transform: uppercase; }
         button.main-btn:hover { background-position: right center; box-shadow: 0 0 25px rgba(212,175,55,0.6); transform: translateY(-2px); }
@@ -126,8 +128,9 @@
         .story-title { font-size: 16.5px; color: var(--gold); margin-bottom: 15px; font-weight: 700; letter-spacing: 1px; border-left: 3px solid var(--gold); padding-left: 12px; }
         .love-theme .story-title { color: var(--accent-love); border-left-color: var(--accent-love); }
         .palm-theme .story-title { color: var(--accent-palm); border-left-color: var(--accent-palm); }
+        .sub-title { font-size: 13.5px; color: var(--text-sub); margin: 20px 0 8px; font-weight: 600; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px;}
         
-        .story-text { font-size: 15px; line-height: 2.2; color: #eaeaeb; text-align: justify; }
+        .story-text { font-size: 14.5px; line-height: 2.1; color: #eaeaeb; text-align: justify; }
         .story-text p { margin: 0 0 18px 0; }
         .story-text p:last-child { margin: 0; }
         
@@ -199,24 +202,28 @@
 
     <div id="form-palm" class="content-area">
         <div class="site-title" style="color:var(--accent-palm);">AI PALM SCANNER</div><h1 class="site-title-ja">人工知能・手相解析</h1>
-        <p class="site-subtitle">〜 スマホのカメラであなたの才能と宿命をデジタル解析 〜</p>
+        <p class="site-subtitle">〜 スマホのカメラであなたの才能と未来の運命をデジタル解析 〜</p>
         <div class="form-group"><label>お名前 (NAME)</label><input type="text" id="name3" placeholder="例：天海 翔" autocomplete="off"></div>
         
         <div class="form-group">
             <label>手のひらの写真を撮影（またはファイルを選択）</label>
+            
             <div class="upload-box" id="uploadBox">
                 <input type="file" id="palmImage" accept="image/*" capture="environment" onchange="previewPalmImage(event)">
                 <div class="upload-icon">📷</div>
-                <div class="upload-text">タップしてカメラを起動 / 写真を選択</div>
-                <div class="upload-sub">※画像はサーバーに保存されません。端末内のみで解析されます。</div>
+                <div class="upload-text">タップして写真を撮る / 画像を選ぶ</div>
+                <div class="upload-sub">※画像はサーバーに保存されません。端末内で瞬時に解析されます。</div>
             </div>
             
             <div class="preview-container" id="previewContainer">
                 <img id="palmPreview" class="preview-img" src="" alt="手相プレビュー">
+                <div class="preview-actions">
+                    <button type="button" class="btn-change-img" onclick="resetPalmImage()">撮り直す / 画像を変更する</button>
+                </div>
             </div>
         </div>
 
-        <button class="main-btn palm-btn" onclick="startPalmOracle()">AI手相解析を実行する</button>
+        <button class="main-btn palm-btn" onclick="startPalmOracle()">AI手相ディープスキャンを実行</button>
     </div>
 
     <div id="loading">
@@ -266,38 +273,53 @@
         
         <div class="story-card" style="text-align:center; padding-top:25px;">
             <img id="resPalmImg" src="" alt="あなたの手相" style="width:140px; height:140px; object-fit:cover; border-radius:50%; border:3px solid var(--accent-palm); box-shadow:0 0 20px rgba(32,178,170,0.4);">
-            <div style="font-size:12px; color:var(--text-sub); margin-top:12px; letter-spacing: 1px;">スキャン完了・生体データ抽出済</div>
+            <div style="font-size:12px; color:var(--text-sub); margin-top:12px; letter-spacing: 1px;">画像スキャン完了・生体データ抽出済</div>
         </div>
 
         <div class="story-card">
             <div class="story-content">
-                <div class="story-title">生命線（Life Line）の解析</div>
-                <div class="story-text" id="resP_life"></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-content">
-                <div class="story-title">知能線（Head Line）の解析</div>
-                <div class="story-text" id="resP_head"></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-content">
-                <div class="story-title">感情線（Heart Line）の解析</div>
-                <div class="story-text" id="resP_heart"></div>
-            </div>
-        </div>
-        <div class="story-card">
-            <div class="story-content">
-                <div class="story-title">運命線（Fate Line）の解析</div>
-                <div class="story-text" id="resP_fate"></div>
+                <div class="story-title">画像解析：あなたの手相の全体像</div>
+                <div class="story-text" id="resP_overall"></div>
             </div>
         </div>
         
+        <div class="story-card">
+            <div class="story-content">
+                <div class="story-title">基本４線（生命・知能・感情・運命）の分析</div>
+                <div class="story-text">
+                    <p id="resP_life"></p>
+                    <p id="resP_head"></p>
+                    <p id="resP_heart"></p>
+                    <p id="resP_fate"></p>
+                </div>
+            </div>
+        </div>
+
         <div class="story-card" id="cardRare" style="display:none; border-color:var(--gold);">
             <div class="story-content">
                 <div class="story-title" style="color:var(--gold); border-left-color:var(--gold);">特殊相（Rare Sign）の発見<span class="rare-mark">激レア</span></div>
                 <div class="story-text" id="resP_rare" style="color:var(--gold-light);"></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-content">
+                <div class="story-title">今後の未来（運命の転機と軌跡）</div>
+                <div class="story-text" id="resP_future"></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-content">
+                <div class="story-title">今後の恋愛運・結婚の行方</div>
+                <div class="story-text" id="resP_love"></div>
+            </div>
+        </div>
+
+        <div class="story-card">
+            <div class="story-content">
+                <div class="story-title">今後の仕事運・金運と才能</div>
+                <div class="story-text" id="resP_work"></div>
             </div>
         </div>
 
@@ -325,7 +347,7 @@
         const photoEl = document.getElementById('advPhoto');
         photoEl.style.opacity = 0;
         setTimeout(() => {
-            // もし画像が存在しない場合はダミー画像を表示
+            // 画像がない場合はダミー画像を表示
             photoEl.onerror = () => { photoEl.src = 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&fit=crop'; };
             photoEl.src = advisors[type].photo;
             
@@ -360,7 +382,6 @@
     }
 
     // --- 共通ローディング表示 ---
-    // isPalm = true の時は画像スキャンアニメーションを表示
     function showLoading(text, color, isPalm, callback) {
         document.getElementById("tab-menu").style.display = "none";
         document.getElementById("profile-area").style.display = "none";
@@ -387,8 +408,7 @@
         loader.style.display = "block";
         window.scrollTo({ top: 0, behavior: "smooth" });
 
-        // AIスキャンは長めに演出
-        const waitTime = isPalm ? 4500 : 3000;
+        const waitTime = isPalm ? 4500 : 3000; // 手相スキャンは長めに
         setTimeout(() => {
             loader.style.display = "none";
             if(isPalm) document.getElementById("scannerLine").style.display = "none";
@@ -448,7 +468,6 @@
                 msgStatus = `<p>現在フリーのあなた。無意識に心の壁を作っている波動が視えます。しかし、あなたの<span class='love-highlight'>魂の半身（ツインレイ）</span>は、すでにあなたのすぐ近くまで接近してきています。</p>`;
             } 
             else if (status === "partner") {
-                // パートナーがいる場合の確定文言（3パターン分岐）
                 const partnerVariations = [
                     `<p>今のお相手とのご縁も決して薄いものではなく、現世において大切な学びを与え合うソウルメイトです。しかし魂の最深部に潜ってみると、<span class='love-highlight'>あなたの『本当の運命の相手』は、別にもう一人存在している</span>という強烈な波動を感じます。</p>`,
                     `<p>現在のお相手とは前世からの『深いカルマ』の解消のために結ばれています。この清算が進むにつれ、ある真実が浮き彫りになります。それは、<span class='love-highlight'>あなたの『本当の運命の相手』は、別にもう一人存在している</span>という事実です。</p>`,
@@ -471,15 +490,13 @@
     }
 
     // ==========================================
-    // ✋ 占い3：AI手相鑑定 
+    // ✋ 占い3：AI手相鑑定 (未来・運勢徹底解析版)
     // ==========================================
-    let currentImageInfo = ""; // シード生成用の画像情報
+    let currentImageInfo = ""; 
 
-    // カメラ/ファイルからの画像プレビュー
     function previewPalmImage(event) {
         const file = event.target.files[0];
         if (file) {
-            // 画像名とサイズを文字列にしてシードの元にする
             currentImageInfo = file.name + "_" + file.size; 
             const reader = new FileReader();
             reader.onload = function(e) {
@@ -494,28 +511,59 @@
         }
     }
 
+    function resetPalmImage() {
+        document.getElementById("palmImage").value = "";
+        currentImageInfo = "";
+        document.getElementById("previewContainer").style.display = "none";
+        document.getElementById("uploadBox").style.display = "block";
+    }
+
+    // 各種テキストデータ
+    const p_overalls = [
+        "AIスキャンにより抽出された全体的な手相の形状は、<span class='palm-highlight'>非常に繊細で、細かな線が無数に刻まれた「水の要素」</span>を強く帯びています。画像解析から、あなたは他者の感情や場の空気を敏感に察知する、極めて高い共感力と直感力の持ち主であることが分かります。周囲からは優しく愛情深い人として頼りにされますが、他人の痛みを自分のことのように受け止めてしまうため、人知れず気疲れを溜めやすい一面も持ち合わせています。",
+        "アップロードされた画像からAIが読み取ったのは、<span class='palm-highlight'>主要な線が太く、深く、そして力強く刻まれた「火の要素」</span>の手相です。あなたは迷いが少なく、一度決めた目標に向かって一直線に進む強靭な生命力と自己主張のエネルギーを持っています。既存のルールや常識に縛られることを嫌い、自らの実力と行動力で新しい道を切り拓いていく生粋のリーダー気質です。",
+        "手のひらの肉付きや線の滑らかなカーブの画像解析結果から、<span class='palm-highlight'>全体的にバランスの取れた「地の要素」</span>が強く確認されました。非常に温和で愛情深く、争いを好まず調和を大切にする性質を持っています。何事にも動じない地に足のついた堅実さがあり、周囲からの信頼は絶大です。あなたがそこにいるだけで安心感をもたらす「福運」を引き寄せる手相の典型と言えます。"
+    ];
+
     const p_lifes = [
-        "手首の方まで太く深く、非常にくっきりと刻まれています。<span class='palm-highlight'>恐ろしいほどの生命力とバイタリティ</span>を秘めており、逆境になればなるほど燃え上がる強靭な心身を持っています。",
-        "カーブが大きく、金星丘（親指の付け根の膨らみ）を広く囲むように伸びています。非常に愛情深く、人を引き付ける強い魅力（カリスマ性）を放っています。常に周囲に人が集まる人生です。",
-        "生命線に沿ってもう一本「二重生命線」がAIによってスキャンされました。これは<span class='palm-highlight'>人の2倍の体力と運の強さを持つサイン</span>です。トラブルも奇跡的に回避できる強運の持ち主です。"
+        "<strong style='color:var(--gold-light);'>【生命線の解析】</strong><br>手首の方まで太く深く刻まれています。<span class='palm-highlight'>恐ろしいほどの生命力とバイタリティ</span>を秘めており、逆境になればなるほど燃え上がる強靭な心身を持っています。", 
+        "<strong style='color:var(--gold-light);'>【生命線の解析】</strong><br>金星丘（親指の付け根）を広く囲むように伸びています。非常に愛情深く、人を引き付ける強い魅力（カリスマ性）を放っています。", 
+        "<strong style='color:var(--gold-light);'>【生命線の解析】</strong><br>線に沿ってもう一本「二重生命線」がスキャンされました。これは<span class='palm-highlight'>人の2倍の体力と運の強さを持つサイン</span>です。トラブルも奇跡的に回避できる強運の持ち主です。"
     ];
     const p_heads = [
-        "真横に一直線にスッと伸びています。非常に論理的で現実主義。感情に流されず、冷静に物事を分析して確実な成果を出す「生粋のビジネスパーソン」の思考回路です。",
-        "月丘（手首の小指側）に向かって、美しいカーブを描いて深く垂れ下がっています。<span class='palm-highlight'>極めて高い想像力とクリエイティブな才能</span>の持ち主です。芸術やデザイン、直感を活かす仕事で大成します。",
-        "先端が大きく二股に枝分かれしています。これは「多芸多才」の証。全く異なる複数の分野で才能を発揮し、副業やパラレルキャリアで大成功を収める可能性を秘めています。"
+        "<strong style='color:var(--gold-light);'>【知能線の解析】</strong><br>真横に一直線に伸びています。非常に論理的で現実主義。感情に流されず、冷静に分析して確実な成果を出す「生粋のビジネスパーソン」の思考回路です。", 
+        "<strong style='color:var(--gold-light);'>【知能線の解析】</strong><br>手首の下方に向かって美しいカーブを描いています。<span class='palm-highlight'>極めて高い想像力とクリエイティブな才能</span>の持ち主です。芸術やデザイン、直感を活かす仕事で大成します。", 
+        "<strong style='color:var(--gold-light);'>【知能線の解析】</strong><br>先端が大きく二股に枝分かれしています。「多芸多才」の証拠であり、全く異なる複数の分野で才能を発揮し、パラレルキャリアで大成功を収める可能性を秘めています。"
     ];
     const p_hearts = [
-        "人差し指と中指の間に向かって、急カーブを描いて伸びています。<span class='palm-highlight'>非常に情熱的で、好きになったら一直線のロマンチスト</span>です。愛情表現が豊かで、相手に尽くすことに喜びを感じます。",
-        "直線的で、感情線の乱れがほとんどありません。恋愛においても非常にクールで、感情をコントロールする術に長けています。情に流されず、自分にとってプラスになる相手を的確に見極めます。",
-        "先端が小さく三叉に分かれています。「幸運の女神の線」とも呼ばれ、周囲の人の心を和ませる天性の「愛されキャラ」です。誰からも好かれ、人間関係に恵まれる手相です。"
+        "<strong style='color:var(--gold-light);'>【感情線の解析】</strong><br>人差し指と中指の間に向かって急カーブを描いて伸びています。<span class='palm-highlight'>非常に情熱的で、好きになったら一直線のロマンチスト</span>です。愛情表現が豊かで、相手に尽くすことに喜びを感じます。", 
+        "<strong style='color:var(--gold-light);'>【感情線の解析】</strong><br>直線的で乱れがほとんどありません。恋愛においても非常にクールで、感情をコントロールする術に長けています。情に流されず、自分にとってプラスになる相手を的確に見極めます。", 
+        "<strong style='color:var(--gold-light);'>【感情線の解析】</strong><br>先端が小さく三叉に分かれています。「幸運の女神の線」とも呼ばれ、誰からも好かれる「愛されキャラ」です。人間関係に恵まれる手相です。"
     ];
     const p_fates = [
-        "手首の中央から中指に向かって、真っ直ぐに太い線が突き抜けています。これは<span class='palm-highlight'>「天下取りの相」</span>。自分の実力と信念だけで、大きな成功と財産を築き上げる圧倒的な自己実現力を持っています。",
-        "運命線が知能線の上からスタートしています。これは「大器晩成」のサインです。若い頃の苦労が30代後半〜40代で一気に報われ、そこから驚くべき飛躍を遂げるプログラムが組まれています。",
-        "月丘（小指側の下部）から斜めに運命線が伸びています。これは「他力本願」ではなく「他者からの強烈な引き立て」を受ける相。あなたの実力以上のチャンスを他人が持ってきてくれるラッキー体質です。"
+        "<strong style='color:var(--gold-light);'>【運命線の解析】</strong><br>手首の中央から中指に向かって真っ直ぐに太い線が突き抜けています。これは<span class='palm-highlight'>「天下取りの相」</span>。自分の実力と信念だけで大きな成功と財産を築き上げる圧倒的な自己実現力を持っています。", 
+        "<strong style='color:var(--gold-light);'>【運命線の解析】</strong><br>知能線の上からスタートしています。これは「大器晩成」のサインです。若い頃の苦労が30代後半以降で一気に報われ、そこから驚くべき飛躍を遂げるプログラムが組まれています。", 
+        "<strong style='color:var(--gold-light);'>【運命線の解析】</strong><br>小指側の下部（月丘）から斜めに伸びています。「他力本願」ではなく「他者からの強烈な引き立て」を受ける相。あなたの実力以上のチャンスを他人が持ってきてくれるラッキー体質です。"
     ];
     
-    // 激レア相（低確率で出現）
+    const p_futures = [
+        "抽出された手相の波形から今後の未来を予測すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れることが示されています。これまであなたが水面下で積み重ねてきた努力や我慢が、一気に報われるタイミングが近づいています。全く新しい環境や未知の役割に飛び込むことで、想像以上のスケールで物事が展開し、人生の黄金期を迎えるでしょう。",
+        "生命線と運命線の交差データを未来へ補外すると、まもなく<span class='palm-highlight'>「精神的・物質的な豊かさが完全に調和するフェーズ」</span>へと突入します。これまで抱えていた漠然とした不安や迷いが嘘のように晴れ、自分が本当に進むべき道がクリアになります。あなたの持つ独自の才能が社会的に高く評価され、穏やかでありながら大きな豊かさが流れ込んでくる未来が確定しつつあります。",
+        "手相の微細な変化をスキャンした結果、あなたの未来には<span class='palm-highlight'>「運命を根本から覆すような劇的な出会いや出来事」</span>がプロットされています。それは一見するとピンチや予期せぬ変化の仮面を被ってやってくるかもしれませんが、実はそれがあなたを真の幸福へと導く最大のターニングポイントとなります。過去の執着を手放し、直感を信じて流れに身を任せることが最大の鍵です。"
+    ];
+
+    const p_loves = [
+        "感情線のカーブと金星丘の膨らみを立体解析した結果、今後のあなたの恋愛運は<span class='palm-highlight'>『情熱的でドラマチックな展開』</span>を迎える可能性が極めて高いです。運命の引力によって、魂レベルで深く共鳴する相手との出会い、あるいは現在のパートナーとの関係性がより強固で熱を帯びたものへと進化します。頭で考えるのをやめ、素直な愛情表現をすることが幸運の鍵となります。",
+        "感情線の終点の状態から読み解くと、これからのあなたの恋愛・対人関係は<span class='palm-highlight'>『深い安心感と穏やかな愛情に満ちた時期』</span>に入ります。刺激や駆け引きよりも、一緒にいて呼吸が合う、無言でも居心地が良い関係性が築かれます。ありのままのあなたの弱さすらも愛してくれる、海のように器の大きな愛に包まれる未来が視えています。",
+        "感情線と運命線の絡み合いを解析した結果、今後のあなたは<span class='palm-highlight'>『恋愛を通じて自分自身の隠された魅力や才能が開花する』</span>という特殊な運気を持っています。あなたを深く理解し、精神的に強力にバックアップしてくれる相手が現れます。その愛は単なるロマンスにとどまらず、あなたの人生全体を底上げし、成功へと導く強力なエンジンとなるでしょう。"
+    ];
+
+    const p_works = [
+        "知能線の角度と太陽線の濃さをクロス分析した結果、あなたの仕事運は<span class='palm-highlight'>『独自の才能やアイデアが爆発的に評価され、大きな財を生み出す』</span>というデータが弾き出されました。組織の中で言われたことをこなすよりも、自分の裁量で動ける環境や、独立・起業、クリエイティブな分野で大成功を収めるポテンシャルを秘めています。直感に従うことで金運も連動して跳ね上がります。",
+        "運命線の力強さと土星丘の状態から、今後のあなたの仕事・財運は<span class='palm-highlight'>『確固たる地位と安定した長期的な豊かさ』</span>を約束されています。一攫千金というよりは、誠実な仕事ぶりや高度な専門スキルが高く評価され、組織内での重要なポジションへの抜擢や、揺るぎない信頼を獲得します。一度築いた財産や人脈は決して崩れない強固なものとなります。",
+        "知能線の終点と水星丘の解析データによると、これからのあなたは<span class='palm-highlight'>『趣味や好きなことが、そのまま収入に直結するような新しい働き方』</span>を確立する可能性が高いです。コミュニケーション能力や情報発信力がカギとなり、あなたの言葉や表現が多くの人を魅了し、それが直接的な豊かさとなって還ってきます。複数の収入源を持つことでさらに金運が安定します。"
+    ];
+
     const p_rares = [
         { name: "神秘十字線", desc: "感情線と知能線の間に十字のクロスが浮き出ています。非常に強い直感力と、ご先祖様からの強力なご加護（守護）を持つ人だけに現れる神聖なマークです。" },
         { name: "覇王線（三奇紋）", desc: "運命線、太陽線、財運線が一点で交わる、数万人に一人の最強の手相がスキャンされました。どん底からでも這い上がり、莫大な富と名声を手に入れる王者の手相です。" },
@@ -530,19 +578,24 @@
 
         // ローディング（スキャンアニメーション起動）
         showLoading("DEEP SCANNING PALM LINES...", "var(--accent-palm)", true, () => {
-            // 画像情報＋名前から固有のシード値を生成（同じ画像なら必ず同じ結果になる）
-            const random = getSeededRandom(currentImageInfo + name + "ai_palm_v1"); 
+            const random = getSeededRandom(currentImageInfo + name + "ai_palm_v_future"); 
 
             document.getElementById("resName3").innerText = name + " 様";
             
-            document.getElementById("resP_life").innerHTML = `<p>${p_lifes[Math.floor(random() * p_lifes.length)]}</p>`;
-            document.getElementById("resP_head").innerHTML = `<p>${p_heads[Math.floor(random() * p_heads.length)]}</p>`;
-            document.getElementById("resP_heart").innerHTML = `<p>${p_hearts[Math.floor(random() * p_hearts.length)]}</p>`;
-            document.getElementById("resP_fate").innerHTML = `<p>${p_fates[Math.floor(random() * p_fates.length)]}</p>`;
+            // テキスト挿入
+            document.getElementById("resP_overall").innerHTML = `<p>${p_overalls[Math.floor(random() * p_overalls.length)]}</p>`;
+            document.getElementById("resP_life").innerHTML = p_lifes[Math.floor(random() * p_lifes.length)];
+            document.getElementById("resP_head").innerHTML = p_heads[Math.floor(random() * p_heads.length)];
+            document.getElementById("resP_heart").innerHTML = p_hearts[Math.floor(random() * p_hearts.length)];
+            document.getElementById("resP_fate").innerHTML = p_fates[Math.floor(random() * p_fates.length)];
+            
+            document.getElementById("resP_future").innerHTML = `<p>${p_futures[Math.floor(random() * p_futures.length)]}</p>`;
+            document.getElementById("resP_love").innerHTML = `<p>${p_loves[Math.floor(random() * p_loves.length)]}</p>`;
+            document.getElementById("resP_work").innerHTML = `<p>${p_works[Math.floor(random() * p_works.length)]}</p>`;
 
-            // レア相判定 (シードに基づいて 約25% の確率で出現)
+            // レア相判定 (シードに基づいて 約30% の確率で出現)
             const cardRare = document.getElementById("cardRare");
-            if (random() > 0.75) {
+            if (random() > 0.70) {
                 const rareSign = p_rares[Math.floor(random() * p_rares.length)];
                 document.getElementById("resP_rare").innerHTML = `<p>AIのディープスキャンにより、あなたの掌に<strong style="color:#fff;">『${rareSign.name}』</strong>が検出されました。<br>${rareSign.desc}</p>`;
                 cardRare.style.display = "block";
