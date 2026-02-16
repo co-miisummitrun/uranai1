@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="vQkgsiI6ESyUE4NxB11bOJWI2j2tAi0MYAKGw4ZHCb8" />
     
-    <title>総合占いサロン 星屑の神託 | 本格霊視・タロット・AI手相</title>
-    <meta name="description" content="プロの鑑定士による本物の占い。タロット、魂の奥底を透視するツインレイ鑑定、AI手相スキャン、超本格タロットスプレッド。">
+    <title>総合占いサロン 星屑の神託 | 本格霊視・タロット・画像手相鑑定</title>
+    <meta name="description" content="プロの鑑定士による本物の占い。毎日の無料タロット、魂の奥底を透視するツインレイ鑑定、手相スキャン、超本格タロットスプレッド。">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
@@ -125,7 +125,7 @@
         .content-area.active { display: block; }
         @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ローディング・スキャン演出 */
+        /* ローディング演出 */
         #loading { display: none; padding: 60px 0; text-align: center; }
         .mystic-wheel { width: 90px; height: 90px; margin: 0 auto 25px; border: 1px dashed rgba(212,175,55,0.5); border-top: 2px solid var(--gold); border-bottom: 2px solid var(--gold); border-radius: 50%; position: relative; animation: spin 3s linear infinite; }
         .mystic-wheel::after { content: "✧"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--gold); font-size: 35px; animation: pulse 1.5s infinite alternate;}
@@ -243,7 +243,7 @@
             </div>
             <div class="adv-card ac-3">
                 <div class="adv-img-wrap"><img src="image3.png" class="adv-img" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&fit=crop'"></div>
-                <div class="adv-card-role">AI Palmistry</div>
+                <div class="adv-card-role">Mystic Palm Reader</div>
                 <div class="adv-card-name">神宮寺 司</div>
             </div>
             <div class="adv-card ac-4">
@@ -257,7 +257,7 @@
     <div class="enter-btn-wrap">
         <button class="enter-btn" onclick="enterSanctuary()">占ってみる！</button>
         <br><br>
-        <a href="https://www.instagram.com/" target="_blank" class="top-ig-link">
+        <a href="https://www.instagram.com/hoshiiuranai" target="_blank" class="top-ig-link">
             <svg viewBox="0 0 448 512" width="18" height="18" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             公式Instagramはこちら
         </a>
@@ -270,7 +270,7 @@
     <div class="tab-container" id="tab-menu">
         <button class="tab-btn active t-daily" onclick="switchTab('daily')">DAILY<br><span>今日の運勢</span></button>
         <button class="tab-btn t-destiny" onclick="switchTab('destiny')">TWIN RAY<br><span>運命の相手</span></button>
-        <button class="tab-btn t-palm" onclick="switchTab('palm')">PALM<br><span>画像手相鑑定</span></button>
+        <button class="tab-btn t-palm" onclick="switchTab('palm')">PALM<br><span>神秘の手相透視</span></button>
         <button class="tab-btn t-tarot" onclick="switchTab('tarot')">TAROT<br><span>本格タロット</span></button>
     </div>
 
@@ -293,8 +293,8 @@
             <div class="site-title">ASTRAL ORACLE</div><h1 class="site-title-ja">星屑の神託</h1>
             <p class="site-subtitle">〜 星の配置とワンオラクルが告げる今日の運命 〜</p>
             <div class="form-group"><label>お名前 (NAME)</label><input type="text" id="name1" placeholder="例：星野 結衣" autocomplete="off"></div>
-            <div class="form-group"><label>生年月日 (BIRTH DATE)</label><input type="date" id="dob1"></div>
-            <button class="main-btn" onclick="startDailyOracle()">運命のカードを引く</button>
+            <div class="form-group"><label>生年月日 (BIRTH DATE)</label><input type="date" id="dob1" min="1930-01-01" class="date-input"></div>
+            <button class="main-btn" onclick="startDailyOracle()">運命のカードを引く（完全無料）</button>
         </div>
 
         <div id="form-destiny" class="content-area">
@@ -305,7 +305,7 @@
                 <div class="form-group"><label>性別</label><select id="gender2"><option value="female">女性</option><option value="male">男性</option><option value="other">その他</option></select></div>
                 <div class="form-group"><label>血液型</label><select id="blood2"><option value="A">A型</option><option value="B">B型</option><option value="O">O型</option><option value="AB">AB型</option><option value="unknown">不明</option></select></div>
             </div>
-            <div class="form-group"><label>生年月日</label><input type="date" id="dob2"></div>
+            <div class="form-group"><label>生年月日</label><input type="date" id="dob2" min="1930-01-01" class="date-input"></div>
             <div class="form-group">
                 <label>現在のパートナー状況 ※鑑定結果が大きく分岐する重要項目です</label>
                 <select id="status2" style="border-color: rgba(201,91,122,0.4);">
@@ -318,68 +318,60 @@
         </div>
 
         <div id="form-palm" class="content-area">
-            <div class="site-title" style="color:var(--accent-palm);">AI PALM SCANNER</div><h1 class="site-title-ja">人工知能・画像手相解析</h1>
-            <p class="site-subtitle">〜 スマホのカメラで撮影した画像をAIが直接ピクセル解析 〜</p>
+            <div class="site-title" style="color:var(--accent-palm);">MYSTIC PALM READING</div><h1 class="site-title-ja">神秘の画像手相透視</h1>
+            <p class="site-subtitle">〜 あなたの掌に刻まれた才能と未来の運命を読み解く 〜</p>
             <div class="form-group"><label>お名前 (NAME)</label><input type="text" id="name3" placeholder="例：天海 翔" autocomplete="off"></div>
+            <div class="form-group"><label>生年月日 (BIRTH DATE)</label><input type="date" id="dob3" min="1930-01-01" class="date-input"></div>
             <div class="form-group">
                 <label>手のひらの写真を撮影（またはファイルを選択）</label>
                 <div class="upload-box" id="uploadBox">
                     <input type="file" id="palmImage" accept="image/*" capture="environment" onchange="previewPalmImage(event)">
                     <div style="font-size:30px; margin-bottom:5px;">📷</div>
                     <div class="upload-text">タップしてカメラを起動 / 写真を選択</div>
-                    <div style="font-size:11px; color:var(--text-sub);">※システムが画像の「肌色成分」と「シワの深さ」をピクセル単位で解析します。<br>※真っ黒な画像や手以外の写真などはエラーになります。</div>
+                    <div style="font-size:11px; color:var(--text-sub);">※明るい場所で、手のひら全体が写るように撮影してください。<br>※手以外の写真や暗すぎる画像は波動が読み取れずエラーになります。</div>
                 </div>
                 <div class="preview-container" id="previewContainer">
                     <img id="palmPreview" class="preview-img" src="" alt="手相プレビュー" crossorigin="anonymous">
                     <div class="preview-actions"><button type="button" class="btn-change-img" onclick="resetPalmImage()">撮り直す / 画像を変更する</button></div>
                 </div>
             </div>
-            <button class="main-btn palm-btn" onclick="startPalmOracle()">AI手相解析を実行する</button>
+            <button class="main-btn palm-btn" onclick="startPalmOracle()">手相の透視を開始する</button>
         </div>
 
         <div id="form-tarot" class="content-area">
             <div class="site-title" style="color:var(--accent-tarot);">DEEP TAROT SPREAD</div><h1 class="site-title-ja">深層タロット・スリーカード</h1>
             <p class="site-subtitle">〜 大アルカナが解き明かす、過去の因果と未来の啓示 〜</p>
             <div class="form-group"><label>お名前 (NAME)</label><input type="text" id="name4" placeholder="例：紫音 玲" autocomplete="off"></div>
-            <div class="form-group"><label>生年月日 (BIRTH DATE)</label><input type="date" id="dob4"></div>
+            <div class="form-group"><label>生年月日 (BIRTH DATE)</label><input type="date" id="dob4" min="1930-01-01" class="date-input"></div>
             
             <div class="form-group">
                 <label>現在あなたが抱えている具体的な悩み（自由入力）</label>
                 <textarea id="worry4" placeholder="例：彼から連絡が来なくて不安。今の仕事を辞めるべきか迷っている。人間関係が辛い..." style="border-color: rgba(155,89,182,0.6);"></textarea>
-                <div style="font-size:11px; color:var(--text-sub); margin-top:5px;">※入力された悩みのキーワードをAIが解析し、引かれたカードと紐付けて、あなただけの個別アドバイスを生成します。</div>
+                <div style="font-size:11px; color:var(--text-sub); margin-top:5px;">※入力された悩みのキーワードの波動を解析し、引かれたカードと紐付けて、あなただけの個別神託を生成します。</div>
             </div>
             <button class="main-btn tarot-btn" onclick="startTarotOracle()">精神を集中し、カードを展開する</button>
         </div>
 
         <div id="loading">
             <div class="mystic-wheel" id="mWheel"></div>
-            <div class="scan-container" id="scanBox">
-                <img src="" class="scan-target-img" id="scanTargetImg">
-                <div class="scan-grid"></div>
-                <div class="scanner-line" id="scannerLine"></div>
-            </div>
             <div class="loading-text" id="loadingText">ACCESSING AKASHIC RECORDS...</div>
         </div>
 
         <div id="res-daily" class="content-area">
             <div class="result-header"><div class="result-name" id="resName1"></div><div class="result-meta" id="resDate1"></div></div>
-            <div class="story-card"><img src="https://images.unsplash.com/photo-1633423712532-601e3b6d415e?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Tarot"><div class="story-content"><div class="story-title" id="tarotCardName_daily"></div><div class="story-text" id="msgDailyTotal"></div></div></div>
             
-            <div class="premium-wrapper locked" id="premium-daily">
-                <div class="premium-blur-target">
-                    <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;">
-                        <div class="story-content">
-                            <div class="story-title" style="color:var(--gold); border-left: 3px solid var(--gold); padding-left: 12px; margin-bottom: 15px; font-weight: 700;">【プレミアム】運命を好転させる具体策</div>
-                            <div class="story-text" id="msgDailyPremium"></div>
-                        </div>
-                    </div>
+            <div class="story-card">
+                <img src="https://images.unsplash.com/photo-1633423712532-601e3b6d415e?q=80&w=800&auto=format&fit=crop" class="story-img" alt="Tarot">
+                <div class="story-content">
+                    <div class="story-title" id="tarotCardName_daily"></div>
+                    <div class="story-text" id="msgDailyTotal"></div>
                 </div>
-                <div class="paywall-overlay">
-                    <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
-                    <div style="color:var(--gold); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム鑑定</div>
-                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">明日を劇的に好転させる「具体的なアクション」と<br>「ラッキーカラー」を特別にお伝えします。</div>
-                    <a href="https://buy.stripe.com/test_6oU5kC86TgYJ4Ly1tUgjC00">500円で続きを読む</a>
-                    <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
+            </div>
+            
+            <div class="story-card" style="border-color:var(--gold);">
+                <div class="story-content">
+                    <div class="story-title" style="color:var(--gold); border-left: 3px solid var(--gold); padding-left: 12px; margin-bottom: 15px; font-weight: 700;">運命を好転させる特別アドバイス</div>
+                    <div class="story-text" id="msgDailyPremium" style="color:var(--gold-light);"></div>
                 </div>
             </div>
 
@@ -408,7 +400,7 @@
                     <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
                     <div style="color:var(--accent-love); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム鑑定</div>
                     <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">運命の相手の「容姿」や「裏の顔」、二人が交差する「具体的な時期と前兆」の完全な啓示を解放します。</div>
-                    <a href="https://buy.stripe.com/test_6oU5kC86TgYJ4Ly1tUgjC00">1,500円で完全版を視る</a>
+                    <a href="javascript:void(0);" onclick="unlockPremium('destiny')" class="paywall-btn">1,500円で完全版を視る</a>
                     <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
                 </div>
             </div>
@@ -424,13 +416,13 @@
         </div>
 
         <div id="res-palm" class="content-area palm-theme">
-            <div class="result-header"><div class="result-name" id="resName3"></div><div class="result-meta">AI PALMISTRY ANALYSIS RESULT</div></div>
+            <div class="result-header"><div class="result-name" id="resName3"></div><div class="result-meta">MYSTIC PALM READING RESULT</div></div>
             <div class="story-card" style="text-align:center; padding-top:25px;">
                 <img id="resPalmImg" src="" alt="あなたの手相" style="width:140px; height:140px; object-fit:cover; border-radius:50%; border:3px solid var(--accent-palm); box-shadow:0 0 20px rgba(32,178,170,0.4);">
-                <div style="font-size:12px; color:var(--text-sub); margin-top:12px; letter-spacing: 1px;">画像ピクセル スキャン完了</div>
+                <div style="font-size:12px; color:var(--text-sub); margin-top:12px; letter-spacing: 1px;">掌の相紋・読み取り完了</div>
             </div>
-            <div class="story-card"><div class="story-content"><div class="story-title">【画像解析】手相の全体像</div><div class="story-text" id="resP_overall"></div></div></div>
-            <div class="story-card"><div class="story-content"><div class="story-title">基本４線の分析</div><div class="story-text"><p id="resP_life"></p><p id="resP_head"></p><p id="resP_heart"></p><p id="resP_fate"></p></div></div></div>
+            <div class="story-card"><div class="story-content"><div class="story-title">【深層鑑定】手相の全体像</div><div class="story-text" id="resP_overall"></div></div></div>
+            <div class="story-card"><div class="story-content"><div class="story-title">基本４線の霊的分析</div><div class="story-text"><p id="resP_life"></p><p id="resP_head"></p><p id="resP_heart"></p><p id="resP_fate"></p></div></div></div>
             
             <div class="premium-wrapper locked" id="premium-palm">
                 <div class="premium-blur-target">
@@ -439,9 +431,9 @@
                 </div>
                 <div class="paywall-overlay">
                     <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
-                    <div style="color:var(--accent-palm); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム解析</div>
-                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">あなたの人生が激変する「今後の未来」と<br>「恋愛運・仕事運」の詳細データを完全公開します。</div>
-                    <a href="https://buy.stripe.com/test_6oU5kC86TgYJ4Ly1tUgjC00">500円で未来をアンロック</a>
+                    <div style="color:var(--accent-palm); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先はプレミアム透視</div>
+                    <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">あなたの人生が激変する「今後の未来」と<br>「恋愛運・仕事運」の詳細な軌跡を完全公開します。</div>
+                    <a href="javascript:void(0);" onclick="unlockPremium('palm')" class="paywall-btn">800円で未来をアンロック</a>
                     <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
                 </div>
             </div>
@@ -473,7 +465,7 @@
                     <div class="story-card" style="margin-bottom:0; border:none; box-shadow:none;"><div class="story-content"><div class="story-title">第3の啓示：やがて訪れる「結末（未来）」</div><div class="story-text" id="resT_future"></div></div></div>
                     <div class="story-card" style="margin-bottom:0; border:none; border-top:1px solid rgba(255,255,255,0.05); box-shadow:none;">
                         <div class="story-content">
-                            <div class="story-title" style="color:var(--gold); border-color:var(--gold);">神代アリスからの個別鑑定アンサー</div>
+                            <div class="story-title" style="color:var(--gold); border-color:var(--gold);">神代アリスからの個別神託アンサー</div>
                             <div class="story-text" id="tarotFinalMsg" style="color:var(--gold-light);"></div>
                         </div>
                     </div>
@@ -482,7 +474,7 @@
                     <div style="font-size: 30px; margin-bottom: 10px;">🔒</div>
                     <div style="color:var(--accent-tarot); font-size: 18px; font-weight: bold; margin-bottom: 10px;">ここから先は特別個別鑑定</div>
                     <div style="font-size: 13px; color: var(--text-sub); margin-bottom: 20px; line-height: 1.6;">引かれたカードから導かれる「最終的な未来」、そしてあなたの悩みに対する「完全なる個別アンサー」を解放します。</div>
-                    <a href="https://buy.stripe.com/test_6oU5kC86TgYJ4Ly1tUgjC00">1,000円で神託を受け取る</a>
+                    <a href="javascript:void(0);" onclick="unlockPremium('tarot')" class="paywall-btn">1,000円で神託を受け取る</a>
                     <div style="font-size: 11px; color: #888; margin-top: 10px;">※デモ決済画面へ進みます</div>
                 </div>
             </div>
@@ -504,23 +496,28 @@
 </div>
 
 <script>
+    // --- 📅 生年月日の未来ブロック設定 ---
+    document.addEventListener("DOMContentLoaded", () => {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const todayStr = `${yyyy}-${mm}-${dd}`;
+        document.querySelectorAll('.date-input').forEach(input => { 
+            input.setAttribute('max', todayStr); 
+        });
+    });
+
     // --- 💰 課金（ペイウォール）解除デモ ---
     function unlockPremium(type) {
-        // ※ 実際の運用では、ボタンのリンク先（href）をStripe Payment LinksなどのURLにし、
-        // 別の「決済完了ページ」や「有料note」へ遷移させるのが最も安全です。
-        
-        // 今回はサイト内で完結するデモとして、OKを押すとロックが解除されるようにしています。
         const msg = "※これは課金システムの動作デモです。\n\n実際にはこのボタンを押すと、クレジットカードの決済画面（Stripeなど）へ飛びます。\n\n「OK」を押すと決済が完了したと仮定して、隠された鑑定結果を表示します。";
         if (confirm(msg)) {
             const el = document.getElementById('premium-' + type);
-            if (el) {
-                el.classList.remove('locked');
-                el.classList.add('unlocked');
-            }
+            if (el) { el.classList.remove('locked'); el.classList.add('unlocked'); }
         }
     }
 
-    // --- 🔮 SNSシェア機能 (ご指定のサイトURLに固定) ---
+    // --- 🔮 SNSシェア機能 ---
     const SITE_URL = "https://hoshiiuranai.com/"; 
     const shareTextCache = {};
     
@@ -534,26 +531,16 @@
             window.open(shareUrl, '_blank');
         } else if (platform === 'ig') {
             const igText = fullText + "\n\n▼無料鑑定はこちらから！\n" + SITE_URL;
-            
             const copyToClipboard = () => {
                 if (navigator.clipboard && window.isSecureContext) {
                     return navigator.clipboard.writeText(igText);
                 } else {
                     let textArea = document.createElement("textarea");
-                    textArea.value = igText;
-                    textArea.style.position = "fixed";
-                    textArea.style.left = "-999999px";
-                    textArea.style.top = "-999999px";
-                    document.body.appendChild(textArea);
-                    textArea.focus();
-                    textArea.select();
-                    return new Promise((res, rej) => {
-                        document.execCommand('copy') ? res() : rej();
-                        textArea.remove();
-                    });
+                    textArea.value = igText; textArea.style.position = "fixed"; textArea.style.left = "-999999px"; textArea.style.top = "-999999px";
+                    document.body.appendChild(textArea); textArea.focus(); textArea.select();
+                    return new Promise((res, rej) => { document.execCommand('copy') ? res() : rej(); textArea.remove(); });
                 }
             };
-            
             copyToClipboard().then(() => {
                 alert("✨鑑定結果のテキストをコピーしました！✨\n\n「OK」を押すとInstagramが開きます。\nストーリーズや投稿画面で『ペースト（貼り付け）』してシェアしてください📸");
                 window.open('https://www.instagram.com/', '_blank');
@@ -567,10 +554,27 @@
     function enterSanctuary() { document.getElementById('page-home').classList.remove('active'); document.getElementById('page-app').classList.add('active'); switchTab('daily'); window.scrollTo(0, 0); }
     function backToHome() { resetApp(); document.getElementById('page-app').classList.remove('active'); document.getElementById('page-home').classList.add('active'); window.scrollTo(0, 0); }
 
+    // --- 生年月日 バリデーション (1930年以降かチェック) ---
+    function isValidDob(dobStr) {
+        if (!dobStr) return false;
+        const d = new Date(dobStr);
+        const minD = new Date("1930-01-01");
+        const today = new Date();
+        if (d < minD) {
+            alert("生年月日は1930年以降で入力してください。");
+            return false;
+        }
+        if (d > today) {
+            alert("未来の日付は入力できません。");
+            return false;
+        }
+        return true;
+    }
+
     const advisors = {
         daily: { photo: "image.png", role: "Astrology & Tarot", name: "星導 ルミナ", bio: "代々続く星読みの家系に生まれ、西洋占星術とタロットを統合。あなたの魂に刻まれた過去・現在・未来の記録を読み解き、運命を好転させる具体的な道標を提示します。" },
         destiny: { photo: "image2.png", role: "Twin Ray Reader", name: "天霧 結祈", bio: "幼少期より他者の「ご縁の糸」が視える特異体質を持つ。現在パートナーがいる方でも、魂レベルでの『本当の運命の相手（ツインレイ）』を正確に特定し、偽りのない真実をお伝えします。" },
-        palm: { photo: "image3.png", role: "AI Palm Scanner", name: "神宮寺 司", bio: "画像解析プログラムと手相学を完全に統合したシステム。アップロードされた画像のピクセル配列（色とエッジ）を直接ブラウザ上で解析し、精緻なスキャンによる判定を行います。" },
+        palm: { photo: "image3.png", role: "Mystic Palm Reader", name: "神宮寺 司", bio: "古代の手相学と独自の透視技術を統合。掌に刻まれたシワの深さ、生命の波動を読み取り、あなたの無意識の才能と未来の軌跡を丸裸にします。" },
         tarot: { photo: "image4.png", role: "Spiritual Tarot", name: "神代 アリス", bio: "大アルカナ全22枚の波動を操り、潜在意識の最深部を視透かす霊感タロットリーダー。あなたが入力した悩みの文字波動を読み取り、解決へと導くあなただけの個別アドバイスを紡ぎ出します。" }
     };
 
@@ -590,35 +594,35 @@
 
     function getSeededRandom(seedStr) { let seed = 0; for (let i = 0; i < seedStr.length; i++) seed = seedStr.charCodeAt(i) + ((seed << 5) - seed); seed = Math.abs(seed); return function() { let x = Math.sin(seed++) * 10000; return x - Math.floor(x); } }
 
-    function showLoading(text, color, isPalm, callback) {
+    function showLoading(text, color, callback) {
         document.getElementById("tab-menu").style.display = "none"; document.getElementById("profile-area").style.display = "none"; document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active"));
         document.getElementById("loadingText").innerText = text; document.getElementById("loadingText").style.color = color;
-        if (isPalm) { document.getElementById("mWheel").style.display = "none"; document.getElementById("scanBox").style.display = "block"; document.getElementById("scannerLine").style.display = "block"; } else { document.getElementById("scanBox").style.display = "none"; const mWheel = document.getElementById("mWheel"); mWheel.style.display = "block"; mWheel.style.borderColor = `rgba(255,255,255,0.2)`; mWheel.style.borderTopColor = color; mWheel.style.borderBottomColor = color; }
+        
+        document.getElementById("scanBox").style.display = "none"; const mWheel = document.getElementById("mWheel"); mWheel.style.display = "block"; mWheel.style.borderColor = `rgba(255,255,255,0.2)`; mWheel.style.borderTopColor = color; mWheel.style.borderBottomColor = color;
         document.getElementById("loading").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" });
-        setTimeout(() => { document.getElementById("loading").style.display = "none"; if(isPalm) document.getElementById("scannerLine").style.display = "none"; callback(); }, isPalm ? 4000 : 3000); 
+        setTimeout(() => { document.getElementById("loading").style.display = "none"; callback(); }, 3000); 
     }
 
     function resetApp() {
         document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active")); document.getElementById("tab-menu").style.display = "flex"; document.getElementById("profile-area").style.display = "flex";
         
-        // 🔒 課金ロックの初期化（再度隠す）
-        document.querySelectorAll('.premium-wrapper').forEach(el => {
-            el.classList.add('locked');
-            el.classList.remove('unlocked');
-        });
+        // 🔒 課金ロックの初期化
+        document.querySelectorAll('.premium-wrapper').forEach(el => { el.classList.add('locked'); el.classList.remove('unlocked'); });
 
         const activeTab = document.querySelector('.tab-btn.active').classList.contains('t-daily') ? 'form-daily' : document.querySelector('.tab-btn.active').classList.contains('t-destiny') ? 'form-destiny' : document.querySelector('.tab-btn.active').classList.contains('t-palm') ? 'form-palm' : 'form-tarot';
         document.getElementById(activeTab).classList.add("active"); document.querySelectorAll('.t-card-inner').forEach(card => card.classList.remove('flipped')); window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     // ==========================================
-    // 🔮 1. 日々の運勢 
+    // 🔮 1. 日々の運勢 (完全無料版)
     // ==========================================
     const dailyTarots = [{ name: "愚者", m: "未知への挑戦。" },{ name: "魔術師", m: "創造力、新しい始まり。" },{ name: "女帝", m: "豊かさと愛情の成就。" },{ name: "運命の輪", m: "好転、チャンス到来。" },{ name: "星", m: "希望と深い癒やし。" }];
     function startDailyOracle() {
         const name = document.getElementById("name1").value.trim(); const dob = document.getElementById("dob1").value;
-        if (!name || !dob) return alert("お名前と生年月日を入力してください。");
-        showLoading("READING ASTROLOGICAL ALIGNMENTS...", "var(--gold)", false, () => {
+        if (!name) return alert("お名前を入力してください。");
+        if (!isValidDob(dob)) return;
+
+        showLoading("READING ASTROLOGICAL ALIGNMENTS...", "var(--gold)", () => {
             const random = getSeededRandom(name + dob + new Date().getDate()); 
             const tarot = dailyTarots[Math.floor(random() * dailyTarots.length)]; const position = random() > 0.7 ? "（逆位置）" : "（正位置）";
             document.getElementById("resName1").innerText = name + " 様"; document.getElementById("resDate1").innerText = `TODAY'S ORACLE`;
@@ -626,7 +630,6 @@
             
             document.getElementById("msgDailyTotal").innerHTML = `<p>本日の天空図を読み解くと、月が幸運の星と重なり強力なエネルギーを放っています。</p><p>引かれたカードは『${tarot.name}』${position}。</p>`;
             
-            // 💎 プレミアムテキストの生成
             const colors = ["ルビーレッド", "サファイアブルー", "エメラルドグリーン", "パールホワイト", "アメジストパープル"];
             document.getElementById("msgDailyPremium").innerHTML = `<p>${tarot.m} 今日は直感の赴くままに行動し、宇宙からのサインを受け取ってください。無理に逆らわず、自然の流れに身を任せることで、夜には大きな充実感を得られるでしょう。</p><p>さらに、身につけると良いラッキーカラーは「<span class='highlight'>${colors[Math.floor(random()*colors.length)]}</span>」。重要な決断は午後3時以降に行うとスムーズに進みます。</p>`;
 
@@ -640,8 +643,10 @@
     // ==========================================
     function startDestinyOracle() {
         const name = document.getElementById("name2").value.trim(); const dob = document.getElementById("dob2").value; const status = document.getElementById("status2").value;
-        if (!name || !dob) return alert("深層霊視を行うため、お名前と生年月日は必須です。");
-        showLoading("ACCESSING SOUL CONTRACTS...", "var(--accent-love)", false, () => {
+        if (!name) return alert("お名前を入力してください。");
+        if (!isValidDob(dob)) return;
+
+        showLoading("ACCESSING SOUL CONTRACTS...", "var(--accent-love)", () => {
             const random = getSeededRandom(name + dob + status + "v_premium_final"); 
             document.getElementById("resName2").innerText = name + " 様";
             let msgStatus = "";
@@ -659,7 +664,6 @@
             document.getElementById("resD_char").innerHTML = `<p>表向きは真面目でクールですが、深い仲になると豹変します。<span class='love-highlight'>あなたに対してだけは「甘えん坊」な一面を見せるでしょう。</span></p>`;
             document.getElementById("resD_timing").innerHTML = `<p>二人の魂の軌道が交差する時期は、あなたが『今の執着を手放した直後』です。数字のゾロ目をよく見るようになったら合図です。</p>`;
             
-            // 💎 プレミアムテキスト生成
             document.getElementById("resD_premium").innerHTML = `<p>二人が完全に結ばれるために必要な「絶対条件」は、あなたが今無意識に抱えている「過去の人間関係への執着」を手放すことです。それを乗り越えた時、相手の魂はあなたの元へ強烈に引き寄せられます。</p><p>魂の統合が起こる運命の日は、あなたが心からリラックスして過ごしている休日の午後に突然訪れます。その時を信じて、今は自分磨きに専念してください。</p>`;
 
             shareTextCache['destiny'] = `💕【星屑の神託】${name}様の『本当の運命の相手(ツインレイ)』を深層霊視で特定しました！\n魂が交差する時期が近づいています…！\n`;
@@ -668,7 +672,7 @@
     }
 
     // ==========================================
-    // ✋ 3. AI手相鑑定 (本物のピクセル画像解析)
+    // ✋ 3. 画像手相鑑定 (手以外の画像ブロック・本格表現)
     // ==========================================
     let currentImageElement = null; 
     function previewPalmImage(event) {
@@ -676,7 +680,7 @@
         if (file) {
             const reader = new FileReader();
             reader.onload = function(e) {
-                const src = e.target.result; document.getElementById("palmPreview").src = src; document.getElementById("scanTargetImg").src = src; document.getElementById("resPalmImg").src = src; 
+                const src = e.target.result; document.getElementById("palmPreview").src = src; 
                 currentImageElement = new Image(); currentImageElement.src = src;
                 document.getElementById("uploadBox").style.display = "none"; document.getElementById("previewContainer").style.display = "block";
             }
@@ -685,47 +689,76 @@
     }
     function resetPalmImage() { document.getElementById("palmImage").value = ""; currentImageElement = null; document.getElementById("previewContainer").style.display = "none"; document.getElementById("uploadBox").style.display = "block"; }
 
+    // 画像のピクセル解析 (肌色成分を15%以上要求し、手以外をブロック)
     function analyzePalmImage(img) {
         return new Promise((resolve) => {
-            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 100; canvas.height = 100; ctx.drawImage(img, 0, 0, 100, 100);
-            let imgData; try { imgData = ctx.getImageData(0, 0, 100, 100); } catch(e) { resolve({ isHand: true, hash: 9999, edgeRatio: 0.1 }); return; }
-            const data = imgData.data; let skinToneCount = 0; let edgeCount = 0; let hash = 0;
+            const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 150; canvas.height = 150; ctx.drawImage(img, 0, 0, 150, 150);
+            let imgData; try { imgData = ctx.getImageData(0, 0, 150, 150); } catch(e) { resolve({ isHand: true, hash: 9999, edgeRatio: 0.1, brightness: 128 }); return; }
+            
+            const data = imgData.data; let skinToneCount = 0; let edgeCount = 0; let totalBrightness = 0; let hash = 0;
+            
             for (let i = 0; i < data.length; i += 4) {
                 let r = data[i], g = data[i+1], b = data[i+2]; hash = (hash * 31 + r + g + b) | 0; 
-                if (r > 60 && r > b && r > g - 20 && (Math.max(r,g,b) - Math.min(r,g,b) > 10)) skinToneCount++;
-                if (i > 4) { let prevR = data[i-4], prevG = data[i-3], prevB = data[i-2]; let diff = Math.abs(r - prevR) + Math.abs(g - prevG) + Math.abs(b - prevB); if (diff > 40) edgeCount++; }
+                
+                // 肌色の厳格判定（赤みが強く、白黒でもない）
+                if (r > 80 && g > 40 && b > 20 && r > g && r > b && Math.max(r,g,b) - Math.min(r,g,b) > 15) {
+                    skinToneCount++;
+                }
+                
+                totalBrightness += (0.299 * r + 0.587 * g + 0.114 * b);
+                
+                // シワ（エッジ）判定
+                if (i > 4 * 150) { let prevR = data[i-4], prevG = data[i-3], prevB = data[i-2]; let diff = Math.abs(r - prevR) + Math.abs(g - prevG) + Math.abs(b - prevB); if (diff > 45) edgeCount++; }
             }
-            resolve({ isHand: (skinToneCount / (data.length / 4)) > 0.05, hash: hash, edgeRatio: (edgeCount / (data.length / 4)) });
+            const pixelCount = data.length / 4;
+            resolve({ isHand: (skinToneCount / pixelCount) > 0.15, hash: hash, edgeRatio: (edgeCount / pixelCount), brightness: (totalBrightness / pixelCount) });
         });
     }
 
     async function startPalmOracle() {
-        const name = document.getElementById("name3").value.trim();
-        if (!name || !currentImageElement) return alert("お名前と、手のひらの写真アップロードが必要です。");
+        const name = document.getElementById("name3").value.trim(); const dob = document.getElementById("dob3").value;
+        if (!name) return alert("お名前を入力してください。");
+        if (!isValidDob(dob)) return;
+        if (!currentImageElement) return alert("手のひらの写真を撮影、またはアップロードしてください。");
+        
         const analysis = await analyzePalmImage(currentImageElement);
-        if (!analysis.isHand) { alert("【AIスキャンエラー】\n手のひらが正しく検出できませんでした（肌色成分が不足しています）。\n手以外の写真か、暗すぎる写真の可能性があります。別の明るい写真でお試しください。"); return; }
+        if (!analysis.isHand) { alert("【画像読み取りエラー】\n手のひらの波動（肌色成分や掌線の特徴）が正しく検出できませんでした。\n手以外の写真か、暗すぎる写真の可能性があります。明るい場所で手のひら全体を撮影し、再度お試しください。"); return; }
 
-        showLoading("DEEP SCANNING PIXEL DATA...", "var(--accent-palm)", true, () => {
-            const random = getSeededRandom(name + analysis.hash.toString() + "ai_palm_pixel_v2"); 
+        showLoading("READING PALM LINES...", "var(--accent-palm)", () => {
+            const random = getSeededRandom(name + analysis.hash.toString() + "palm_v4"); 
             document.getElementById("resName3").innerText = name + " 様";
+            document.getElementById("resPalmImg").src = currentImageElement.src;
             
+            // 解析結果の具体化
+            let skinType = analysis.brightness > 100 ? "ふっくらとした豊かな肉付き（各丘の発達）" : "すっきりとしたスマートな輪郭";
+            let edgeType = analysis.edgeRatio > 0.12 ? "細かなシワが無数に走る" : "主要な線が深く力強く刻まれている";
             let typeName = analysis.edgeRatio > 0.12 ? "水・風の要素" : "火・地の要素";
-            let overallText = analysis.edgeRatio > 0.12 ? `AIの画像解析により、あなたの手相は<span class='palm-highlight'>非常に複雑な線が無数に刻まれた「${typeName}」</span>を強く帯びていることが判明しました。非常に感受性が高く、他人の痛みがわかる優しい性格です。` : `AIの画像解析により、あなたの手相は<span class='palm-highlight'>主要な線が太く力強く刻まれた「${typeName}」</span>を強く帯びていることが判明しました。迷いが少なく、決断力と行動力に優れたメンタルの持ち主です。`;
-            document.getElementById("resP_overall").innerHTML = `<p>${overallText}</p>`;
+
+            let overallText = `<p>アップロードされた画像から掌の輪郭と線を精密に読み取りました。あなたの手のひらは「${skinType}」を持ち、「${edgeType}」という特徴が確認できます。</p>`;
+            if (analysis.edgeRatio > 0.12) {
+                overallText += `<p>細かく複雑な線が刻まれた手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、非常に感受性が高く、他人の痛みがわかる優しい性格を表します。直感力に優れ、スピリチュアルな感性も持ち合わせているでしょう。</p>`;
+            } else {
+                overallText += `<p>主要な線がくっきりと現れる手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、迷いが少なく、決断力と行動力に優れた強靭なメンタルの持ち主であることを示します。自らの力で運命を切り拓く力を持っています。</p>`;
+            }
+            if (analysis.brightness > 110) {
+                overallText += `<p>また、掌全体の明度と血色の分析から、<span class='palm-highlight'>明るく温かい波動（生命のエネルギー）</span>が強く感じられます。現在、あなたの運気が上昇気流に乗っており、新しいことを始めるのに最適な時期であることを示しています。</p>`;
+            } else {
+                overallText += `<p>また、掌の陰影の深さから、現在は<span class='palm-highlight'>内省しエネルギーを蓄える時期（静の波動）</span>であることが読み取れます。焦らず自分自身と向き合うことで、後に大きな飛躍を遂げる準備期間です。</p>`;
+            }
+            document.getElementById("resP_overall").innerHTML = overallText;
             
-            const p_lifes = ["手首の方まで深く刻まれており、恐ろしいほどの生命力とバイタリティを秘めています。", "金星丘を広く囲むように伸びています。非常に愛情深く、人を引き付ける強いカリスマ性を放っています。"];
-            const p_heads = ["真横に一直線に伸びています。非常に論理的で感情に流されず確実な成果を出す思考回路です。", "手首の下方に向かって美しいカーブを描いています。極めて高い想像力とクリエイティブな才能の持ち主です。"];
+            const p_lifes = ["手首の方向へ長く深く刻まれており、非常に強い生命力とバイタリティを秘めています。", "親指の付け根（金星丘）を大きく囲むように伸びています。とても愛情深く、人を引き付けるカリスマ性を放っています。"];
+            const p_heads = ["真横に近い角度で一直線に伸びています。論理的かつ現実的で、感情に流されずに的確な判断を下せる思考回路の持ち主です。", "手首の下方（月丘）に向かって美しいカーブを描いています。豊かな想像力とクリエイティブな才能に恵まれています。"];
             document.getElementById("resP_life").innerHTML = "<strong style='color:var(--gold-light);'>【生命線】</strong> " + p_lifes[Math.floor(random() * p_lifes.length)];
             document.getElementById("resP_head").innerHTML = "<strong style='color:var(--gold-light);'>【知能線】</strong> " + p_heads[Math.floor(random() * p_heads.length)];
-            document.getElementById("resP_heart").innerHTML = "<strong style='color:var(--gold-light);'>【感情線】</strong> 人差し指と中指の間に向かって急カーブを描いています。情熱的で愛情表現が豊かです。";
-            document.getElementById("resP_fate").innerHTML = "<strong style='color:var(--gold-light);'>【運命線】</strong> 手首の中央から中指に向かって突き抜けています。自分の実力だけで成功を築き上げる自己実現力を持っています。";
+            document.getElementById("resP_heart").innerHTML = "<strong style='color:var(--gold-light);'>【感情線】</strong> 人差し指と中指の間に向かって急なカーブを描いて伸びています。非常に情熱的で、愛する人にはとことん尽くす深い愛情の持ち主です。";
+            document.getElementById("resP_fate").innerHTML = "<strong style='color:var(--gold-light);'>【運命線】</strong> 手のひらの中央を中指に向かって力強く突き抜けています。自らの信念と実力だけで、社会的な大成功を収める力を持っています。";
             
-            // 💎 プレミアムテキスト生成
-            document.getElementById("resP_future").innerHTML = `<p>抽出された波形から予測すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れます。</p><p>これまであなたが水面下で積み重ねてきた努力や我慢が、一気に報われるタイミングが近づいています。全く新しい環境や未知の役割に飛び込むことで、想像以上のスケールで物事が展開し、人生の黄金期を迎えるでしょう。</p>`;
+            document.getElementById("resP_future").innerHTML = `<p>掌の刻みから未来を透視すると、<span class='palm-highlight'>数年以内にあなたの人生のステージが一段階上がる「劇的な飛躍の時期」</span>が訪れることが分かります。</p><p>これまであなたが水面下で積み重ねてきた努力や我慢が、一気に報われるタイミングが近づいています。全く新しい環境や未知の役割に飛び込むことで、想像以上のスケールで物事が展開し、人生の黄金期を迎えるでしょう。</p>`;
             document.getElementById("resP_love").innerHTML = `<p>今後の恋愛運は穏やかな愛情に満ちた時期に入ります。無理をせず素の自分を出せる相手との関係が深まります。ありのままのあなたの弱さすらも愛してくれる、海のように器の大きな愛に包まれる未来が視えています。</p>`;
-            document.getElementById("resP_work").innerHTML = `<p>仕事運は独自の才能やアイデアが爆発的に評価されるデータが出ています。直感に従うことで金運も跳ね上がります。組織の中で言われたことをこなすよりも、自分の裁量で動ける環境で大成功を収めるポテンシャルを秘めています。</p>`;
+            document.getElementById("resP_work").innerHTML = `<p>仕事運は独自の才能やアイデアが爆発的に評価されるサインが出ています。直感に従うことで金運も連動して跳ね上がります。組織の中で言われたことをこなすよりも、自分の裁量で動ける環境で大成功を収めるポテンシャルを秘めています。</p>`;
             
-            shareTextCache['palm'] = `✋【星屑の神託】AI画像手相解析を実行しました！\n${name}様の手相は「${typeName}」タイプ。\n数年以内に劇的な飛躍の時期が訪れるサインが出ています！✨\n`;
+            shareTextCache['palm'] = `✋【星屑の神託】画像手相鑑定を実行しました！\n${name}様の手相は「${typeName}」タイプ。\n数年以内に劇的な飛躍の時期が訪れるサインが出ています！✨\n`;
             document.getElementById("res-palm").classList.add("active");
         });
     }
@@ -762,9 +795,11 @@
 
     function startTarotOracle() {
         const name = document.getElementById("name4").value.trim(); const dob = document.getElementById("dob4").value; const worry = document.getElementById("worry4").value.trim();
-        if (!name || !dob || !worry) return alert("魂の波長を合わせるため、お名前・生年月日・具体的な悩みはすべて必須です。");
+        if (!name) return alert("お名前を入力してください。");
+        if (!isValidDob(dob)) return;
+        if (!worry) return alert("魂の波長を合わせるため、具体的な悩みを少しでもご入力ください。");
 
-        showLoading("SHUFFLING TAROT DECK...", "var(--accent-tarot)", false, () => {
+        showLoading("SHUFFLING TAROT DECK...", "var(--accent-tarot)", () => {
             const seedStr = name + dob + worry + "tarot_ultimate_final_v6"; const random = getSeededRandom(seedStr); 
             let deck = [...majorArcana]; let drawnCards = [];
             for(let i=0; i<3; i++) { let idx = Math.floor(random() * deck.length); let card = deck.splice(idx, 1)[0]; drawnCards.push({ card: card, isReversed: random() > 0.6 }); }
@@ -783,7 +818,6 @@
                 document.getElementById(i===0 ? "resT_past" : i===1 ? "resT_present" : "resT_future").innerHTML = text;
             }
 
-            // 💎 プレミアムテキスト生成
             let adviceMsg = generateWorryAnswer(worry, drawnCards[2].card, drawnCards[2].isReversed);
             document.getElementById("tarotFinalMsg").innerHTML = adviceMsg;
             
@@ -793,7 +827,6 @@
             setTimeout(() => document.getElementById("tCard1").classList.add("flipped"), 600); setTimeout(() => document.getElementById("tCard2").classList.add("flipped"), 1400); setTimeout(() => document.getElementById("tCard3").classList.add("flipped"), 2200);
         });
     }
-
 </script>
 </body>
 </html>
