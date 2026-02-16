@@ -3,241 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>星屑の神託 - Astral Oracle -</title>
+    
+    <meta name="google-site-verification" content="vQkgsiI6ESyUE4NxB11bOJWI2j2tAi0MYAKGw4ZHCb8" />
+    <title>星屑の神託 - 本格スピリチュアル占い -</title>
+    <meta name="description" content="あなたのお名前と生年月日から、生まれ持った本質と毎日の運勢を導き出す本格スピリチュアル占い。">
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --gold: #e2c07d;
-            --bg-glass: rgba(20, 15, 30, 0.65);
+            --gold-light: #f9e5b5;
+            --bg-glass: rgba(15, 10, 25, 0.85);
+            --border-color: rgba(226, 192, 125, 0.3);
+            --accent: #8a63a5;
         }
         
         body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0; padding: 20px 10px; min-height: 100vh;
+            display: flex; align-items: flex-start; justify-content: center;
             background: radial-gradient(circle at center, #1a1025 0%, #05020a 100%);
-            font-family: 'Shippori Mincho', serif;
-            color: #f4ede4;
-            overflow: hidden;
+            font-family: 'Shippori Mincho', serif; color: #f4ede4;
+            box-sizing: border-box; overflow-x: hidden;
         }
 
-        /* 背景の星屑アニメーション */
+        /* スクロールバー装飾 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+        /* 星屑アニメーション */
         .stars {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            z-index: 0;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
             background-image: 
-                radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 50px 70px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90px 40px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 160px 120px, #ffffff, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            animation: twinkle 5s infinite alternate;
-            opacity: 0.5;
+                radial-gradient(1.5px 1.5px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 160px 120px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat; background-size: 250px 250px;
+            animation: twinkle 5s infinite alternate; opacity: 0.5;
         }
-
-        @keyframes twinkle {
-            0% { opacity: 0.2; }
-            100% { opacity: 0.7; transform: scale(1.05); }
-        }
+        @keyframes twinkle { 0% { opacity: 0.2; } 100% { opacity: 0.7; transform: scale(1.05); } }
 
         /* メインパネル */
         .glass-panel {
-            position: relative;
-            z-index: 10;
-            background: var(--bg-glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(226, 192, 125, 0.3);
-            border-radius: 16px;
-            padding: 40px 30px;
-            width: 90%;
-            max-width: 420px;
-            text-align: center;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(226, 192, 125, 0.1);
+            background: var(--bg-glass); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border-color); border-radius: 16px;
+            padding: 35px 25px; width: 100%; max-width: 500px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.8), inset 0 0 20px rgba(226,192,125,0.05);
         }
 
-        h1 {
-            font-size: 26px;
-            color: var(--gold);
-            margin: 0 0 10px;
-            letter-spacing: 3px;
-            text-shadow: 0 0 15px rgba(226, 192, 125, 0.5);
-        }
+        h1 { font-size: 26px; color: var(--gold); margin: 0 0 5px; text-align: center; letter-spacing: 4px; text-shadow: 0 0 15px rgba(226,192,125,0.5); }
+        p.subtitle { font-size: 13px; color: #a497b5; margin-bottom: 30px; text-align: center; letter-spacing: 2px; }
 
-        p.subtitle {
-            font-size: 13px;
-            color: #a497b5;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-
-        /* 入力フォーム周り */
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 13px;
-            color: var(--gold);
-            letter-spacing: 1px;
-        }
-
+        /* 入力フォーム */
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 13px; color: var(--gold-light); letter-spacing: 1px; }
         input {
-            width: 100%;
-            padding: 12px;
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(226, 192, 125, 0.3);
-            border-radius: 6px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 16px;
-            box-sizing: border-box;
-            transition: 0.3s;
+            width: 100%; padding: 14px; background: rgba(0,0,0,0.5);
+            border: 1px solid var(--border-color); border-radius: 8px; color: #fff;
+            font-size: 16px; font-family: inherit; box-sizing: border-box; transition: 0.3s;
             color-scheme: dark;
         }
+        input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 12px rgba(226,192,125,0.4); }
 
-        input:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 10px rgba(226, 192, 125, 0.3);
-            background: rgba(0, 0, 0, 0.6);
+        button.main-btn {
+            width: 100%; padding: 16px; margin-top: 10px;
+            background: linear-gradient(135deg, #8b6b32, #e2c07d, #8b6b32); background-size: 200% auto;
+            color: #111; font-family: inherit; font-size: 16px; font-weight: bold;
+            border: none; border-radius: 30px; cursor: pointer; letter-spacing: 2px;
+            transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
+        button.main-btn:hover { background-position: right center; box-shadow: 0 0 20px rgba(226,192,125,0.6); transform: translateY(-2px); }
 
-        /* 占うボタン */
-        button {
-            width: 100%;
-            padding: 14px;
-            margin-top: 10px;
-            background: linear-gradient(135deg, #a68444, #dcc079, #a68444);
-            background-size: 200% auto;
-            color: #111;
-            font-family: inherit;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            letter-spacing: 2px;
-            transition: 0.4s;
-        }
-
-        button:hover {
-            background-position: right center;
-            box-shadow: 0 0 20px rgba(220, 192, 121, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* ローディング演出 */
-        #loading {
-            display: none;
-            padding: 30px 0;
-        }
-
+        /* ローディング */
+        #loading { display: none; padding: 40px 0; text-align: center; }
         .magic-circle {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            border: 2px dashed var(--gold);
-            border-radius: 50%;
-            animation: spin 4s linear infinite;
-            position: relative;
+            width: 70px; height: 70px; margin: 0 auto 20px; border: 2px dashed var(--gold); border-radius: 50%;
+            animation: spin 5s linear infinite; position: relative;
         }
-
-        .magic-circle::before {
-            content: "✦";
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            color: var(--gold);
-            font-size: 24px;
-            animation: pulse 1.5s infinite alternate;
+        .magic-circle::before, .magic-circle::after {
+            content: ""; position: absolute; top: 5%; left: 5%; right: 5%; bottom: 5%;
+            border: 1px solid rgba(226,192,125,0.4); animation: spin-reverse 7s linear infinite;
         }
-
+        .magic-circle::after { transform: rotate(45deg); animation: spin-offset 7s linear infinite; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes pulse { 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.8); } }
-
-        .loading-text {
-            color: var(--gold);
-            font-size: 14px;
-            letter-spacing: 2px;
-            animation: blink 1.5s infinite;
-        }
+        @keyframes spin-reverse { 100% { transform: rotate(-360deg); } }
+        @keyframes spin-offset { 0% { transform: rotate(45deg); } 100% { transform: rotate(-315deg); } }
+        .loading-text { color: var(--gold); font-size: 14px; letter-spacing: 2px; animation: blink 1.5s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
 
         /* 結果画面 */
-        #result-screen {
-            display: none;
-            animation: fadeIn 1s ease forwards;
-        }
+        #result-screen { display: none; animation: fadeIn 1s ease forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .section-header { font-size: 16px; color: var(--gold); margin: 30px 0 15px; display: flex; align-items: center; gap: 10px; }
+        .section-header::before, .section-header::after { content: ""; flex: 1; height: 1px; background: var(--border-color); }
 
-        .result-header { font-size: 15px; color: #a497b5; margin-bottom: 10px; display: block;}
-        .result-name { font-size: 18px; color: #fff; margin-bottom: 20px; display: block;}
-        
-        .fortune-rank {
-            font-size: 36px;
-            color: var(--gold);
-            font-weight: bold;
-            margin: 10px 0 25px;
-            text-shadow: 0 0 20px rgba(226, 192, 125, 0.6);
-            letter-spacing: 4px;
-        }
+        /* 基本性質 */
+        .profile-box { text-align: center; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(226,192,125,0.2); }
+        .profile-name { font-size: 20px; color: #fff; margin-bottom: 10px; letter-spacing: 1px;}
+        .profile-tags { font-size: 14px; color: var(--gold-light); margin-bottom: 15px; }
+        .profile-desc { font-size: 14px; line-height: 1.8; color: #d0c8dd; text-align: left; }
 
-        .details-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 25px;
-            text-align: left;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(226, 192, 125, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-        }
+        /* 総合運勢 */
+        .score-box { text-align: center; margin: 25px 0; }
+        .fortune-rank { font-size: 46px; color: var(--gold); font-weight: bold; text-shadow: 0 0 20px rgba(226,192,125,0.7); letter-spacing: 6px; margin-bottom: 5px; }
+        .score-num { font-size: 24px; color: #fff; font-weight: bold; }
+        .score-num span { font-size: 14px; color: #a497b5; font-weight: normal; }
 
-        .detail-item { display: flex; flex-direction: column; }
-        .detail-label { font-size: 11px; color: #a497b5; margin-bottom: 4px; }
-        .detail-value { font-size: 14px; color: #fff; font-weight: bold; }
-        .stars-value { color: var(--gold); letter-spacing: 2px; font-size: 14px;}
+        /* パラメーター（バー） */
+        .status-box { background: rgba(0,0,0,0.3); padding: 20px; border-radius: 12px; border: 1px solid rgba(226,192,125,0.2); }
+        .status-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 15px; }
+        .status-row:last-child { margin-bottom: 0; }
+        .status-label { font-size: 13px; color: #eaeaeb; width: 50px; }
+        .status-bar-bg { flex-grow: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 15px; overflow: hidden; }
+        .status-bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--gold)); border-radius: 4px; width: 0%; transition: width 1.5s ease-out; }
+        .status-value { font-size: 14px; color: var(--gold); width: 40px; text-align: right; font-weight: bold; }
 
-        .message-box {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #e0dced;
-            text-align: left;
-            padding: 15px;
-            border-left: 2px solid var(--gold);
-            background: linear-gradient(90deg, rgba(226, 192, 125, 0.1) 0%, rgba(0,0,0,0) 100%);
-            margin-bottom: 25px;
+        /* 神託メッセージ */
+        .oracle-msg {
+            font-size: 14.5px; line-height: 2; color: #fff; padding: 20px;
+            background: linear-gradient(180deg, rgba(226,192,125,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            border: 1px solid var(--border-color); border-radius: 12px;
+            position: relative; margin-bottom: 30px;
         }
+        .oracle-msg::before { content: "“"; position: absolute; top: -10px; left: 10px; font-size: 40px; color: var(--gold); opacity: 0.4; font-family: sans-serif; }
+
+        /* ラッキー要素 */
+        .lucky-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 30px; }
+        .lucky-item { background: rgba(226,192,125,0.05); border: 1px solid rgba(226,192,125,0.15); padding: 12px; border-radius: 8px; text-align: center; }
+        .lucky-label { font-size: 11px; color: #a497b5; display: block; margin-bottom: 5px; }
+        .lucky-value { font-size: 14px; color: var(--gold-light); font-weight: bold; }
 
         .btn-retry {
-            background: transparent;
-            border: 1px solid rgba(226, 192, 125, 0.5);
-            color: var(--gold);
-            padding: 10px;
-            font-size: 14px;
-            width: 100%;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s;
+            width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border-color);
+            color: var(--gold); border-radius: 30px; cursor: pointer; font-size: 15px; transition: 0.3s;
         }
-        .btn-retry:hover {
-            background: rgba(226, 192, 125, 0.1);
-            color: #fff;
-        }
+        .btn-retry:hover { background: rgba(226,192,125,0.1); color: #fff; }
     </style>
 </head>
 <body>
@@ -259,135 +162,246 @@
             <input type="date" id="userDob">
         </div>
 
-        <button onclick="startOracle()">運命の扉を開く</button>
+        <button class="main-btn" onclick="startOracle()">運命の扉を開く</button>
     </div>
 
     <div id="loading">
         <div class="magic-circle"></div>
-        <div class="loading-text">星々の記憶を辿っています...</div>
+        <div class="loading-text">アカシックレコードに接続中...</div>
     </div>
 
     <div id="result-screen">
-        <span class="result-header">本日の運勢</span>
-        <strong class="result-name" id="resName"></strong>
+        
+        <div class="section-header">あなたの本質と宿星</div>
+        <div class="profile-box">
+            <div class="profile-name" id="resName"></div>
+            <div class="profile-tags">
+                <span id="resZodiac"></span> ｜ ソウルナンバー: <strong id="resDestinyNum"></strong>
+            </div>
+            <div class="profile-desc" id="resDestinyText"></div>
+        </div>
 
-        <div class="fortune-rank" id="resRank"></div>
+        <div class="section-header"><span id="resDate"></span> の運勢</div>
+        <div class="score-box">
+            <div class="fortune-rank" id="resRank"></div>
+            <div class="score-num">総合スコア： <span style="font-size:28px; color:var(--gold);" id="resScore">0</span><span> / 100点</span></div>
+        </div>
 
-        <div class="details-grid">
-            <div class="detail-item">
-                <span class="detail-label">恋愛運</span>
-                <span class="stars-value" id="resLove"></span>
+        <div class="status-box">
+            <div class="status-row">
+                <span class="status-label">恋愛運</span>
+                <div class="status-bar-bg"><div class="status-bar-fill" id="barLove"></div></div>
+                <span class="status-value" id="valLove"></span>
             </div>
-            <div class="detail-item">
-                <span class="detail-label">仕事運</span>
-                <span class="stars-value" id="resWork"></span>
+            <div class="status-row">
+                <span class="status-label">仕事運</span>
+                <div class="status-bar-bg"><div class="status-bar-fill" id="barWork"></div></div>
+                <span class="status-value" id="valWork"></span>
             </div>
-            <div class="detail-item">
-                <span class="detail-label">ラッキーカラー</span>
-                <span class="detail-value" id="resColor"></span>
+            <div class="status-row">
+                <span class="status-label">金運</span>
+                <div class="status-bar-bg"><div class="status-bar-fill" id="barMoney"></div></div>
+                <span class="status-value" id="valMoney"></span>
             </div>
-            <div class="detail-item">
-                <span class="detail-label">ラッキーアイテム</span>
-                <span class="detail-value" id="resItem"></span>
+            <div class="status-row">
+                <span class="status-label">健康運</span>
+                <div class="status-bar-bg"><div class="status-bar-fill" id="barHealth"></div></div>
+                <span class="status-value" id="valHealth"></span>
             </div>
         </div>
 
-        <div class="message-box" id="resMessage"></div>
+        <div class="lucky-grid">
+            <div class="lucky-item"><span class="lucky-label">ラッキーカラー</span><span class="lucky-value" id="resColor"></span></div>
+            <div class="lucky-item"><span class="lucky-label">ラッキーアイテム</span><span class="lucky-value" id="resItem"></span></div>
+            <div class="lucky-item"><span class="lucky-label">ラッキーナンバー</span><span class="lucky-value" id="resNum"></span></div>
+            <div class="lucky-item"><span class="lucky-label">吉方位（方角）</span><span class="lucky-value" id="resDir"></span></div>
+        </div>
 
-        <button class="btn-retry" onclick="resetOracle()">もう一度占う</button>
+        <div class="section-header">星屑からのメッセージ</div>
+        <div class="oracle-msg" id="resMessage"></div>
+
+        <button class="btn-retry" onclick="resetOracle()">別の運命を占う</button>
     </div>
 </div>
 
 <script>
-    const ranks = [
-        { name: "大吉", weight: 15 },
-        { name: "中吉", weight: 25 }, 
-        { name: "小吉", weight: 30 }, 
-        { name: "吉", weight: 20 },   
-        { name: "末吉", weight: 10 }  
+    // --- 🔮占いデータベース ---
+    const destinyData = {
+        1: "あなたは「開拓者」の魂を持っています。強い意志とリーダーシップを備え、誰も歩んだことのない道を切り拓く力があります。",
+        2: "あなたは「調和をもたらす者」です。他者の感情に寄り添う深い共感力と優しさを持っています。人と人を繋ぐ架け橋となる存在です。",
+        3: "あなたは「創造する表現者」です。無邪気な好奇心と豊かな想像力を持ち、周囲を明るく照らす太陽のような存在です。",
+        4: "あなたは「安定の礎」となる魂を持っています。真面目で誠実、コツコツと努力を積み重ねて確固たる基盤を築く天才です。",
+        5: "あなたは「自由な冒険者」です。変化を恐れず、常に新しい刺激や未知の世界を求めるエネルギッシュな性質を持っています。",
+        6: "あなたは「愛と奉仕の守護者」です。深い慈愛の心を持ち、家族や仲間を全身全霊で守り抜く強さがあります。",
+        7: "あなたは「真理の探求者」です。鋭い洞察力と分析力を持ち、物事の本質を解き明かそうとする哲学者です。",
+        8: "あなたは「豊かさの体現者」です。現実世界で目に見える成果や成功を引き寄せる、強大なパワーと情熱を秘めています。",
+        9: "あなたは「慈愛の賢者」です。すべての要素を内包し、高い視点から世界を見渡す広い視野と、他者を癒やす力を持っています。",
+        11: "あなたは「直感のメッセンジャー」です。非常に強いスピリチュアルな感性を持ち、目に見えない世界からのメッセージを受け取るアンテナを持っています。",
+        22: "あなたは「理想の実現者」です。高い理想を掲げるだけでなく、それを現実の世界で形にする類まれなスケールと実行力を持っています。",
+        33: "あなたは「宇宙の愛の奉仕者」です。自身の損得を度外視して人類全体に無償の愛を注ぐ、非常にスケールの大きな魂です。"
+    };
+
+    const colors = ["ラピスラズリ (瑠璃)", "アメジスト (紫)", "エメラルド (緑)", "ルビー (真紅)", "ローズクォーツ (桜)", "オニキス (漆黒)", "パール (真珠)", "ゴールド (黄金)", "サファイア (蒼)", "ターコイズ (水色)"];
+    const items = ["アンティークの鍵", "銀の砂時計", "古い洋書", "星のペンダント", "手鏡", "ハーブティー", "お気に入りの香水", "万年筆", "水晶のブレスレット", "月を模したランプ"];
+    const directions = ["北", "北東", "東", "南東", "南", "南西", "西", "北西"];
+
+    const msgIntro = [
+        "現在、あなたの周囲には穏やかで神秘的な星の気が満ちています。",
+        "運命の輪が静かに回り始め、あなたの魂が新たなフェーズへと移行しつつあるようです。",
+        "星々の配置が、あなたの中に眠る隠された才能を呼び覚まそうとしています。",
+        "過去の経験が美しい結晶となり、今のあなたを強く支えているのが見えます。"
+    ];
+    const msgBody = [
+        "これまで少し滞っていた物事が、思いがけないきっかけからスムーズに動き出す暗示が出ています。ふと耳にした言葉に重大なヒントが隠されているでしょう。",
+        "対人関係において、あなたの誠実な態度が誰かの心を深く打ち、強固な信頼関係が結ばれる瞬間が訪れます。笑顔を大切にしてください。",
+        "直感が非常に鋭くなっています。論理的な思考よりも「なんとなくこっちが良い気がする」という心の声に従うことで、大正解を引き寄せます。",
+        "少し忘れていた昔の夢や目標に、再び情熱の火が灯る出来事がありそうです。自分自身の可能性を信じてあげてください。"
+    ];
+    const msgAdvice = [
+        "今日は、あえて『いつもとは違う選択』をしてみてください。それが幸運への最短ルートとなります。",
+        "焦りは禁物です。深呼吸をして、自分のペースを乱さないことだけを意識して一日を過ごしてください。",
+        "身の回りの不要なものを一つ手放すことで、そこに新しい良い運気が流れ込んできます。整理整頓が吉です。",
+        "周囲への感謝の気持ちを、心の中で思うだけでなく、きちんと言葉にして伝えることで運気はさらに跳ね上がります。"
     ];
 
-    const colors = ["ラピスラズリ (瑠璃色)", "アメジスト (紫)", "エメラルド (緑)", "ルビー (真紅)", "ローズクォーツ (桜色)", "オニキス (漆黒)", "パール (真珠色)", "ゴールド (黄金色)"];
-    const items = ["アンティークの鍵", "銀の砂時計", "古い洋書", "星のペンダント", "手鏡", "温かいハーブティー", "お気に入りの香水", "万年筆"];
-    const messages = [
-        "直感が冴え渡る一日です。迷ったときは、最初に思い浮かんだ答えを信じて進んでください。",
-        "思いがけない偶然が重なり、幸運を引き寄せる星回りです。いつもとは違う道を通ってみると新しい発見が。",
-        "少し休息を求めているサインが出ています。今日は無理をせず、自分のためだけの静かな時間を作ってください。",
-        "過去の経験があなたを助けてくれます。懐かしい人に連絡を取ったり、昔の趣味を再開すると運気アップ。",
-        "あなたの何気ない一言が、誰かの心を温かく救う日です。感謝の気持ちを言葉にして伝えることを意識しましょう。",
-        "新しいことを始めるのに最適なタイミング。躊躇していたことがあるなら、今日小さな一歩を踏み出してください。",
-        "身の回りの整理整頓が運気アップの鍵です。不要なものを手放すことで、新しい良い気が流れ込んできます。"
-    ];
-
-    function getStarsHTML(num) {
-        return '★'.repeat(num) + '☆'.repeat(5 - num);
+    // 星座計算
+    function getZodiac(month, day) {
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "♈ 牡羊座";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "♉ 牡牛座";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 21)) return "♊ 双子座";
+        if ((month == 6 && day >= 22) || (month == 7 && day <= 22)) return "♋ 蟹座";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "♌ 獅子座";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "♍ 乙女座";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 23)) return "♎ 天秤座";
+        if ((month == 10 && day >= 24) || (month == 11 && day <= 22)) return "♏ 蠍座";
+        if ((month == 11 && day >= 23) || (month == 12 && day <= 21)) return "♐ 射手座";
+        if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "♑ 山羊座";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "♒ 水瓶座";
+        return "♓ 魚座";
     }
 
+    // カバラ数秘術による運命数計算
+    function calculateDestinyNumber(dob) {
+        let numStr = dob.replace(/-/g, "");
+        while (numStr.length > 1) {
+            let sum = 0;
+            for (let char of numStr) sum += parseInt(char);
+            if (sum === 11 || sum === 22 || sum === 33) return sum;
+            numStr = sum.toString();
+        }
+        return parseInt(numStr);
+    }
+
+    // --- 🔮メイン処理 ---
     function startOracle() {
         const name = document.getElementById("userName").value.trim();
         const dob = document.getElementById("userDob").value;
 
         if (!name || !dob) {
-            alert("星の軌跡を辿るために、お名前と生年月日を入力してください。");
+            alert("魂の軌跡を読み解くため、お名前と生年月日を両方入力してください。");
             return;
         }
 
         document.getElementById("input-screen").style.display = "none";
         document.getElementById("loading").style.display = "block";
+        window.scrollTo(0, 0);
 
-        setTimeout(() => {
-            showResult(name, dob);
-        }, 2000);
+        setTimeout(() => { showResult(name, dob); }, 2500);
     }
 
     function showResult(name, dob) {
+        const dobDate = new Date(dob);
+        const zodiac = getZodiac(dobDate.getMonth() + 1, dobDate.getDate());
+        const destinyNum = calculateDestinyNumber(dob);
+        const destinyText = destinyData[destinyNum] || destinyData[1];
+
         const today = new Date();
         const dateStr = `${today.getFullYear()}${today.getMonth() + 1}${today.getDate()}`;
         
+        // シード値生成（日替わりロジック）
         const seedStr = name + dob + dateStr;
         let seed = 0;
-        for (let i = 0; i < seedStr.length; i++) {
-            seed = seedStr.charCodeAt(i) + ((seed << 5) - seed);
-        }
+        for (let i = 0; i < seedStr.length; i++) seed = seedStr.charCodeAt(i) + ((seed << 5) - seed);
         seed = Math.abs(seed);
+        function random() { let x = Math.sin(seed++) * 10000; return x - Math.floor(x); }
 
-        function random() {
-            let x = Math.sin(seed++) * 10000;
-            return x - Math.floor(x);
-        }
+        // スコア計算 (40〜100)
+        const score = Math.floor(random() * 61) + 40; 
+        let rank = "末吉";
+        if (score >= 90) rank = "大吉";
+        else if (score >= 75) rank = "中吉";
+        else if (score >= 60) rank = "小吉";
+        else if (score >= 45) rank = "吉";
 
-        let randVal = random() * 100;
-        let cumulative = 0;
-        let finalRank = "吉";
-        for (let r of ranks) {
-            cumulative += r.weight;
-            if (randVal <= cumulative) {
-                finalRank = r.name;
-                break;
-            }
-        }
+        // パラメーター計算 (スコア基準でブレさせる)
+        const getParam = () => {
+            let p = score + Math.floor(random() * 30) - 15;
+            return p > 100 ? 100 : (p < 20 ? 20 : p);
+        };
+        const valLove = getParam();
+        const valWork = getParam();
+        const valMoney = getParam();
+        const valHealth = getParam();
 
-        const loveStars = Math.floor(random() * 5) + 1;
-        const workStars = Math.floor(random() * 5) + 1;
-        const color = colors[Math.floor(random() * colors.length)];
-        const item = items[Math.floor(random() * items.length)];
-        const message = messages[Math.floor(random() * messages.length)];
-
+        // 画面にテキストをセット
         document.getElementById("resName").innerText = name + " 様";
-        document.getElementById("resRank").innerText = finalRank;
-        document.getElementById("resLove").innerText = getStarsHTML(loveStars);
-        document.getElementById("resWork").innerText = getStarsHTML(workStars);
-        document.getElementById("resColor").innerText = color;
-        document.getElementById("resItem").innerText = item;
-        document.getElementById("resMessage").innerText = message;
+        document.getElementById("resZodiac").innerText = zodiac;
+        document.getElementById("resDestinyNum").innerText = destinyNum;
+        document.getElementById("resDestinyText").innerText = destinyText;
 
+        document.getElementById("resDate").innerText = `${today.getMonth() + 1}月${today.getDate()}日`;
+        document.getElementById("resRank").innerText = rank;
+        
+        document.getElementById("valLove").innerText = valLove + "%";
+        document.getElementById("valWork").innerText = valWork + "%";
+        document.getElementById("valMoney").innerText = valMoney + "%";
+        document.getElementById("valHealth").innerText = valHealth + "%";
+
+        document.getElementById("resColor").innerText = colors[Math.floor(random() * colors.length)];
+        document.getElementById("resItem").innerText = items[Math.floor(random() * items.length)];
+        document.getElementById("resNum").innerText = Math.floor(random() * 99) + 1;
+        document.getElementById("resDir").innerText = directions[Math.floor(random() * directions.length)];
+
+        const fullMsg = msgIntro[Math.floor(random() * msgIntro.length)] + "<br><br>" + 
+                        msgBody[Math.floor(random() * msgBody.length)] + "<br><br>" + 
+                        msgAdvice[Math.floor(random() * msgAdvice.length)];
+        document.getElementById("resMessage").innerHTML = fullMsg;
+
+        // ゲージ初期化
+        document.getElementById("barLove").style.width = "0%";
+        document.getElementById("barWork").style.width = "0%";
+        document.getElementById("barMoney").style.width = "0%";
+        document.getElementById("barHealth").style.width = "0%";
+
+        // 画面切り替え
         document.getElementById("loading").style.display = "none";
         document.getElementById("result-screen").style.display = "block";
+
+        // アニメーション発動
+        setTimeout(() => {
+            document.getElementById("barLove").style.width = valLove + "%";
+            document.getElementById("barWork").style.width = valWork + "%";
+            document.getElementById("barMoney").style.width = valMoney + "%";
+            document.getElementById("barHealth").style.width = valHealth + "%";
+        }, 100);
+
+        // スコアのカウントアップ演出
+        let currentScore = 0;
+        const scoreEl = document.getElementById("resScore");
+        const timer = setInterval(() => {
+            currentScore += 2;
+            if (currentScore >= score) {
+                currentScore = score;
+                clearInterval(timer);
+            }
+            scoreEl.innerText = currentScore;
+        }, 25);
     }
 
     function resetOracle() {
         document.getElementById("result-screen").style.display = "none";
         document.getElementById("input-screen").style.display = "block";
+        window.scrollTo(0, 0);
     }
 </script>
 </body>
