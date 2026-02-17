@@ -31,6 +31,18 @@
         .page-wrapper.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
+        /* ====== ログイン/登録モーダル ====== */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+        .modal-overlay.active { display: flex; animation: fadeIn 0.4s ease; }
+        .modal-content { max-width: 400px; width: 90%; padding: 30px 20px; margin: 0; border-color: var(--gold); }
+        .auth-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 25px; }
+        .auth-tab { flex: 1; background: transparent; border: none; color: var(--text-sub); padding: 12px; cursor: pointer; font-weight: bold; letter-spacing: 2px; transition: 0.3s; font-size: 13px; font-family: inherit;}
+        .auth-tab.active { color: var(--gold); border-bottom: 2px solid var(--gold); }
+        .auth-form { display: none; }
+        .auth-form.active { display: block; animation: fadeIn 0.4s ease; }
+        .btn-cancel { background: transparent; border: none; color: var(--text-sub); text-decoration: underline; cursor: pointer; margin-top: 20px; width: 100%; font-size: 12px; letter-spacing: 1px; transition: 0.3s; font-family: inherit;}
+        .btn-cancel:hover { color: #fff; }
+
         /* ====== TOPページ ====== */
         .hero-section { text-align: center; padding: 20px 0 30px; }
         .hero-title-en { font-family: 'Cinzel', serif; font-size: 38px; color: var(--gold); letter-spacing: 8px; margin-bottom: 5px; text-shadow: 0 0 20px rgba(212,175,55,0.5); font-weight: 700;}
@@ -71,11 +83,6 @@
         .enter-btn { display: inline-block; padding: 22px 60px; font-size: 17px; font-weight: 700; letter-spacing: 4px; color: #000; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); background-size: 200% auto; border: none; border-radius: 50px; cursor: pointer; transition: 0.5s; box-shadow: 0 10px 30px rgba(212,175,55,0.4); text-decoration: none; font-family: inherit; }
         .enter-btn:hover { background-position: right center; transform: scale(1.05); box-shadow: 0 15px 40px rgba(212,175,55,0.6); }
 
-        /* ====== ログインモーダル ====== */
-        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; display: none; align-items: center; justify-content: center; backdrop-filter: blur(5px); }
-        .modal-overlay.active { display: flex; animation: fadeIn 0.4s ease; }
-        .modal-content { max-width: 400px; width: 90%; position: relative; margin-bottom: 0;}
-
         /* ====== 占いアプリ画面 ====== */
         .tab-container { display: flex; width: 100%; margin-bottom: 20px; background: rgba(0,0,0,0.6); border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 10px 30px rgba(0,0,0,0.8); }
         .tab-btn { flex: 1; padding: 12px 0; text-align: center; cursor: pointer; font-size: 12px; font-weight: 600; color: var(--text-sub); background: transparent; border: none; border-right: 1px solid rgba(255,255,255,0.05); transition: 0.4s; letter-spacing: 1px; }
@@ -102,7 +109,7 @@
         .site-title-ja { font-size: 18px; color: #fff; text-align: center; margin: 0 0 5px; letter-spacing: 4px; font-weight: 600; }
         .site-subtitle { font-size: 11px; color: var(--text-sub); margin-bottom: 30px; text-align: center; letter-spacing: 2px; }
 
-        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group { margin-bottom: 20px; text-align: left;}
         label { display: block; margin-bottom: 8px; font-size: 12.5px; color: var(--gold-light); letter-spacing: 1.5px; font-weight: bold;}
         .input-row { display: flex; gap: 10px; } .input-row > div { flex: 1; }
         input[type="text"], input[type="email"], input[type="password"], input[type="date"], select, textarea { width: 100%; padding: 14px; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; color: #fff; font-size: 14px; font-family: inherit; transition: 0.3s; color-scheme: dark; box-sizing: border-box;}
@@ -213,34 +220,56 @@
         .palm-theme .btn-retry { border-color: rgba(32,178,170,0.5); color: var(--accent-palm); } .palm-theme .btn-retry:hover { background: rgba(32,178,170,0.15); }
         .tarot-theme .btn-retry { border-color: rgba(155,89,182,0.5); color: var(--accent-tarot); } .tarot-theme .btn-retry:hover { background: rgba(155,89,182,0.15); }
         
-        .btn-home { background: transparent; border: none; color: var(--text-sub); margin-top: 25px; cursor: pointer; font-size: 12px; text-decoration: underline; transition: 0.3s; letter-spacing: 1px; display: block; margin-left: auto; margin-right: auto;}
+        .btn-home { background: transparent; border: none; color: var(--text-sub); margin-top: 10px; cursor: pointer; font-size: 12px; text-decoration: underline; transition: 0.3s; letter-spacing: 1px;}
         .btn-home:hover { color: #fff; }
+        .btn-logout { border: 1px solid #ff8e8e; color: #ff8e8e; padding: 10px 25px; border-radius: 30px; text-decoration: none; margin-top: 15px; }
+        .btn-logout:hover { background: rgba(255, 142, 142, 0.1); color: #fff; }
     </style>
 </head>
 <body>
 
 <div class="stars-bg"></div>
 
-<div id="login-modal" class="modal-overlay">
+<div id="authModal" class="modal-overlay">
     <div class="glass-panel modal-content">
-        <div class="site-title" style="font-size: 20px;">ASTRAL SANCTUARY</div>
-        <h2 class="site-title-ja" id="modalTitle">ログイン</h2>
-        <p class="site-subtitle" id="modalSub" style="margin-bottom: 20px;">星屑の神託へようこそ。<br>あなた専用の魂の記録にアクセスします。</p>
+        <div class="site-title" style="font-size: 22px;">ASTRAL SANCTUARY</div>
         
-        <div class="form-group">
-            <label>メールアドレス</label>
-            <input type="text" id="loginEmail" placeholder="例: uranai@example.com">
+        <div class="auth-tabs">
+            <button class="auth-tab active" onclick="switchAuthTab('login')">ログイン</button>
+            <button class="auth-tab" onclick="switchAuthTab('register')">新規登録</button>
         </div>
-        <div class="form-group">
-            <label>パスワード</label>
-            <input type="password" id="loginPass" placeholder="パスワードを入力">
-        </div>
-        <button class="main-btn" id="loginBtn" onclick="processLogin()">ログインして進む</button>
         
-        <div style="text-align: center; margin-top: 15px;">
-            <a href="javascript:void(0);" onclick="toggleLoginMode()" id="loginToggle" style="color: var(--gold-light); font-size: 13px;">アカウントを作成する（無料）</a>
+        <div id="auth-login" class="auth-form active">
+            <p class="site-subtitle" style="margin-bottom: 20px;">あなた専用の魂の記録にアクセスします。</p>
+            <div class="form-group">
+                <label>メールアドレス</label>
+                <input type="email" id="loginEmail" placeholder="例: user@example.com">
+            </div>
+            <div class="form-group">
+                <label>パスワード</label>
+                <input type="password" id="loginPass" placeholder="パスワードを入力">
+            </div>
+            <button class="main-btn" onclick="doLogin()" style="padding: 14px;">ログインして進む</button>
         </div>
-        <button onclick="closeLoginModal()" style="background:transparent; border:none; color:var(--text-sub); width:100%; margin-top:15px; cursor:pointer; font-size: 12px;">キャンセルして戻る</button>
+
+        <div id="auth-register" class="auth-form">
+            <p class="site-subtitle" style="margin-bottom: 20px;">新しく魂の記録を作成します。</p>
+            <div class="form-group">
+                <label>お名前</label>
+                <input type="text" id="regName" placeholder="例: 星野 結衣">
+            </div>
+            <div class="form-group">
+                <label>メールアドレス</label>
+                <input type="email" id="regEmail" placeholder="例: user@example.com">
+            </div>
+            <div class="form-group">
+                <label>パスワード</label>
+                <input type="password" id="regPass" placeholder="4文字以上で入力">
+            </div>
+            <button class="main-btn" onclick="doRegister()" style="padding: 14px;">無料でアカウント作成</button>
+        </div>
+        
+        <button class="btn-cancel" onclick="closeAuthModal()">キャンセルして戻る</button>
     </div>
 </div>
 
@@ -283,9 +312,9 @@
     </div>
 
     <div class="enter-btn-wrap">
-        <button class="enter-btn" onclick="enterSanctuary()">占ってみる！</button>
+        <button class="enter-btn" id="topEnterBtn" onclick="enterSanctuary()">占ってみる！</button>
         <br><br>
-        <a href="https://www.instagram.com/" target="_blank" class="top-ig-link">
+        <a href="https://www.instagram.com/hoshiiuranai" target="_blank" class="top-ig-link">
             <svg viewBox="0 0 448 512" width="18" height="18" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
             公式Instagramはこちら
         </a>
@@ -523,81 +552,25 @@
             <button class="btn-retry" style="border-color:var(--accent-tarot); color:var(--accent-tarot);" onclick="resetApp()">CLOSE TAROT SPREAD</button>
         </div>
 
-        <button class="btn-home" onclick="logout()">◀ ログアウトしてトップページに戻る</button>
+        <div style="text-align: center; margin-top: 25px;">
+            <button class="btn-home" onclick="backToHome()">◀ トップページ（サロン入口）に戻る</button>
+            <br>
+            <button class="btn-logout" onclick="doLogout()">🚪 ログアウトして退室する</button>
+        </div>
 
     </div>
 </div>
 
 <script>
-    // --- 🔐 会員登録・ログイン処理 ---
-    let isSignupMode = false;
+    // --- 🔮 システム初期設定 ---
+    const SITE_URL = "https://hoshiiuranai.com/"; 
+    const shareTextCache = {};
     
-    function toggleLoginMode() {
-        isSignupMode = !isSignupMode;
-        document.getElementById("modalTitle").innerText = isSignupMode ? "新規アカウント作成" : "ログイン";
-        document.getElementById("modalSub").innerText = isSignupMode ? "新しく魂の記録を作成します。\n（メールアドレスはダミーでも可能です）" : "星屑の神託へようこそ。\nあなた専用の魂の記録にアクセスします。";
-        document.getElementById("loginBtn").innerText = isSignupMode ? "無料で登録して進む" : "ログインして進む";
-        document.getElementById("loginToggle").innerText = isSignupMode ? "すでにアカウントをお持ちの方はこちら" : "アカウントを作成する（無料）";
-    }
-
-    function closeLoginModal() {
-        document.getElementById("login-modal").classList.remove("active");
-    }
-
-    function processLogin() {
-        const email = document.getElementById("loginEmail").value.trim();
-        const pass = document.getElementById("loginPass").value.trim();
+    window.onload = () => {
+        initAdmin();
+        updateTopBtn();
         
-        if(!email || !pass) {
-            alert("メールアドレスとパスワードを入力してください。");
-            return;
-        }
-        
-        if (isSignupMode) {
-            localStorage.setItem("astral_login_" + email, pass);
-            alert("アカウントを作成しました！サロンへご案内します。");
-        } else {
-            const savedPass = localStorage.getItem("astral_login_" + email);
-            if (!savedPass) {
-                // 初回ログインで未登録の場合も通してあげる（離脱防止のデモ仕様）
-                localStorage.setItem("astral_login_" + email, pass);
-            } else if (savedPass !== pass) {
-                alert("パスワードが違います。");
-                return;
-            }
-        }
-        
-        localStorage.setItem("astral_isLoggedIn", "true");
-        document.getElementById("login-modal").classList.remove("active");
-        
-        document.getElementById('page-home').classList.remove('active'); 
-        document.getElementById('page-app').classList.add('active'); 
-        switchTab('daily'); 
-        window.scrollTo(0, 0);
-    }
-    
-    function logout() {
-        localStorage.removeItem("astral_isLoggedIn");
-        resetApp();
-        document.getElementById('page-app').classList.remove('active');
-        document.getElementById('page-home').classList.add('active');
-        window.scrollTo(0, 0);
-        alert("ログアウトしました。");
-    }
-
-    function enterSanctuary() { 
-        if (localStorage.getItem("astral_isLoggedIn") === "true") {
-            document.getElementById('page-home').classList.remove('active'); 
-            document.getElementById('page-app').classList.add('active'); 
-            switchTab('daily'); 
-            window.scrollTo(0, 0); 
-        } else {
-            document.getElementById("login-modal").classList.add("active");
-        }
-    }
-
-    // --- 📅 生年月日の未来ブロック設定 ---
-    document.addEventListener("DOMContentLoaded", () => {
+        // 生年月日の未来日・過去日ブロック
         const today = new Date();
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -607,32 +580,127 @@
             input.setAttribute('max', todayStr); 
             input.setAttribute('min', '1930-01-01');
         });
-    });
+    };
 
-    // 🚨 生年月日の厳密なバリデーション関数
+    // 🚨 生年月日の厳密なバリデーション
     function isValidDob(dobStr) {
         if (!dobStr) { alert("生年月日を入力してください。"); return false; }
-        // タイムゾーンによる「未来日判定」のバグを防ぐため、年月日で分割してローカルタイムでパース
         const parts = dobStr.split('-');
         if(parts.length !== 3) return false;
         const d = new Date(parts[0], parts[1] - 1, parts[2]);
-        
         const minD = new Date(1930, 0, 1);
         const today = new Date();
         today.setHours(23, 59, 59, 999);
-
-        if (d < minD) {
-            alert("生年月日は1930年以降で入力してください。");
-            return false;
-        }
-        if (d > today) {
-            alert("未来の日付は入力できません。");
-            return false;
-        }
+        if (d < minD) { alert("生年月日は1930年以降で入力してください。"); return false; }
+        if (d > today) { alert("未来の日付は入力できません。"); return false; }
         return true;
     }
 
-    // --- 💰 課金（ペイウォール）解除デモ ---
+    // --- 🔐 会員登録・ログイン処理 ---
+    function initAdmin() {
+        let users = JSON.parse(localStorage.getItem("astral_users")) || {};
+        // ★ ここが管理者アカウントです。変更可能です。
+        if(!users["admin@hoshiiuranai.com"]) {
+            users["admin@hoshiiuranai.com"] = { name: "マスター管理者", password: "admin", isAdmin: true };
+            localStorage.setItem("astral_users", JSON.stringify(users));
+        }
+    }
+
+    function updateTopBtn() {
+        const currentUser = localStorage.getItem("astral_currentUser");
+        const btn = document.getElementById("topEnterBtn");
+        if(currentUser) { btn.innerText = "鑑定サロンへ進む"; } 
+        else { btn.innerText = "占ってみる！"; }
+    }
+
+    function enterSanctuary() { 
+        if (localStorage.getItem("astral_currentUser")) {
+            document.getElementById('page-home').classList.remove('active'); 
+            document.getElementById('page-app').classList.add('active'); 
+            switchTab('daily'); window.scrollTo(0, 0); 
+        } else {
+            document.getElementById("authModal").classList.add("active");
+        }
+    }
+    
+    function backToHome() { 
+        resetApp(); 
+        document.getElementById('page-app').classList.remove('active'); 
+        document.getElementById('page-home').classList.add('active'); 
+        updateTopBtn(); window.scrollTo(0, 0); 
+    }
+
+    function switchAuthTab(tab) {
+        document.querySelectorAll('.auth-tab').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.auth-form').forEach(el => el.classList.remove('active'));
+        if(tab === 'login') {
+            document.querySelectorAll('.auth-tab')[0].classList.add('active');
+            document.getElementById('auth-login').classList.add('active');
+        } else {
+            document.querySelectorAll('.auth-tab')[1].classList.add('active');
+            document.getElementById('auth-register').classList.add('active');
+        }
+    }
+
+    function closeAuthModal() { document.getElementById('authModal').classList.remove('active'); }
+
+    function doLogin() {
+        const email = document.getElementById("loginEmail").value.trim();
+        const pass = document.getElementById("loginPass").value.trim();
+        if(!email || !pass) return alert("メールアドレスとパスワードを入力してください。");
+        
+        let users = JSON.parse(localStorage.getItem("astral_users")) || {};
+        if(users[email] && users[email].password === pass) {
+            localStorage.setItem("astral_currentUser", email);
+            if(users[email].isAdmin) {
+                localStorage.setItem("astral_isAdmin", "true");
+                alert("管理者としてログインしました。\nすべてのプレミアム鑑定が無料で解放されます。");
+            } else {
+                localStorage.removeItem("astral_isAdmin");
+            }
+            closeAuthModal(); enterSanctuary();
+        } else {
+            alert("メールアドレスまたはパスワードが間違っています。");
+        }
+    }
+
+    function doRegister() {
+        const name = document.getElementById("regName").value.trim();
+        const email = document.getElementById("regEmail").value.trim();
+        const pass = document.getElementById("regPass").value.trim();
+        if(!name || !email || !pass) return alert("すべての項目を入力してください。");
+        if(pass.length < 4) return alert("パスワードは4文字以上で設定してください。");
+        
+        let users = JSON.parse(localStorage.getItem("astral_users")) || {};
+        if(users[email]) return alert("このメールアドレスは既に登録されています。\n「ログイン」タブからお入りください。");
+        
+        users[email] = { name: name, password: pass, isAdmin: false };
+        localStorage.setItem("astral_users", JSON.stringify(users));
+        localStorage.setItem("astral_currentUser", email);
+        localStorage.removeItem("astral_isAdmin");
+        
+        alert("アカウントの作成が完了しました！\nサロンへご案内します。");
+        closeAuthModal(); enterSanctuary();
+    }
+
+    function doLogout() {
+        if(confirm("ログアウトして退室しますか？")) {
+            localStorage.removeItem("astral_currentUser");
+            localStorage.removeItem("astral_isAdmin");
+            alert("ログアウトしました。");
+            backToHome();
+        }
+    }
+
+    // --- 💰 課金（ペイウォール）管理者自動解除 ---
+    function applyPaywallState() {
+        const isAdmin = localStorage.getItem("astral_isAdmin") === "true";
+        document.querySelectorAll('.premium-wrapper').forEach(el => {
+            if(isAdmin) { el.classList.remove('locked'); el.classList.add('unlocked'); } 
+            else { el.classList.add('locked'); el.classList.remove('unlocked'); }
+        });
+    }
+
     function unlockPremium(type) {
         const msg = "※これは課金システムの動作デモです。\n\n実際にはこのボタンを押すと、クレジットカードの決済画面（Stripeなど）へ飛びます。\n\n「OK」を押すと決済が完了したと仮定して、隠された鑑定結果を表示します。";
         if (confirm(msg)) {
@@ -641,10 +709,7 @@
         }
     }
 
-    // --- 🔮 SNSシェア機能 (ご指定のサイトURLに固定) ---
-    const SITE_URL = "https://hoshiiuranai.com/"; 
-    const shareTextCache = {};
-    
+    // --- 🔮 SNSシェア機能 ---
     function shareResult(platform, type) {
         let text = shareTextCache[type] || "総合占いサロン『星屑の神託』で本格鑑定を体験しました🔮";
         const hash = "\n#星屑の神託 #占い #スピリチュアル";
@@ -669,11 +734,12 @@
                 alert("✨鑑定結果のテキストをコピーしました！✨\n\n「OK」を押すとInstagramが開きます。\nストーリーズや投稿画面で『ペースト（貼り付け）』してシェアしてください📸");
                 window.open('https://www.instagram.com/', '_blank');
             }).catch(() => {
-                alert("コピーに失敗しました。お手数ですが画面をスクリーンショットしてシェアしてください！");
+                alert("コピーに失敗しました。お手数ですが画面をスクショしてシェアしてください！");
             });
         }
     }
 
+    // --- 🔮 占い画面の制御 ---
     const advisors = {
         daily: { photo: "image.png", role: "Astrology & Tarot", name: "星導 ルミナ", bio: "代々続く星読みの家系に生まれ、西洋占星術とタロットを統合。あなたの魂に刻まれた過去・現在・未来の記録を読み解き、運命を好転させる具体的な道標を提示します。" },
         destiny: { photo: "image2.png", role: "Twin Ray Reader", name: "天霧 結祈", bio: "幼少期より他者の「ご縁の糸」が視える特異体質を持つ。現在パートナーがいる方でも、魂レベルでの『本当の運命の相手（ツインレイ）』を正確に特定し、偽りのない真実をお伝えします。" },
@@ -710,8 +776,6 @@
 
     function resetApp() {
         document.querySelectorAll(".content-area").forEach(el => el.classList.remove("active")); document.getElementById("tab-menu").style.display = "flex"; document.getElementById("profile-area").style.display = "flex";
-        
-        // 🔒 課金ロックの初期化
         document.querySelectorAll('.premium-wrapper').forEach(el => { el.classList.add('locked'); el.classList.remove('unlocked'); });
 
         const activeTab = document.querySelector('.tab-btn.active').classList.contains('t-daily') ? 'form-daily' : document.querySelector('.tab-btn.active').classList.contains('t-destiny') ? 'form-destiny' : document.querySelector('.tab-btn.active').classList.contains('t-palm') ? 'form-palm' : 'form-tarot';
@@ -719,15 +783,16 @@
     }
 
     // ==========================================
-    // 🔮 1. 日々の運勢 (完全無料化)
+    // 🔮 1. 日々の運勢 (完全無料)
     // ==========================================
     const dailyTarots = [{ name: "愚者", m: "未知への挑戦。" },{ name: "魔術師", m: "創造力、新しい始まり。" },{ name: "女帝", m: "豊かさと愛情の成就。" },{ name: "運命の輪", m: "好転、チャンス到来。" },{ name: "星", m: "希望と深い癒やし。" }];
     function startDailyOracle() {
         try {
             const name = document.getElementById("name1").value.trim(); const dob = document.getElementById("dob1").value;
-            if (!isValidDob(dob)) return; // エラーならここで弾く
+            if (!isValidDob(dob)) return; 
             if (!name) return alert("お名前を入力してください。");
 
+            // ★ ここで第3引数に false を正しく渡すことでエラー解消！
             showLoading("READING ASTROLOGICAL ALIGNMENTS...", "var(--gold)", false, () => {
                 const random = getSeededRandom(name + dob + new Date().getDate()); 
                 const tarot = dailyTarots[Math.floor(random() * dailyTarots.length)]; const position = random() > 0.7 ? "（逆位置）" : "（正位置）";
@@ -742,10 +807,7 @@
                 shareTextCache['daily'] = `🌟【星屑の神託】${name}様の今日の運勢を占いました！\n導きのカード:『${tarot.name}』${position}✨\n`;
                 document.getElementById("res-daily").classList.add("active");
             });
-        } catch(e) {
-            console.error(e);
-            alert("システムエラーが発生しました。ブラウザを更新してください。");
-        }
+        } catch(e) { console.error(e); alert("システムエラーが発生しました。"); }
     }
 
     // ==========================================
@@ -778,16 +840,15 @@
                 document.getElementById("resD_premium").innerHTML = `<p>二人が完全に結ばれるために必要な「絶対条件」は、あなたが今無意識に抱えている「過去の人間関係への執着」を手放すことです。それを乗り越えた時、相手の魂はあなたの元へ強烈に引き寄せられます。</p><p>魂の統合が起こる運命の日は、あなたが心からリラックスして過ごしている休日の午後に突然訪れます。その時を信じて、今は自分磨きに専念してください。</p>`;
 
                 shareTextCache['destiny'] = `💕【星屑の神託】${name}様の『本当の運命の相手(ツインレイ)』を深層霊視で特定しました！\n魂が交差する時期が近づいています…！\n`;
+                
+                applyPaywallState(); // 管理者の場合は自動でロック解除
                 document.getElementById("res-destiny").classList.add("active");
             });
-        } catch(e) {
-            console.error(e);
-            alert("エラーが発生しました。入力内容をご確認ください。");
-        }
+        } catch(e) { console.error(e); alert("エラーが発生しました。入力内容をご確認ください。"); }
     }
 
     // ==========================================
-    // ✋ 3. 画像手相鑑定 (手以外の画像ブロック・本格表現)
+    // ✋ 3. 画像手相鑑定 
     // ==========================================
     let currentImageElement = null; 
     function previewPalmImage(event) {
@@ -804,25 +865,15 @@
     }
     function resetPalmImage() { document.getElementById("palmImage").value = ""; currentImageElement = null; document.getElementById("previewContainer").style.display = "none"; document.getElementById("uploadBox").style.display = "block"; }
 
-    // 画像のピクセル解析 (肌色成分を15%以上要求し、手以外をブロック)
     function analyzePalmImage(img) {
         return new Promise((resolve) => {
             const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d'); canvas.width = 150; canvas.height = 150; ctx.drawImage(img, 0, 0, 150, 150);
             let imgData; try { imgData = ctx.getImageData(0, 0, 150, 150); } catch(e) { resolve({ isHand: true, hash: 9999, edgeRatio: 0.1, brightness: 128 }); return; }
-            
             const data = imgData.data; let skinToneCount = 0; let edgeCount = 0; let totalBrightness = 0; let hash = 0;
-            
             for (let i = 0; i < data.length; i += 4) {
                 let r = data[i], g = data[i+1], b = data[i+2]; hash = (hash * 31 + r + g + b) | 0; 
-                
-                // 肌色の厳格判定（赤みが強く、白黒でもない）
-                if (r > 80 && g > 40 && b > 20 && r > g && r > b && Math.max(r,g,b) - Math.min(r,g,b) > 15) {
-                    skinToneCount++;
-                }
-                
+                if (r > 80 && g > 40 && b > 20 && r > g && r > b && Math.max(r,g,b) - Math.min(r,g,b) > 15) skinToneCount++;
                 totalBrightness += (0.299 * r + 0.587 * g + 0.114 * b);
-                
-                // シワ（エッジ）判定
                 if (i > 4 * 150) { let prevR = data[i-4], prevG = data[i-3], prevB = data[i-2]; let diff = Math.abs(r - prevR) + Math.abs(g - prevG) + Math.abs(b - prevB); if (diff > 45) edgeCount++; }
             }
             const pixelCount = data.length / 4;
@@ -845,22 +896,14 @@
                 document.getElementById("resName3").innerText = name + " 様";
                 document.getElementById("resPalmImg").src = currentImageElement.src;
                 
-                // 解析結果の具体化
                 let skinType = analysis.brightness > 100 ? "ふっくらとした豊かな肉付き（各丘の発達）" : "すっきりとしたスマートな輪郭";
                 let edgeType = analysis.edgeRatio > 0.12 ? "細かなシワが無数に走る" : "主要な線が深く力強く刻まれている";
                 let typeName = analysis.edgeRatio > 0.12 ? "水・風の要素" : "火・地の要素";
 
                 let overallText = `<p>アップロードされた画像から掌の輪郭と線を精密に読み取りました。あなたの手のひらは「${skinType}」を持ち、「${edgeType}」という特徴が確認できます。</p>`;
-                if (analysis.edgeRatio > 0.12) {
-                    overallText += `<p>細かく複雑な線が刻まれた手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、非常に感受性が高く、他人の痛みがわかる優しい性格を表します。直感力に優れ、スピリチュアルな感性も持ち合わせているでしょう。</p>`;
-                } else {
-                    overallText += `<p>主要な線がくっきりと現れる手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、迷いが少なく、決断力と行動力に優れた強靭なメンタルの持ち主であることを示します。自らの力で運命を切り拓く力を持っています。</p>`;
-                }
-                if (analysis.brightness > 110) {
-                    overallText += `<p>また、掌全体の明度と血色の分析から、<span class='palm-highlight'>明るく温かい波動（生命のエネルギー）</span>が強く感じられます。現在、あなたの運気が上昇気流に乗っており、新しいことを始めるのに最適な時期であることを示しています。</p>`;
-                } else {
-                    overallText += `<p>また、掌の陰影の深さから、現在は<span class='palm-highlight'>内省しエネルギーを蓄える時期（静の波動）</span>であることが読み取れます。焦らず自分自身と向き合うことで、後に大きな飛躍を遂げる準備期間です。</p>`;
-                }
+                if (analysis.edgeRatio > 0.12) overallText += `<p>細かく複雑な線が刻まれた手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、非常に感受性が高く、他人の痛みがわかる優しい性格を表します。直感力に優れ、スピリチュアルな感性も持ち合わせているでしょう。</p>`;
+                else overallText += `<p>主要な線がくっきりと現れる手相は<span class='palm-highlight'>「${typeName}」</span>を強く帯びており、迷いが少なく、決断力と行動力に優れた強靭なメンタルの持ち主であることを示します。自らの力で運命を切り拓く力を持っています。</p>`;
+                
                 document.getElementById("resP_overall").innerHTML = overallText;
                 
                 const p_lifes = ["手首の方向へ長く深く刻まれており、非常に強い生命力とバイタリティを秘めています。", "親指の付け根（金星丘）を大きく囲むように伸びています。とても愛情深く、人を引き付けるカリスマ性を放っています。"];
@@ -875,12 +918,11 @@
                 document.getElementById("resP_work").innerHTML = `<p>仕事運は独自の才能やアイデアが爆発的に評価されるサインが出ています。直感に従うことで金運も連動して跳ね上がります。組織の中で言われたことをこなすよりも、自分の裁量で動ける環境で大成功を収めるポテンシャルを秘めています。</p>`;
                 
                 shareTextCache['palm'] = `✋【星屑の神託】画像手相鑑定を実行しました！\n${name}様の手相は「${typeName}」タイプ。\n数年以内に劇的な飛躍の時期が訪れるサインが出ています！✨\n`;
+                
+                applyPaywallState();
                 document.getElementById("res-palm").classList.add("active");
             });
-        } catch(e) {
-            console.error(e);
-            alert("エラーが発生しました。入力内容をご確認ください。");
-        }
+        } catch(e) { console.error(e); alert("エラーが発生しました。入力内容をご確認ください。"); }
     }
 
     // ==========================================
@@ -944,13 +986,11 @@
                 
                 shareTextCache['tarot'] = `🃏【星屑の神託】深層タロットスプレッドで占いました。\n未来への啓示として引かれたカードは『${drawnCards[2].card.ja} (${drawnCards[2].isReversed ? '逆位置' : '正位置'})』！\n`;
 
+                applyPaywallState();
                 document.getElementById("res-tarot").classList.add("active");
                 setTimeout(() => document.getElementById("tCard1").classList.add("flipped"), 600); setTimeout(() => document.getElementById("tCard2").classList.add("flipped"), 1400); setTimeout(() => document.getElementById("tCard3").classList.add("flipped"), 2200);
             });
-        } catch(e) {
-            console.error(e);
-            alert("エラーが発生しました。入力内容をご確認ください。");
-        }
+        } catch(e) { console.error(e); alert("エラーが発生しました。入力内容をご確認ください。"); }
     }
 </script>
 </body>
