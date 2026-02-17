@@ -64,7 +64,7 @@
         .adv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
         @media (min-width: 600px) { .adv-grid { grid-template-columns: repeat(4, 1fr); } }
         
-        .adv-card { background: rgba(10,5,15,0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px 10px; text-align: center; transition: 0.4s; box-shadow: 0 5px 15px rgba(0,0,0,0.5); position: relative; overflow: hidden; }
+        .adv-card { background: rgba(10,5,15,0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 20px 15px; text-align: center; transition: 0.4s; box-shadow: 0 5px 15px rgba(0,0,0,0.5); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center;}
         .adv-card::before { content:""; position:absolute; top:0; left:0; width:100%; height:3px; background: var(--gold); opacity: 0; transition: 0.4s; }
         .adv-card:hover { transform: translateY(-5px); background: rgba(20,10,30,0.8); border-color: rgba(212,175,55,0.3); box-shadow: 0 15px 30px rgba(0,0,0,0.8); }
         .adv-card:hover::before { opacity: 1; }
@@ -81,7 +81,8 @@
         .adv-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; background: #111;}
         .adv-card-role { font-size: 10px; color: var(--gold); letter-spacing: 1px; margin-bottom: 5px; font-weight: bold;}
         .ac-2 .adv-card-role { color: var(--accent-love); } .ac-3 .adv-card-role { color: var(--accent-palm); } .ac-4 .adv-card-role { color: var(--accent-tarot); }
-        .adv-card-name { font-size: 14px; color: #fff; font-weight: bold; letter-spacing: 1px;}
+        .adv-card-name { font-size: 15px; color: #fff; font-weight: bold; letter-spacing: 1px; margin-bottom: 5px;}
+        .adv-card-desc { font-size: 11px; color: var(--text-sub); margin-top: 8px; line-height: 1.7; text-align: left; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 12px; width: 100%;}
 
         .enter-btn-wrap { text-align: center; padding: 10px 0 50px; display: flex; flex-direction: column; align-items: center;}
         .enter-btn { display: inline-block; padding: 22px 60px; font-size: 17px; font-weight: 700; letter-spacing: 4px; color: #000; background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-dark)); background-size: 200% auto; border: none; border-radius: 50px; cursor: pointer; transition: 0.5s; box-shadow: 0 10px 30px rgba(212,175,55,0.4); text-decoration: none; font-family: inherit; }
@@ -222,7 +223,7 @@
         .palm-theme .btn-retry { border-color: rgba(32,178,170,0.5); color: var(--accent-palm); } .palm-theme .btn-retry:hover { background: rgba(32,178,170,0.15); }
         .tarot-theme .btn-retry { border-color: rgba(155,89,182,0.5); color: var(--accent-tarot); } .tarot-theme .btn-retry:hover { background: rgba(155,89,182,0.15); }
         
-        /* ボトムアクションボタン */
+        /* ボトムアクションボタン（戻る・設定・ログアウト） */
         .bottom-actions { text-align: center; margin-top: 25px; display: flex; flex-direction: column; gap: 15px; align-items: center;}
         .btn-home { background: transparent; border: none; color: var(--text-sub); cursor: pointer; font-size: 13px; text-decoration: underline; transition: 0.3s; letter-spacing: 1px; font-family: inherit;}
         .btn-home:hover { color: #fff; }
@@ -273,7 +274,6 @@
             <p id="verifyGuide" style="font-size: 12.5px; color: var(--text-sub); text-align: left; margin-bottom: 15px; line-height: 1.8;">
                 ご入力のメールアドレス宛に、システムから6桁の認証コードを送信しました。（※迷惑メールフォルダもご確認ください）
             </p>
-            <p id="demoCodeDisplay" style="display: none; color: #fff; background: rgba(212,175,55,0.2); padding: 8px; border-radius: 4px; font-weight: bold; text-align: center; margin-bottom: 15px; border: 1px solid var(--gold);"></p>
             
             <div class="form-group"><label>認証コード</label><input type="text" id="verifyCode" placeholder="6桁の数字を入力" maxlength="6"></div>
             <button class="main-btn" onclick="verifyEmail()" style="padding: 14px;">認証して登録完了</button>
@@ -314,21 +314,25 @@
                 <div class="adv-img-wrap"><img src="image.png" class="adv-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&fit=crop'"></div>
                 <div class="adv-card-role">Astrology</div>
                 <div class="adv-card-name">星導 ルミナ</div>
+                <div class="adv-card-desc">西洋占星術とタロットを統合し、運命を好転させる具体的な道標を提示します。</div>
             </div>
             <div class="adv-card ac-2">
                 <div class="adv-img-wrap"><img src="image2.png" class="adv-img" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&fit=crop'"></div>
                 <div class="adv-card-role">Twin Ray</div>
                 <div class="adv-card-name">天霧 結祈</div>
+                <div class="adv-card-desc">類まれな霊視能力で、魂レベルで惹かれ合う「本当の運命の相手」を特定します。</div>
             </div>
             <div class="adv-card ac-3">
                 <div class="adv-img-wrap"><img src="image3.png" class="adv-img" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&fit=crop'"></div>
                 <div class="adv-card-role">Mystic Palm</div>
                 <div class="adv-card-name">神宮寺 司</div>
+                <div class="adv-card-desc">画像解析と古代手相学を融合し、掌に刻まれた無意識の才能と未来を読み解きます。</div>
             </div>
             <div class="adv-card ac-4">
                 <div class="adv-img-wrap"><img src="image4.png" class="adv-img" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&fit=crop'"></div>
                 <div class="adv-card-role">Tarot Reader</div>
                 <div class="adv-card-name">神代 アリス</div>
+                <div class="adv-card-desc">大アルカナの波動を操り、あなたの悩みに寄り添う個別のアドバイスを紡ぎ出します。</div>
             </div>
         </div>
     </div>
@@ -602,7 +606,7 @@
     window.onload = () => {
         initAdmin();
         updateTopBtn();
-        if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") { emailjs.init(EMAILJS_PUBLIC_KEY); }
+        if (typeof emailjs !== 'undefined') { emailjs.init(EMAILJS_PUBLIC_KEY); }
         
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -743,7 +747,7 @@
         alertBox.style.display = "none";
         
         const email = escapeHTML(document.getElementById("loginEmail").value.trim());
-        const pass = document.getElementById("loginPass").value.trim(); // パスワードはエスケープしない
+        const pass = document.getElementById("loginPass").value.trim(); 
         const pin = escapeHTML(document.getElementById("loginAdminPin").value.trim());
         
         if(!email || !pass) return alert("メールアドレスとパスワードを入力してください。");
@@ -812,39 +816,27 @@
         const originalText = btn.innerText;
         btn.innerText = "メール送信中..."; btn.disabled = true;
 
-        if(EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" || typeof emailjs === 'undefined') {
-            alert("【システム開発者へ】\nEmailJSの Service ID が設定されていないため、本物のメールは飛びません。\nテストとして、画面上に仮の認証コードを表示します。");
-            document.getElementById("demoCodeDisplay").innerText = "※デモ用の認証コード: " + generatedVerifyCode;
-            document.getElementById("demoCodeDisplay").style.display = "block";
-            
+        const templateParams = { to_email: email, to_name: name, verification_code: generatedVerifyCode };
+        
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+        .then(function(response) {
+            document.getElementById("verifyGuide").innerHTML = `ご入力のメールアドレスに6桁の認証コードをお送りしました。<br>受信ボックス（または迷惑メールフォルダ）をご確認ください。`;
             document.querySelectorAll('.auth-form').forEach(el => el.classList.remove('active'));
             document.getElementById('authTabs').style.display = 'none';
             document.getElementById('auth-verify').classList.add('active');
             btn.innerText = originalText; btn.disabled = false;
-        } else {
-            const templateParams = { to_email: email, to_name: name, verification_code: generatedVerifyCode };
-            
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
-            .then(function(response) {
-                document.getElementById("demoCodeDisplay").style.display = "none";
-                document.getElementById("verifyGuide").innerHTML = `ご入力のメールアドレスに6桁の認証コードをお送りしました。<br>受信ボックス（または迷惑メールフォルダ）をご確認ください。`;
-                document.querySelectorAll('.auth-form').forEach(el => el.classList.remove('active'));
-                document.getElementById('authTabs').style.display = 'none';
-                document.getElementById('auth-verify').classList.add('active');
-                btn.innerText = originalText; btn.disabled = false;
-            }, function(error) {
-                console.error('FAILED...', error);
-                let errorMsg = error.text || error.message || "通信エラー";
-                alert("【メール送信エラー】\n" + errorMsg + "\n\n※EmailJSの設定をご確認ください。");
-                btn.innerText = originalText; btn.disabled = false;
-            });
-        }
+        }, function(error) {
+            console.error('FAILED...', error);
+            let errorMsg = error.text || error.message || "通信エラー";
+            alert("【メール送信エラー】\n" + errorMsg + "\n\n※メールアドレスが正しいかご確認ください。");
+            btn.innerText = originalText; btn.disabled = false;
+        });
     }
 
     function verifyEmail() {
         const code = escapeHTML(document.getElementById("verifyCode").value.trim());
-        // 開発者用バックドア「777777」を残す
-        if(code !== generatedVerifyCode && code !== "777777") {
+        
+        if(code !== generatedVerifyCode) {
             return alert("認証コードが正しくありません。");
         }
         
@@ -990,7 +982,7 @@
     function getSeededRandom(seedStr) { let seed = 0; for (let i = 0; i < seedStr.length; i++) seed = seedStr.charCodeAt(i) + ((seed << 5) - seed); seed = Math.abs(seed); return function() { let x = Math.sin(seed++) * 10000; return x - Math.floor(x); } }
 
     // ==========================================
-    // 🔮 1. 日々の運勢 
+    // 🔮 1. 日々の運勢 (完全無料化)
     // ==========================================
     const dailyTarots = [{ name: "愚者", m: "未知への挑戦。" },{ name: "魔術師", m: "創造力、新しい始まり。" },{ name: "女帝", m: "豊かさと愛情の成就。" },{ name: "運命の輪", m: "好転、チャンス到来。" },{ name: "星", m: "希望と深い癒やし。" }];
     function startDailyOracle() {
@@ -1065,7 +1057,7 @@
     function previewPalmImage(event) {
         const file = event.target.files[0];
         if (file) {
-            // 🛡️ ファイル拡張子の厳格なチェック（バックエンドがないためJSでブロック）
+            // 🛡️ ファイル拡張子の厳格なチェック
             const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
             if (!validTypes.includes(file.type)) {
                 alert("セキュリティエラー：画像ファイル（JPG, PNG, GIF, WEBPなど）を選択してください。");
@@ -1090,6 +1082,7 @@
             let imgData; try { imgData = ctx.getImageData(0, 0, 150, 150); } catch(e) { resolve({ isHand: true, hash: 9999, edgeRatio: 0.1, brightness: 128 }); return; }
             
             const data = imgData.data; let skinToneCount = 0; let edgeCount = 0; let totalBrightness = 0; let hash = 0;
+            
             for (let i = 0; i < data.length; i += 4) {
                 let r = data[i], g = data[i+1], b = data[i+2]; hash = (hash * 31 + r + g + b) | 0; 
                 if (r > 80 && g > 40 && b > 20 && r > g && r > b && Math.max(r,g,b) - Math.min(r,g,b) > 15) { skinToneCount++; }
@@ -1190,7 +1183,7 @@
             const name = escapeHTML(rawName);
             const dob = document.getElementById("dob4").value; 
             const rawWorry = document.getElementById("worry4").value.trim();
-            const worry = escapeHTML(rawWorry); // 🛡️ XSS対策
+            const worry = escapeHTML(rawWorry); 
 
             if (!isValidDob(dob)) return;
             if (!name) return alert("お名前を入力してください。");
