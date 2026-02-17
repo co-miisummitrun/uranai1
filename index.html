@@ -285,7 +285,6 @@
     </div>
 </div>
 
-
 <div id="page-home" class="page-wrapper active">
     
     <div class="hero-section">
@@ -574,15 +573,16 @@
 </div>
 
 <script>
-    // --- 🔮 システム初期設定 ---
+    // ==========================================
+    // 🔮 システム初期設定
+    // ==========================================
     const SITE_URL = "https://hoshiiuranai.com/"; 
     const shareTextCache = {};
     let pendingUserData = null; 
     let generatedVerifyCode = "";
     
     // 【重要】本物のメールを飛ばすための「EmailJS」の設定項目
-    // ※現在は未設定のため、デモ用（コード777777）として動くようにしています。
-    const EMAILJS_SERVICE_ID = "service_m6oqaw9"; // 
+    const EMAILJS_SERVICE_ID = "service_xxxxxxx"; // ← ★【必須】ご自身のService IDをここに入力してください！
     const EMAILJS_TEMPLATE_ID = "template_n59vwqm";
     const EMAILJS_PUBLIC_KEY = "H3a49IOLHGqZpyl7q";
     
@@ -614,7 +614,9 @@
         return true;
     }
 
-    // --- 🔐 会員登録・ログイン処理 ---
+    // ==========================================
+    // 🔐 会員登録・ログイン・管理者処理
+    // ==========================================
     function initAdmin() {
         let users = JSON.parse(localStorage.getItem("astral_users")) || {};
         if(!users["admin@hoshiiuranai.com"]) {
@@ -709,9 +711,9 @@
         const originalText = btn.innerText;
         btn.innerText = "メール送信中..."; btn.disabled = true;
 
-        if(EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY" || typeof emailjs === 'undefined') {
+        if(EMAILJS_SERVICE_ID === "service_xxxxxxx" || typeof emailjs === 'undefined') {
             // EmailJS未設定時のフォールバック（デモ動作）
-            alert("【システム開発者へ】\nEmailJSのIDが設定されていないため、本物のメールは飛びません。\nテストとして、画面上に仮の認証コードを表示します。");
+            alert("【システム開発者へ】\nEmailJSの Service ID が設定されていないため、本物のメールは飛びません。\nテストとして、画面上に仮の認証コードを表示します。");
             document.getElementById("demoCodeDisplay").innerText = "※デモ用の認証コード: " + generatedVerifyCode;
             document.getElementById("demoCodeDisplay").style.display = "block";
             
@@ -722,7 +724,9 @@
         } else {
             // 本物のメール送信処理
             const templateParams = { to_email: email, to_name: name, verification_code: generatedVerifyCode };
-            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+            
+            // ★確実に認証できるように公開キーを第4引数として直接渡す
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
             .then(function(response) {
                 document.getElementById("demoCodeDisplay").style.display = "none";
                 document.getElementById("verifyGuide").innerHTML = `ご入力のメールアドレスに6桁の認証コードをお送りしました。<br>受信ボックス（または迷惑メールフォルダ）をご確認ください。`;
@@ -732,7 +736,11 @@
                 btn.innerText = originalText; btn.disabled = false;
             }, function(error) {
                 console.error('FAILED...', error);
-                alert("メール送信に失敗しました。メールアドレスが正しいか確認してください。");
+                
+                // ★エラーの理由をアラートで具体的に表示する
+                let errorMsg = error.text || error.message || "通信エラー";
+                alert("【メール送信エラー】\n" + errorMsg + "\n\n※EmailJSの設定をご確認ください。\nよくある原因：テンプレートの「To Email」に {{to_email}} が入っていない等");
+                
                 btn.innerText = originalText; btn.disabled = false;
             });
         }
@@ -740,7 +748,7 @@
 
     function verifyEmail() {
         const code = document.getElementById("verifyCode").value.trim();
-        // ★ デモ用のフォールバックコード「777777」も許可する
+        // デモ用のフォールバックコード「777777」も許可する
         if(code !== generatedVerifyCode && code !== "777777") {
             return alert("認証コードが正しくありません。");
         }
@@ -896,7 +904,6 @@
             if (!isValidDob(dob)) return; 
             if (!name) return alert("お名前を入力してください。");
 
-            // ★ ここで第3引数に false を正しく渡すことでエラー解消！
             showLoading("READING ASTROLOGICAL ALIGNMENTS...", "var(--gold)", false, () => {
                 const random = getSeededRandom(name + dob + new Date().getDate()); 
                 const tarot = dailyTarots[Math.floor(random() * dailyTarots.length)]; const position = random() > 0.7 ? "（逆位置）" : "（正位置）";
@@ -952,7 +959,7 @@
     }
 
     // ==========================================
-    // ✋ 3. 画像手相鑑定 (手以外の画像ブロック・本格表現)
+    // ✋ 3. 画像手相鑑定 
     // ==========================================
     let currentImageElement = null; 
     function previewPalmImage(event) {
